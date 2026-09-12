@@ -46,6 +46,7 @@ a{color:#00807A}a:hover{color:#002858}
           <span style="color:#0F1B33">{{ t.question }} <b>{{ qNum }}</b>/10</span>
           <span style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:4px;background:#E6F7F6;color:#00807A;font-weight:700">{{ modeChip }}</span>
           <span style="margin-inline-start:auto">{{ t.scoreLabel }} <b style="color:#0F1B33">{{ score }}</b></span>
+          <button type="button" onClick="{{ confirmReset }}" style="min-height:32px;padding:0 8px;border:0;border-radius:4px;background:transparent;font-size:12px;font-weight:700;color:#5B6578;cursor:pointer;text-decoration:underline;text-underline-offset:3px" style-hover="color:#B8412D">↺ {{ t.startOver }}</button>
           <sc-if value="{{ timed }}" hint-placeholder-val="{{ false }}"><span aria-live="polite" style="min-width:36px;text-align:center;padding:3px 8px;border-radius:4px;font-weight:800;font-variant-numeric:tabular-nums;background:{{ timerBg }};color:{{ timerFg }}">{{ tleft }}</span></sc-if>
         </div>
         <div style="margin-top:8px;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px" aria-hidden="true">
@@ -61,7 +62,7 @@ a{color:#00807A}a:hover{color:#002858}
     <section data-screen-label="Landing" style="display:flex;flex-direction:column;gap:22px;padding:28px 20px 40px;animation:foh-fade .4s both">
       <div>
         <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#00807A;margin-bottom:12px">{{ t.eyebrow }}</div>
-        <h1 data-latin-tight style="margin:0;font-size:clamp(46px,13vw,76px);line-height:.92;letter-spacing:-.03em;font-weight:800;color:#002858">{{ t.fact }}<br><span style="font-size:.5em;font-weight:600;color:#5B6578">{{ t.or }}</span><br><span style="color:#B8412D">Hasbara?</span></h1>
+        <h1 data-latin-tight style="margin:0;font-size:clamp(46px,13vw,76px);line-height:.92;letter-spacing:-.03em;font-weight:800;color:#002858">{{ t.fact }}<br><span style="display:block;font-size:.42em;font-weight:600;color:#5B6578;line-height:1.6">{{ t.or }}</span><span style="color:#B8412D">Hasbara?</span></h1>
         <p data-serif style="margin:18px 0 0;font-family:'Source Serif 4',Georgia,serif;font-size:clamp(18px,4.4vw,22px);line-height:1.4;color:#0F1B33;max-width:36ch;text-wrap:pretty">{{ t.lede }}</p>
       </div>
       <div style="background:#E6F7F6;border-radius:8px;padding:14px 16px;font-size:14px;line-height:1.55;color:#0F1B33">{{ t.definition }}</div>
@@ -200,6 +201,7 @@ a{color:#00807A}a:hover{color:#002858}
         <sc-if value="{{ hasDeeper }}" hint-placeholder-val="{{ false }}"><a href="{{ deeperUrl }}" onClick="{{ ctaDeeper }}" style="min-height:56px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:#00B0A8;color:#002858;font-size:17px;font-weight:800;text-decoration:none">{{ t.goDeeper }} →</a></sc-if>
         <sc-if value="{{ hasAction }}" hint-placeholder-val="{{ false }}"><a href="{{ actionUrl }}" target="_blank" rel="noopener" onClick="{{ ctaAction }}" style="min-height:56px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1.5px solid #002858;color:#002858;font-size:17px;font-weight:800;text-decoration:none">{{ actionLabel }} ↗</a></sc-if>
         <button type="button" onClick="{{ again }}" style="min-height:56px;border:1.5px solid #002858;border-radius:8px;background:transparent;color:#002858;font-size:17px;font-weight:800;cursor:pointer" style-hover="background:#F0F2F6">{{ againLabel }}</button>
+        <button type="button" onClick="{{ reset }}" style="min-height:44px;border:0;background:transparent;color:#5B6578;font-size:14px;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px">↺ {{ t.backHome }}</button>
       </div>
     </section>
   </sc-if>
@@ -324,7 +326,7 @@ class Component extends DCLogic {
     const score = s.answers.filter(a => a.correct).length;
     const out = { ...base, modes, blocked, canStart: !blocked, start: () => this.start(), hasStreak: s.streak > 0 && !isKiosk, streak: s.streak, score, timed: s.mode === 'challenge', tleft: s.tleft, timerBg: s.tleft <= 5 ? '#B8412D' : '#E9ECF1', timerFg: s.tleft <= 5 ? '#fff' : '#0F1B33', modeChip: s.deckType === 'daily' ? t.dailyMode : s.mode === 'challenge' ? t.challengeChip : t.learnChip, methodRich: this.rich(d.advocacy[s.lang].method), sample: d.advocacy[s.lang].sample,
       steps: d.advocacy[s.lang].steps.map((x, i) => ({ ...x, n: i + 1 })), stories: d.stories[s.lang].map(x => ({ ...x, url: d.sources[x.source].url, open: () => this.track('story_opened', { story_id: x.source }) })),
-      sourceList: Object.values(d.sources), share: () => this.share(), again: () => this.start(), againLabel: isKiosk ? t.again : t.again, reset: () => this.reset(),
+      sourceList: Object.values(d.sources), share: () => this.share(), confirmReset: () => { if (s.answers.length === 0 || window.confirm(t.confirmReset)) this.reset(); }, again: () => this.start(), againLabel: isKiosk ? t.again : t.again, reset: () => this.reset(),
       hasDeeper: !!d.messageBank.goDeeperUrl, deeperUrl: d.messageBank.goDeeperUrl, ctaDeeper: () => this.track('cta_opened', { cta_type: 'deeper' }), hasAction: !!d.messageBank.actionUrl, actionUrl: d.messageBank.actionUrl, actionLabel: d.messageBank.actionLabel[s.lang], ctaAction: () => this.track('cta_opened', { cta_type: 'action' }),
       dots: Array.from({ length: d.meta.roundSize }, (_, i) => ({ bg: s.answers[i] ? (s.answers[i].correct ? '#00B0A8' : '#B8412D') : i === s.idx && s.screen === 'game' ? '#002858' : '#E3E6EC' })) };
     if (s.screen === 'game' && s.deck.length) {
