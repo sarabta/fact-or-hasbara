@@ -136,7 +136,10 @@
    "results": {
     "exact": "{n} of 10 correct"
    },
-   "ofTen": "of 10"
+   "ofTen": "of 10",
+   "startOver": "Start over",
+   "confirmReset": "Start over? Your answers in this round will be lost.",
+   "backHome": "Back to start"
   },
   "it": {
    "eyebrow": "Un’esperienza di alfabetizzazione mediatica · 10 turni",
@@ -234,7 +237,10 @@
    "results": {
     "exact": "{n} su 10 corrette"
    },
-   "ofTen": "su 10"
+   "ofTen": "su 10",
+   "startOver": "Ricomincia",
+   "confirmReset": "Ricominciare? Le risposte di questo round andranno perse.",
+   "backHome": "Torna all’inizio"
   },
   "fr": {
    "eyebrow": "Une expérience d’éducation aux médias · 10 manches",
@@ -332,7 +338,10 @@
    "results": {
     "exact": "{n} sur 10 correctes"
    },
-   "ofTen": "sur 10"
+   "ofTen": "sur 10",
+   "startOver": "Recommencer",
+   "confirmReset": "Recommencer ? Vos réponses de cette manche seront perdues.",
+   "backHome": "Retour au début"
   },
   "ar": {
    "eyebrow": "تجربة في التربية الإعلامية · 10 جولات",
@@ -430,7 +439,10 @@
    "results": {
     "exact": "{n} من 10 صحيحة"
    },
-   "ofTen": "من 10"
+   "ofTen": "من 10",
+   "startOver": "ابدأ من جديد",
+   "confirmReset": "البدء من جديد؟ ستُفقد إجاباتك في هذه الجولة.",
+   "backHome": "العودة إلى البداية"
   }
  },
  "techniques": {
