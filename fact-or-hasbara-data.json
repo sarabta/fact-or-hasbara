@@ -1,0 +1,1332 @@
+{
+ "meta": {
+  "tool": "Fact or Hasbara?",
+  "toolId": "fact-or-hasbara",
+  "version": "1.0.0",
+  "updated": "2026-09-12",
+  "defaultLanguage": "en",
+  "languages": [
+   "en",
+   "it",
+   "fr",
+   "ar"
+  ],
+  "roundSize": 10,
+  "challengeSeconds": 22,
+  "reviewCadenceDays": 90,
+  "brand": "YPlus · Communicating Palestine",
+  "contact": {
+   "site": "https://yplus.ps",
+   "story": "https://yplus.ps/your-story/",
+   "contact": "https://yplus.ps/#contact",
+   "social": [
+    [
+     "Instagram",
+     "https://www.instagram.com/yplusmedia/"
+    ],
+    [
+     "Facebook",
+     "https://www.facebook.com/yplusmedia"
+    ],
+    [
+     "X",
+     "https://twitter.com/Yplus0"
+    ],
+    [
+     "YouTube",
+     "https://www.youtube.com/channel/UCg4RUJbMqbhhWCxlkj4xIAA/"
+    ]
+   ]
+  }
+ },
+ "ui": {
+  "en": {
+   "eyebrow": "A media-literacy experience · 10 rounds",
+   "fact": "Fact",
+   "or": "or",
+   "lede": "Ten statements. Some describe documented findings. Others use polished framing that hides the policy, removes context or shifts responsibility. Can you tell the difference?",
+   "definition": "In this experience, “Hasbara” refers to public-relations framing used to defend or normalize state policies. It labels a communication technique—not a person, identity or language.",
+   "factDesc": "A verifiable statement supported by a named legal or human-rights source.",
+   "hasbaraDesc": "A framing device such as euphemism, erasure, denial, depoliticisation or blanket deflection.",
+   "chooseMode": "Choose your experience",
+   "learnMode": "Learn · no timer",
+   "challengeMode": "Challenge · 22 sec",
+   "learnHelp": "Best for exhibitions and first-time visitors. Read each explanation at your own pace.",
+   "challengeHelp": "A faster replay for visitors who already know the basics.",
+   "start": "Start the experience",
+   "privacy": "Works as a single web page and through a QR code. No name, email or personal answer data is collected by this file.",
+   "documented": "documented",
+   "framing": "propaganda framing",
+   "result": "Your result",
+   "share": "Share my result",
+   "again": "Play again",
+   "beyondScore": "Beyond the score",
+   "realStoriesTitle": "The people behind the framing",
+   "realStoriesIntro": "These are documented incidents. They show why language such as “planning enforcement” or “property dispute” can conceal displacement and loss.",
+   "fromAwareness": "From awareness to action",
+   "talkTitle": "How to communicate the reality in Palestine",
+   "talkIntro": "Effective advocacy connects a person, a policy and a source—without reducing Palestinians to statistics.",
+   "sources": "Sources & method",
+   "sourcesIntro": "The experience links each factual claim to a named source. Final publication should include periodic legal and editorial review.",
+   "next": "Next",
+   "seeResult": "See my result",
+   "correct": "Correct",
+   "notQuite": "Not quite",
+   "timesUp": "Time’s up",
+   "thisFact": "This is a documented fact.",
+   "thisHasbara": "This is a propaganda framing.",
+   "source": "Open source",
+   "learnChip": "Learning mode",
+   "challengeChip": "Challenge mode",
+   "scoreLabel": "Score",
+   "question": "Question",
+   "best": "Best streak",
+   "avg": "Average answer time",
+   "notTimed": "Not timed",
+   "copied": "Result copied",
+   "saved": "Share card saved",
+   "shareFallback": "I scored {score}/10 in Fact or Hasbara? A media-literacy experience about Palestine.",
+   "kiosk": "Exhibition mode",
+   "webqr": "Web / QR",
+   "ranks": [
+    {
+     "min": 9,
+     "title": "Sharp eye.",
+     "msg": "You consistently separated evidence from framing. The next step is helping others see the technique, not only the answer."
+    },
+    {
+     "min": 7,
+     "title": "Well tuned.",
+     "msg": "Most techniques did not get past you. Review the explanations that felt plausible—that is where framing is most effective."
+    },
+    {
+     "min": 5,
+     "title": "Building the skill.",
+     "msg": "You are starting to recognise how euphemism and missing context shape a story. Read the real-life examples below."
+    },
+    {
+     "min": 0,
+     "title": "That is the point.",
+     "msg": "Propaganda is designed to sound reasonable. Once you can name the technique, it becomes harder not to notice it."
+    }
+   ],
+   "dailyMode": "Daily challenge",
+   "dailyHelp": "The same ten statements for everyone today. Come back tomorrow for a new set.",
+   "freshMode": "Fresh mix",
+   "streak": "Daily streak",
+   "days": "days",
+   "maintenance": "This experience is being updated. Please check back soon.",
+   "goDeeper": "Go deeper: Don’t Take the Bait",
+   "techniquesTitle": "Techniques you met",
+   "techniquesIntro": "Name the technique and it becomes harder to miss next time.",
+   "missed": "missed",
+   "got": "spotted",
+   "thisWeek": "This week’s line",
+   "badgeTitle": "Evidence reader",
+   "badgeSub": "Witness badge · saved on this device only",
+   "progress": "Story 2 of 14 in the Communicating Palestine toolkit",
+   "follow": "Follow Y+",
+   "story": "Have a story to share?",
+   "shareIt": "Share it with us",
+   "contact": "Contact Y+",
+   "tapFact": "Fact",
+   "tapHasbara": "Hasbara",
+   "yourAnswer": "You said",
+   "keyHint": "Keyboard: F or 1 = Fact, H or 2 = Hasbara",
+   "results": {
+    "exact": "{n} of 10 correct"
+   },
+   "ofTen": "of 10"
+  },
+  "it": {
+   "eyebrow": "Un’esperienza di alfabetizzazione mediatica · 10 turni",
+   "fact": "Fatto",
+   "or": "o",
+   "lede": "Dieci affermazioni. Alcune descrivono conclusioni documentate. Altre usano formule persuasive che nascondono la politica, eliminano il contesto o spostano la responsabilità. Riesci a distinguerle?",
+   "definition": "In questa esperienza, “Hasbara” indica una comunicazione di pubbliche relazioni usata per difendere o normalizzare politiche statali. Descrive una tecnica comunicativa, non una persona, un’identità o una lingua.",
+   "factDesc": "Un’affermazione verificabile sostenuta da una fonte giuridica o per i diritti umani chiaramente indicata.",
+   "hasbaraDesc": "Una tecnica di inquadramento: eufemismo, cancellazione, negazione, depoliticizzazione o deviazione della responsabilità.",
+   "chooseMode": "Scegli la modalità",
+   "learnMode": "Impara · senza timer",
+   "challengeMode": "Sfida · 22 sec",
+   "learnHelp": "Ideale per mostre e nuovi visitatori. Leggi ogni spiegazione con calma.",
+   "challengeHelp": "Una versione più veloce per chi conosce già le basi.",
+   "start": "Inizia l’esperienza",
+   "privacy": "Funziona come pagina web singola e tramite QR code. Questo file non raccoglie nomi, email o risposte personali.",
+   "documented": "documentato",
+   "framing": "inquadramento propagandistico",
+   "result": "Il tuo risultato",
+   "share": "Condividi il risultato",
+   "again": "Gioca di nuovo",
+   "beyondScore": "Oltre il punteggio",
+   "realStoriesTitle": "Le persone dietro le formule",
+   "realStoriesIntro": "Sono episodi documentati. Mostrano come espressioni quali “applicazione delle norme urbanistiche” o “controversia immobiliare” possano nascondere sfollamento e perdita.",
+   "fromAwareness": "Dalla consapevolezza all’azione",
+   "talkTitle": "Come comunicare la realtà in Palestina",
+   "talkIntro": "Una comunicazione efficace collega una persona, una politica e una fonte, senza ridurre i palestinesi a statistiche.",
+   "sources": "Fonti e metodo",
+   "sourcesIntro": "Ogni affermazione fattuale rimanda a una fonte nominata. Prima della pubblicazione finale è necessaria una revisione legale ed editoriale periodica.",
+   "next": "Avanti",
+   "seeResult": "Vedi il risultato",
+   "correct": "Corretto",
+   "notQuite": "Non proprio",
+   "timesUp": "Tempo scaduto",
+   "thisFact": "È un fatto documentato.",
+   "thisHasbara": "È un inquadramento propagandistico.",
+   "source": "Apri la fonte",
+   "learnChip": "Modalità apprendimento",
+   "challengeChip": "Modalità sfida",
+   "scoreLabel": "Punteggio",
+   "question": "Domanda",
+   "best": "Serie migliore",
+   "avg": "Tempo medio",
+   "notTimed": "Senza timer",
+   "copied": "Risultato copiato",
+   "saved": "Scheda salvata",
+   "shareFallback": "Ho ottenuto {score}/10 in Fact or Hasbara?, un’esperienza di alfabetizzazione mediatica sulla Palestina.",
+   "kiosk": "Modalità mostra",
+   "webqr": "Web / QR",
+   "ranks": [
+    {
+     "min": 9,
+     "title": "Occhio allenato.",
+     "msg": "Hai distinto con costanza le prove dall’inquadramento. Ora aiuta altri a riconoscere la tecnica, non solo la risposta."
+    },
+    {
+     "min": 7,
+     "title": "Ben preparato.",
+     "msg": "Hai riconosciuto quasi tutte le tecniche. Rileggi quelle che sembravano plausibili: è lì che l’inquadramento funziona meglio."
+    },
+    {
+     "min": 5,
+     "title": "La capacità cresce.",
+     "msg": "Stai riconoscendo come eufemismi e contesto mancante cambiano una storia. Leggi gli esempi reali qui sotto."
+    },
+    {
+     "min": 0,
+     "title": "È proprio questo il punto.",
+     "msg": "La propaganda è costruita per sembrare ragionevole. Quando sai nominare la tecnica, diventa più difficile non vederla."
+    }
+   ],
+   "dailyMode": "Sfida del giorno",
+   "dailyHelp": "Le stesse dieci affermazioni per tutti, oggi. Torna domani per una nuova serie.",
+   "freshMode": "Mix casuale",
+   "streak": "Serie giornaliera",
+   "days": "giorni",
+   "maintenance": "L’esperienza è in aggiornamento. Torna presto.",
+   "goDeeper": "Approfondisci: Don’t Take the Bait",
+   "techniquesTitle": "Le tecniche che hai incontrato",
+   "techniquesIntro": "Dai un nome alla tecnica e sarà più difficile non notarla.",
+   "missed": "sfuggita",
+   "got": "riconosciuta",
+   "thisWeek": "La frase della settimana",
+   "badgeTitle": "Lettore di prove",
+   "badgeSub": "Badge testimone · salvato solo su questo dispositivo",
+   "progress": "Storia 2 di 14 del toolkit Communicating Palestine",
+   "follow": "Segui Y+",
+   "story": "Hai una storia da raccontare?",
+   "shareIt": "Condividila con noi",
+   "contact": "Contatta Y+",
+   "tapFact": "Fatto",
+   "tapHasbara": "Hasbara",
+   "yourAnswer": "Hai risposto",
+   "keyHint": "Tastiera: F o 1 = Fatto, H o 2 = Hasbara",
+   "results": {
+    "exact": "{n} su 10 corrette"
+   },
+   "ofTen": "su 10"
+  },
+  "fr": {
+   "eyebrow": "Une expérience d’éducation aux médias · 10 manches",
+   "fact": "Fait",
+   "or": "ou",
+   "lede": "Dix affirmations. Certaines présentent des constats documentés. D’autres emploient un cadrage travaillé qui masque la politique, retire le contexte ou déplace la responsabilité. Saurez-vous les distinguer ?",
+   "definition": "Dans cette expérience, « Hasbara » désigne un cadrage de relations publiques utilisé pour défendre ou normaliser des politiques d’État. Le terme décrit une technique de communication, et non une personne, une identité ou une langue.",
+   "factDesc": "Une affirmation vérifiable appuyée par une source juridique ou de défense des droits clairement identifiée.",
+   "hasbaraDesc": "Une technique de cadrage : euphémisation, effacement, déni, dépolitisation ou déplacement global de la responsabilité.",
+   "chooseMode": "Choisissez votre mode",
+   "learnMode": "Apprendre · sans chrono",
+   "challengeMode": "Défi · 22 sec",
+   "learnHelp": "Idéal pour les expositions et une première visite. Lisez chaque explication à votre rythme.",
+   "challengeHelp": "Une version plus rapide pour les visiteurs qui connaissent déjà les bases.",
+   "start": "Commencer l’expérience",
+   "privacy": "Fonctionne comme une page web unique et par QR code. Ce fichier ne collecte ni nom, ni e-mail, ni réponses personnelles.",
+   "documented": "documenté",
+   "framing": "cadrage propagandiste",
+   "result": "Votre résultat",
+   "share": "Partager mon résultat",
+   "again": "Rejouer",
+   "beyondScore": "Au-delà du score",
+   "realStoriesTitle": "Les personnes derrière le cadrage",
+   "realStoriesIntro": "Ces faits sont documentés. Ils montrent comment des expressions comme « application des règles d’urbanisme » ou « litige immobilier » peuvent masquer le déplacement et la perte.",
+   "fromAwareness": "De la prise de conscience à l’action",
+   "talkTitle": "Comment parler de la réalité en Palestine",
+   "talkIntro": "Un plaidoyer efficace relie une personne, une politique et une source, sans réduire les Palestiniens à des statistiques.",
+   "sources": "Sources et méthode",
+   "sourcesIntro": "Chaque affirmation factuelle renvoie à une source identifiée. La publication finale doit faire l’objet de révisions juridiques et éditoriales régulières.",
+   "next": "Suivant",
+   "seeResult": "Voir mon résultat",
+   "correct": "Correct",
+   "notQuite": "Pas tout à fait",
+   "timesUp": "Temps écoulé",
+   "thisFact": "C’est un fait documenté.",
+   "thisHasbara": "C’est un cadrage propagandiste.",
+   "source": "Ouvrir la source",
+   "learnChip": "Mode apprentissage",
+   "challengeChip": "Mode défi",
+   "scoreLabel": "Score",
+   "question": "Question",
+   "best": "Meilleure série",
+   "avg": "Temps moyen",
+   "notTimed": "Sans chrono",
+   "copied": "Résultat copié",
+   "saved": "Carte enregistrée",
+   "shareFallback": "J’ai obtenu {score}/10 à Fact or Hasbara?, une expérience d’éducation aux médias sur la Palestine.",
+   "kiosk": "Mode exposition",
+   "webqr": "Web / QR",
+   "ranks": [
+    {
+     "min": 9,
+     "title": "Regard aiguisé.",
+     "msg": "Vous avez distingué avec constance les preuves du cadrage. Aidez maintenant d’autres personnes à reconnaître la technique, pas seulement la réponse."
+    },
+    {
+     "min": 7,
+     "title": "Bien entraîné.",
+     "msg": "Vous avez repéré la plupart des techniques. Relisez celles qui semblaient plausibles : c’est là que le cadrage est le plus efficace."
+    },
+    {
+     "min": 5,
+     "title": "La compétence se construit.",
+     "msg": "Vous commencez à voir comment les euphémismes et l’absence de contexte transforment un récit. Lisez les exemples réels ci-dessous."
+    },
+    {
+     "min": 0,
+     "title": "C’est précisément le but.",
+     "msg": "La propagande est conçue pour paraître raisonnable. Une fois la technique nommée, il devient plus difficile de ne pas la voir."
+    }
+   ],
+   "dailyMode": "Défi du jour",
+   "dailyHelp": "Les mêmes dix affirmations pour tout le monde aujourd’hui. Revenez demain pour une nouvelle série.",
+   "freshMode": "Mélange aléatoire",
+   "streak": "Série quotidienne",
+   "days": "jours",
+   "maintenance": "Cette expérience est en cours de mise à jour. Revenez bientôt.",
+   "goDeeper": "Aller plus loin : Don’t Take the Bait",
+   "techniquesTitle": "Les techniques rencontrées",
+   "techniquesIntro": "Nommer la technique la rend plus difficile à manquer la prochaine fois.",
+   "missed": "manquée",
+   "got": "repérée",
+   "thisWeek": "La phrase de la semaine",
+   "badgeTitle": "Lecteur de preuves",
+   "badgeSub": "Badge témoin · enregistré sur cet appareil uniquement",
+   "progress": "Histoire 2 sur 14 de la boîte à outils Communicating Palestine",
+   "follow": "Suivre Y+",
+   "story": "Vous avez une histoire à partager ?",
+   "shareIt": "Partagez-la avec nous",
+   "contact": "Contacter Y+",
+   "tapFact": "Fait",
+   "tapHasbara": "Hasbara",
+   "yourAnswer": "Votre réponse",
+   "keyHint": "Clavier : F ou 1 = Fait, H ou 2 = Hasbara",
+   "results": {
+    "exact": "{n} sur 10 correctes"
+   },
+   "ofTen": "sur 10"
+  },
+  "ar": {
+   "eyebrow": "تجربة في التربية الإعلامية · 10 جولات",
+   "fact": "حقيقة",
+   "or": "أم",
+   "lede": "عشر عبارات. بعضها ينقل نتائج موثقة، وبعضها يستخدم صياغة مصقولة تخفي السياسة أو تحذف السياق أو تنقل المسؤولية. هل تستطيع التمييز بينها؟",
+   "definition": "في هذه التجربة، يشير مصطلح «Hasbara» إلى أساليب علاقات عامة تُستخدم للدفاع عن سياسات الدولة أو جعلها تبدو طبيعية. المصطلح يصف تقنية تواصل، وليس شخصًا أو هوية أو لغة.",
+   "factDesc": "عبارة قابلة للتحقق ومدعومة بمصدر قانوني أو حقوقي محدد بالاسم.",
+   "hasbaraDesc": "أسلوب تأطير مثل التلطيف، أو المحو، أو الإنكار، أو نزع البعد السياسي، أو تحويل المسؤولية بصورة شاملة.",
+   "chooseMode": "اختر نمط التجربة",
+   "learnMode": "تعلّم · دون مؤقت",
+   "challengeMode": "تحدٍ · 22 ثانية",
+   "learnHelp": "الأنسب للمعارض وللزائر الذي يجربها لأول مرة. اقرأ كل تفسير على راحتك.",
+   "challengeHelp": "نسخة أسرع للزائر الذي أصبح يعرف الأساسيات.",
+   "start": "ابدأ التجربة",
+   "privacy": "تعمل كصفحة ويب واحدة ومن خلال رمز QR. لا يجمع هذا الملف الأسماء أو البريد الإلكتروني أو الإجابات الشخصية.",
+   "documented": "موثقة",
+   "framing": "صياغة دعائية",
+   "result": "نتيجتك",
+   "share": "شارك نتيجتي",
+   "again": "العب مرة أخرى",
+   "beyondScore": "ما بعد النتيجة",
+   "realStoriesTitle": "الناس خلف العبارات",
+   "realStoriesIntro": "هذه وقائع موثقة. وهي توضّح كيف يمكن لعبارات مثل «تطبيق قوانين التنظيم» أو «نزاع عقاري» أن تخفي التهجير والخسارة.",
+   "fromAwareness": "من الوعي إلى الفعل",
+   "talkTitle": "كيف نحكي عن الواقع في فلسطين",
+   "talkIntro": "المناصرة الفعالة تربط بين الإنسان والسياسة والمصدر، من دون اختزال الفلسطينيين إلى أرقام.",
+   "sources": "المصادر والمنهجية",
+   "sourcesIntro": "ترتبط كل حقيقة بمصدر محدد بالاسم. وقبل النشر النهائي يجب إجراء مراجعة قانونية وتحريرية دورية.",
+   "next": "التالي",
+   "seeResult": "اعرض نتيجتي",
+   "correct": "إجابة صحيحة",
+   "notQuite": "ليست الإجابة الصحيحة",
+   "timesUp": "انتهى الوقت",
+   "thisFact": "هذه حقيقة موثقة.",
+   "thisHasbara": "هذه صياغة دعائية.",
+   "source": "افتح المصدر",
+   "learnChip": "نمط التعلّم",
+   "challengeChip": "نمط التحدي",
+   "scoreLabel": "النتيجة",
+   "question": "السؤال",
+   "best": "أفضل سلسلة",
+   "avg": "متوسط وقت الإجابة",
+   "notTimed": "دون مؤقت",
+   "copied": "تم نسخ النتيجة",
+   "saved": "تم حفظ بطاقة المشاركة",
+   "shareFallback": "حصلت على {score}/10 في تجربة Fact or Hasbara? للتربية الإعلامية حول فلسطين.",
+   "kiosk": "نمط المعرض",
+   "webqr": "ويب / QR",
+   "ranks": [
+    {
+     "min": 9,
+     "title": "عين ناقدة.",
+     "msg": "استطعت باستمرار فصل الدليل عن الصياغة. الخطوة التالية هي مساعدة الآخرين على رؤية التقنية، لا حفظ الإجابة فقط."
+    },
+    {
+     "min": 7,
+     "title": "وعي قوي.",
+     "msg": "اكتشفت معظم التقنيات. راجع العبارات التي بدت منطقية؛ فهناك تكون الصياغة الدعائية أكثر تأثيرًا."
+    },
+    {
+     "min": 5,
+     "title": "المهارة تتطور.",
+     "msg": "بدأت تلاحظ كيف تغيّر المصطلحات المخففة والسياق المحذوف القصة. اقرأ الوقائع الحقيقية أدناه."
+    },
+    {
+     "min": 0,
+     "title": "هذه هي الفكرة.",
+     "msg": "تُصاغ الدعاية كي تبدو منطقية. عندما تستطيع تسمية التقنية، يصبح تجاهلها أصعب."
+    }
+   ],
+   "dailyMode": "تحدي اليوم",
+   "dailyHelp": "العبارات العشر نفسها للجميع اليوم. عد غداً لمجموعة جديدة.",
+   "freshMode": "مزيج جديد",
+   "streak": "سلسلة يومية",
+   "days": "أيام",
+   "maintenance": "هذه التجربة قيد التحديث. يرجى العودة لاحقاً.",
+   "goDeeper": "تعمّق أكثر: لا تبتلع الطُعم",
+   "techniquesTitle": "الأساليب التي صادفتها",
+   "techniquesIntro": "حين تسمّي الأسلوب يصبح من الأصعب أن يمرّ عليك في المرة القادمة.",
+   "missed": "فاتك",
+   "got": "رصدته",
+   "thisWeek": "عبارة هذا الأسبوع",
+   "badgeTitle": "قارئ الأدلة",
+   "badgeSub": "شارة الشاهد · محفوظة على هذا الجهاز فقط",
+   "progress": "القصة 2 من 14 في حقيبة أدوات Communicating Palestine",
+   "follow": "تابع Y+",
+   "story": "هل لديك قصة تشاركها معنا؟",
+   "shareIt": "شاركها معنا",
+   "contact": "تواصل مع Y+",
+   "tapFact": "حقيقة",
+   "tapHasbara": "هسبارا",
+   "yourAnswer": "إجابتك",
+   "keyHint": "لوحة المفاتيح: F أو 1 = حقيقة، H أو 2 = هسبارا",
+   "results": {
+    "exact": "{n} من 10 صحيحة"
+   },
+   "ofTen": "من 10"
+  }
+ },
+ "techniques": {
+  "euphemism": {
+   "en": "Euphemism",
+   "it": "Eufemismo",
+   "fr": "Euphémisme",
+   "ar": "تلطيف"
+  },
+  "denial": {
+   "en": "Denial",
+   "it": "Negazione",
+   "fr": "Déni",
+   "ar": "إنكار"
+  },
+  "depoliticisation": {
+   "en": "Depoliticisation",
+   "it": "Depoliticizzazione",
+   "fr": "Dépolitisation",
+   "ar": "نزع الطابع السياسي"
+  },
+  "erasure": {
+   "en": "Erasure",
+   "it": "Cancellazione",
+   "fr": "Effacement",
+   "ar": "محو"
+  },
+  "blanket_claim": {
+   "en": "Blanket claim",
+   "it": "Affermazione generica",
+   "fr": "Affirmation générale",
+   "ar": "ادعاء شامل"
+  },
+  "deflection": {
+   "en": "Deflection",
+   "it": "Deviazione",
+   "fr": "Déflexion",
+   "ar": "تحويل المسؤولية"
+  }
+ },
+ "sources": {
+  "icj2024": {
+   "name": "International Court of Justice · Advisory Opinion (2024)",
+   "url": "https://www.icj-cij.org/case/186/advisory-opinions"
+  },
+  "icj2004": {
+   "name": "International Court of Justice · Wall Advisory Opinion (2004)",
+   "url": "https://www.icj-cij.org/case/131/advisory-opinions"
+  },
+  "gc4": {
+   "name": "ICRC · Fourth Geneva Convention, Article 49",
+   "url": "https://ihl-databases.icrc.org/en/ihl-treaties/gciv-1949/article-49"
+  },
+  "un2334": {
+   "name": "UN Security Council Resolution 2334 (2016)",
+   "url": "https://digitallibrary.un.org/record/853446?ln=en"
+  },
+  "hamoked": {
+   "name": "HaMoked · East Jerusalem residency revocations",
+   "url": "https://www.hamoked.org/document.php?dID=Updates2512"
+  },
+  "ochaPermits": {
+   "name": "UN OCHA · Demolitions and building permits",
+   "url": "https://www.ochaopt.org/content/humanitarian-situation-report-23-july-2026"
+  },
+  "ochaSilwan": {
+   "name": "UN OCHA · Al Bustan, Silwan (2 April 2026)",
+   "url": "https://www.ochaopt.org/content/humanitarian-situation-report-2-april-2026"
+  },
+  "ochaBatn": {
+   "name": "UN OCHA · Batn al Hawa, Silwan (27 March 2026)",
+   "url": "https://www.ochaopt.org/content/humanitarian-situation-report-27-march-2026"
+  },
+  "ochaJahalin": {
+   "name": "UN OCHA · Arab al Jahalin / Wadi Mu'nes (23 July 2026)",
+   "url": "https://www.ochaopt.org/content/humanitarian-situation-report-23-july-2026"
+  },
+  "amnesty": {
+   "name": "Amnesty International · Apartheid report (2022)",
+   "url": "https://www.amnesty.org/en/documents/mde15/5141/2022/en/"
+  },
+  "hrw": {
+   "name": "Human Rights Watch · A Threshold Crossed (2021)",
+   "url": "https://www.hrw.org/report/2021/04/27/threshold-crossed/israeli-authorities-and-crimes-apartheid-and-persecution"
+  },
+  "nakba": {
+   "name": "United Nations · The Nakba and Palestinian displacement",
+   "url": "https://www.un.org/unispal/about-the-nakba/"
+  }
+ },
+ "items": [
+  {
+   "id": "foh-001",
+   "status": "published",
+   "type": "fact",
+   "category": "international_law",
+   "technique": null,
+   "source": "icj2024",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "In 2024, the International Court of Justice found Israel’s continued presence in the Occupied Palestinian Territory unlawful.",
+     "explanation": "The Court said the illegality applies to the entirety of the Palestinian territory occupied in 1967.",
+     "techniqueLabel": "International law"
+    },
+    "it": {
+     "statement": "Nel 2024, la Corte internazionale di giustizia ha ritenuto illegale la presenza continuata di Israele nel Territorio palestinese occupato.",
+     "explanation": "La Corte ha affermato che l’illegalità riguarda l’intero territorio palestinese occupato nel 1967.",
+     "techniqueLabel": "Diritto internazionale"
+    },
+    "fr": {
+     "statement": "En 2024, la Cour internationale de Justice a jugé illicite la présence continue d’Israël dans le Territoire palestinien occupé.",
+     "explanation": "La Cour a précisé que cette illicéité concernait l’ensemble du territoire palestinien occupé en 1967.",
+     "techniqueLabel": "Droit international"
+    },
+    "ar": {
+     "statement": "في عام 2024، اعتبرت محكمة العدل الدولية أن استمرار وجود إسرائيل في الأرض الفلسطينية المحتلة غير قانوني.",
+     "explanation": "قالت المحكمة إن عدم القانونية يتعلق بكامل الأرض الفلسطينية المحتلة عام 1967.",
+     "techniqueLabel": "القانون الدولي"
+    }
+   }
+  },
+  {
+   "id": "foh-002",
+   "status": "published",
+   "type": "fact",
+   "category": "international_law",
+   "technique": null,
+   "source": "gc4",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "The Fourth Geneva Convention prohibits an occupying power from transferring parts of its own civilian population into the territory it occupies.",
+     "explanation": "Article 49 contains this prohibition; UN Security Council Resolution 2334 also states that settlements have no legal validity.",
+     "techniqueLabel": "Protected persons"
+    },
+    "it": {
+     "statement": "La Quarta Convenzione di Ginevra vieta a una potenza occupante di trasferire parte della propria popolazione civile nel territorio occupato.",
+     "explanation": "L’articolo 49 contiene questo divieto; anche la risoluzione 2334 del Consiglio di sicurezza afferma che gli insediamenti non hanno validità giuridica.",
+     "techniqueLabel": "Persone protette"
+    },
+    "fr": {
+     "statement": "La quatrième Convention de Genève interdit à une puissance occupante de transférer une partie de sa propre population civile dans le territoire qu’elle occupe.",
+     "explanation": "L’article 49 contient cette interdiction ; la résolution 2334 du Conseil de sécurité affirme également que les colonies n’ont aucune validité juridique.",
+     "techniqueLabel": "Personnes protégées"
+    },
+    "ar": {
+     "statement": "تحظر اتفاقية جنيف الرابعة على قوة الاحتلال نقل جزء من سكانها المدنيين إلى الأرض التي تحتلها.",
+     "explanation": "يتضمن البند 49 هذا الحظر، كما يؤكد قرار مجلس الأمن 2334 أن المستوطنات لا تتمتع بأي شرعية قانونية.",
+     "techniqueLabel": "حماية المدنيين"
+    }
+   }
+  },
+  {
+   "id": "foh-003",
+   "status": "published",
+   "type": "fact",
+   "category": "jerusalem",
+   "technique": null,
+   "source": "hamoked",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "Most Palestinians in East Jerusalem hold permanent residency rather than Israeli citizenship, and that status can be revoked.",
+     "explanation": "HaMoked reported that 60 East Jerusalem Palestinians lost permanent residency in 2024 and nearly 15,000 had been stripped of it between 1967 and 2024.",
+     "techniqueLabel": "Residency policy"
+    },
+    "it": {
+     "statement": "La maggior parte dei palestinesi di Gerusalemme Est possiede la residenza permanente, non la cittadinanza israeliana, e tale status può essere revocato.",
+     "explanation": "HaMoked ha riferito che 60 palestinesi di Gerusalemme Est hanno perso la residenza permanente nel 2024 e quasi 15.000 tra il 1967 e il 2024.",
+     "techniqueLabel": "Politica di residenza"
+    },
+    "fr": {
+     "statement": "La plupart des Palestiniens de Jérusalem-Est ont un statut de résident permanent plutôt que la citoyenneté israélienne, et ce statut peut être révoqué.",
+     "explanation": "HaMoked a indiqué que 60 Palestiniens de Jérusalem-Est ont perdu leur statut en 2024 et que près de 15 000 en ont été privés entre 1967 et 2024.",
+     "techniqueLabel": "Politique de résidence"
+    },
+    "ar": {
+     "statement": "يحمل معظم الفلسطينيين في القدس الشرقية إقامة دائمة بدلًا من الجنسية الإسرائيلية، ويمكن سحب هذه الإقامة.",
+     "explanation": "أفادت هموكيد بأن 60 فلسطينيًا من القدس الشرقية سُحبت إقامتهم الدائمة عام 2024، وبأن العدد التراكمي بين 1967 و2024 اقترب من 15 ألفًا.",
+     "techniqueLabel": "سياسة الإقامة"
+    }
+   }
+  },
+  {
+   "id": "foh-004",
+   "status": "published",
+   "type": "fact",
+   "category": "jerusalem",
+   "technique": null,
+   "source": "ochaPermits",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "In Area C and East Jerusalem, Israeli-issued building permits are nearly impossible for Palestinians to obtain.",
+     "explanation": "UN OCHA repeatedly uses this wording when reporting demolitions carried out for lack of permits.",
+     "techniqueLabel": "Planning and displacement"
+    },
+    "it": {
+     "statement": "Nell’Area C e a Gerusalemme Est, per i palestinesi è quasi impossibile ottenere permessi di costruzione rilasciati da Israele.",
+     "explanation": "L’OCHA utilizza ripetutamente questa formulazione nei rapporti sulle demolizioni eseguite per mancanza di permessi.",
+     "techniqueLabel": "Pianificazione e sfollamento"
+    },
+    "fr": {
+     "statement": "Dans la zone C et à Jérusalem-Est, les permis de construire israéliens sont presque impossibles à obtenir pour les Palestiniens.",
+     "explanation": "L’OCHA emploie régulièrement cette formulation dans ses rapports sur les démolitions motivées par l’absence de permis.",
+     "techniqueLabel": "Urbanisme et déplacement"
+    },
+    "ar": {
+     "statement": "يكاد يكون من المستحيل على الفلسطينيين الحصول على تصاريح بناء إسرائيلية في المنطقة «ج» والقدس الشرقية.",
+     "explanation": "يستخدم مكتب الأمم المتحدة لتنسيق الشؤون الإنسانية هذا الوصف بصورة متكررة عند توثيق عمليات الهدم بحجة عدم الترخيص.",
+     "techniqueLabel": "التخطيط والتهجير"
+    }
+   }
+  },
+  {
+   "id": "foh-005",
+   "status": "published",
+   "type": "fact",
+   "category": "international_law",
+   "technique": null,
+   "source": "icj2024",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "East Jerusalem is part of the Occupied Palestinian Territory under the position consistently stated by the United Nations and the International Court of Justice.",
+     "explanation": "The 2024 advisory opinion repeatedly refers to the Occupied Palestinian Territory, including East Jerusalem.",
+     "techniqueLabel": "Legal status"
+    },
+    "it": {
+     "statement": "Gerusalemme Est fa parte del Territorio palestinese occupato secondo la posizione costantemente espressa dalle Nazioni Unite e dalla Corte internazionale di giustizia.",
+     "explanation": "Il parere consultivo del 2024 fa ripetutamente riferimento al Territorio palestinese occupato, compresa Gerusalemme Est.",
+     "techniqueLabel": "Status giuridico"
+    },
+    "fr": {
+     "statement": "Jérusalem-Est fait partie du Territoire palestinien occupé selon la position constante des Nations Unies et de la Cour internationale de Justice.",
+     "explanation": "L’avis consultatif de 2024 se réfère à plusieurs reprises au Territoire palestinien occupé, y compris Jérusalem-Est.",
+     "techniqueLabel": "Statut juridique"
+    },
+    "ar": {
+     "statement": "تُعد القدس الشرقية جزءًا من الأرض الفلسطينية المحتلة وفق الموقف الثابت للأمم المتحدة ومحكمة العدل الدولية.",
+     "explanation": "يشير الرأي الاستشاري لعام 2024 بصورة متكررة إلى الأرض الفلسطينية المحتلة، بما فيها القدس الشرقية.",
+     "techniqueLabel": "الوضع القانوني"
+    }
+   }
+  },
+  {
+   "id": "foh-006",
+   "status": "published",
+   "type": "fact",
+   "category": "jerusalem",
+   "technique": null,
+   "source": "amnesty",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "Amnesty International and Human Rights Watch have each published findings that Israeli authorities commit the crime against humanity of apartheid against Palestinians.",
+     "explanation": "This item reports what the two organisations concluded in their 2021 and 2022 legal analyses.",
+     "techniqueLabel": "Documented finding"
+    },
+    "it": {
+     "statement": "Amnesty International e Human Rights Watch hanno entrambe pubblicato conclusioni secondo cui le autorità israeliane commettono il crimine contro l’umanità di apartheid contro i palestinesi.",
+     "explanation": "L’affermazione riporta le conclusioni delle analisi giuridiche pubblicate dalle due organizzazioni nel 2021 e 2022.",
+     "techniqueLabel": "Conclusione documentata"
+    },
+    "fr": {
+     "statement": "Amnesty International et Human Rights Watch ont chacune publié des conclusions selon lesquelles les autorités israéliennes commettent le crime contre l’humanité d’apartheid à l’encontre des Palestiniens.",
+     "explanation": "Cette affirmation rapporte les conclusions des analyses juridiques publiées par les deux organisations en 2021 et 2022.",
+     "techniqueLabel": "Constat documenté"
+    },
+    "ar": {
+     "statement": "نشرت كل من منظمة العفو الدولية وهيومن رايتس ووتش نتائج خلصت إلى أن السلطات الإسرائيلية ترتكب جريمة الفصل العنصري ضد الفلسطينيين بوصفها جريمة ضد الإنسانية.",
+     "explanation": "تنقل العبارة ما خلصت إليه المؤسستان في تحليليهما القانونيين المنشورين عامي 2021 و2022.",
+     "techniqueLabel": "نتيجة موثقة"
+    }
+   }
+  },
+  {
+   "id": "foh-007",
+   "status": "published",
+   "type": "fact",
+   "category": "international_law",
+   "technique": null,
+   "source": "un2334",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "UN Security Council Resolution 2334 states that Israeli settlements in the occupied Palestinian territory, including East Jerusalem, have no legal validity.",
+     "explanation": "The resolution was adopted on 23 December 2016 by a vote of 14 in favour, none against and one abstention.",
+     "techniqueLabel": "UN resolution"
+    },
+    "it": {
+     "statement": "La risoluzione 2334 del Consiglio di sicurezza afferma che gli insediamenti israeliani nel territorio palestinese occupato, compresa Gerusalemme Est, non hanno validità giuridica.",
+     "explanation": "La risoluzione è stata adottata il 23 dicembre 2016 con 14 voti favorevoli, nessun contrario e un’astensione.",
+     "techniqueLabel": "Risoluzione ONU"
+    },
+    "fr": {
+     "statement": "La résolution 2334 du Conseil de sécurité affirme que les colonies israéliennes dans le territoire palestinien occupé, y compris Jérusalem-Est, n’ont aucune validité juridique.",
+     "explanation": "La résolution a été adoptée le 23 décembre 2016 par 14 voix pour, aucune contre et une abstention.",
+     "techniqueLabel": "Résolution de l’ONU"
+    },
+    "ar": {
+     "statement": "ينص قرار مجلس الأمن 2334 على أن المستوطنات الإسرائيلية في الأرض الفلسطينية المحتلة، بما فيها القدس الشرقية، لا تتمتع بأي شرعية قانونية.",
+     "explanation": "اعتمد القرار في 23 كانون الأول 2016 بأغلبية 14 صوتًا، من دون أصوات معارضة ومع امتناع دولة واحدة.",
+     "techniqueLabel": "قرار أممي"
+    }
+   }
+  },
+  {
+   "id": "foh-008",
+   "status": "published",
+   "type": "hasbara",
+   "category": "international_law",
+   "technique": "euphemism",
+   "source": "icj2004",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "It is not a wall; it is only a security fence.",
+     "explanation": "Changing the label does not address the route or legal effects. In 2004, the ICJ found the wall and its associated regime in occupied territory contrary to international law.",
+     "techniqueLabel": "Euphemism / minimisation"
+    },
+    "it": {
+     "statement": "Non è un muro; è soltanto una barriera di sicurezza.",
+     "explanation": "Cambiare l’etichetta non affronta il tracciato né gli effetti giuridici. Nel 2004 la Corte ha ritenuto il muro e il regime associato nel territorio occupato contrari al diritto internazionale.",
+     "techniqueLabel": "Eufemismo / minimizzazione"
+    },
+    "fr": {
+     "statement": "Ce n’est pas un mur ; c’est seulement une clôture de sécurité.",
+     "explanation": "Changer le terme ne répond ni au tracé ni aux effets juridiques. En 2004, la Cour a jugé le mur et le régime qui lui est associé dans le territoire occupé contraires au droit international.",
+     "techniqueLabel": "Euphémisation / minimisation"
+    },
+    "ar": {
+     "statement": "إنه ليس جدارًا، بل مجرد سياج أمني.",
+     "explanation": "تغيير الاسم لا يجيب عن مسار الجدار أو آثاره القانونية. عام 2004، اعتبرت محكمة العدل الدولية أن الجدار والنظام المرتبط به في الأرض المحتلة مخالفان للقانون الدولي.",
+     "techniqueLabel": "التلطيف / التقليل"
+    }
+   }
+  },
+  {
+   "id": "foh-009",
+   "status": "published",
+   "type": "hasbara",
+   "category": "international_law",
+   "technique": "denial",
+   "source": "icj2024",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "The West Bank and East Jerusalem are not occupied; they are simply disputed territories.",
+     "explanation": "The phrase replaces a legal classification with a political ambiguity. The ICJ and UN describe the territory occupied in 1967 as occupied Palestinian territory.",
+     "techniqueLabel": "Reframing / denial"
+    },
+    "it": {
+     "statement": "La Cisgiordania e Gerusalemme Est non sono occupate; sono semplicemente territori contesi.",
+     "explanation": "La frase sostituisce una classificazione giuridica con un’ambiguità politica. La Corte e l’ONU descrivono il territorio occupato nel 1967 come territorio palestinese occupato.",
+     "techniqueLabel": "Riformulazione / negazione"
+    },
+    "fr": {
+     "statement": "La Cisjordanie et Jérusalem-Est ne sont pas occupées ; ce sont simplement des territoires disputés.",
+     "explanation": "La formule remplace une qualification juridique par une ambiguïté politique. La Cour et l’ONU parlent du territoire palestinien occupé depuis 1967.",
+     "techniqueLabel": "Recadrage / déni"
+    },
+    "ar": {
+     "statement": "الضفة الغربية والقدس الشرقية ليستا محتلتين، بل مجرد أراضٍ متنازع عليها.",
+     "explanation": "تستبدل العبارة التصنيف القانوني بغموض سياسي. وتصف المحكمة والأمم المتحدة الأرض المحتلة عام 1967 بأنها أرض فلسطينية محتلة.",
+     "techniqueLabel": "إعادة التأطير / الإنكار"
+    }
+   }
+  },
+  {
+   "id": "foh-010",
+   "status": "published",
+   "type": "hasbara",
+   "category": "jerusalem",
+   "technique": "depoliticisation",
+   "source": "ochaBatn",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "Evictions in Sheikh Jarrah and Silwan are only private real-estate disputes.",
+     "explanation": "This framing removes the occupied-territory context and the wider pattern of Palestinian displacement documented by UN bodies.",
+     "techniqueLabel": "Depoliticisation"
+    },
+    "it": {
+     "statement": "Gli sfratti a Sheikh Jarrah e Silwan sono soltanto controversie immobiliari private.",
+     "explanation": "Questo inquadramento elimina il contesto del territorio occupato e il più ampio modello di sfollamento palestinese documentato dagli organismi ONU.",
+     "techniqueLabel": "Depoliticizzazione"
+    },
+    "fr": {
+     "statement": "Les expulsions à Sheikh Jarrah et Silwan ne sont que des litiges immobiliers privés.",
+     "explanation": "Ce cadrage efface le contexte du territoire occupé et le schéma plus large de déplacement palestinien documenté par l’ONU.",
+     "techniqueLabel": "Dépolitisation"
+    },
+    "ar": {
+     "statement": "عمليات الإخلاء في الشيخ جراح وسلوان ليست سوى نزاعات عقارية خاصة.",
+     "explanation": "تحذف هذه الصياغة سياق الأرض المحتلة والنمط الأوسع لتهجير الفلسطينيين الذي توثقه جهات أممية.",
+     "techniqueLabel": "نزع البعد السياسي"
+    }
+   }
+  },
+  {
+   "id": "foh-011",
+   "status": "published",
+   "type": "hasbara",
+   "category": "history",
+   "technique": "erasure",
+   "source": "nakba",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "Palestine was a land without a people for a people without a land.",
+     "explanation": "The slogan erases the Palestinian population, towns, villages, agriculture and social life that existed before 1948.",
+     "techniqueLabel": "Historical erasure"
+    },
+    "it": {
+     "statement": "La Palestina era una terra senza popolo per un popolo senza terra.",
+     "explanation": "Lo slogan cancella la popolazione palestinese, le città, i villaggi, l’agricoltura e la vita sociale esistenti prima del 1948.",
+     "techniqueLabel": "Cancellazione storica"
+    },
+    "fr": {
+     "statement": "La Palestine était une terre sans peuple pour un peuple sans terre.",
+     "explanation": "Le slogan efface la population palestinienne, ses villes, villages, activités agricoles et sa vie sociale avant 1948.",
+     "techniqueLabel": "Effacement historique"
+    },
+    "ar": {
+     "statement": "كانت فلسطين أرضًا بلا شعب لشعب بلا أرض.",
+     "explanation": "يمحو الشعار السكان الفلسطينيين والمدن والقرى والزراعة والحياة الاجتماعية التي كانت قائمة قبل عام 1948.",
+     "techniqueLabel": "المحو التاريخي"
+    }
+   }
+  },
+  {
+   "id": "foh-012",
+   "status": "published",
+   "type": "hasbara",
+   "category": "history",
+   "technique": "erasure",
+   "source": "nakba",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "Israel made an empty desert bloom.",
+     "explanation": "The line presents the land as empty and erases existing Palestinian agriculture, communities and knowledge.",
+     "techniqueLabel": "Erasure / colonial myth"
+    },
+    "it": {
+     "statement": "Israele ha fatto fiorire un deserto vuoto.",
+     "explanation": "La frase presenta la terra come vuota e cancella l’agricoltura, le comunità e le conoscenze palestinesi preesistenti.",
+     "techniqueLabel": "Cancellazione / mito coloniale"
+    },
+    "fr": {
+     "statement": "Israël a fait fleurir un désert vide.",
+     "explanation": "La formule présente la terre comme vide et efface l’agriculture, les communautés et les savoirs palestiniens préexistants.",
+     "techniqueLabel": "Effacement / mythe colonial"
+    },
+    "ar": {
+     "statement": "جعلت إسرائيل الصحراء الفارغة تزدهر.",
+     "explanation": "تصور العبارة الأرض كأنها فارغة، وتمحو الزراعة والمجتمعات والمعرفة الفلسطينية التي كانت قائمة.",
+     "techniqueLabel": "المحو / الأسطورة الاستعمارية"
+    }
+   }
+  },
+  {
+   "id": "foh-013",
+   "status": "published",
+   "type": "hasbara",
+   "category": "jerusalem",
+   "technique": "blanket_claim",
+   "source": "hrw",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "The Israeli army is the most moral army in the world.",
+     "explanation": "It is a public-relations superlative, not a measurable factual claim. Conduct must be assessed through evidence and applicable law, not a slogan.",
+     "techniqueLabel": "Unfalsifiable slogan"
+    },
+    "it": {
+     "statement": "L’esercito israeliano è l’esercito più morale del mondo.",
+     "explanation": "È un superlativo di pubbliche relazioni, non un’affermazione fattuale misurabile. La condotta va valutata attraverso prove e diritto applicabile, non tramite uno slogan.",
+     "techniqueLabel": "Slogan non falsificabile"
+    },
+    "fr": {
+     "statement": "L’armée israélienne est l’armée la plus morale du monde.",
+     "explanation": "Il s’agit d’un superlatif de communication, pas d’une affirmation factuelle mesurable. Les actes doivent être évalués au regard des preuves et du droit applicable.",
+     "techniqueLabel": "Slogan infalsifiable"
+    },
+    "ar": {
+     "statement": "الجيش الإسرائيلي هو الجيش الأكثر أخلاقية في العالم.",
+     "explanation": "هذا وصف دعائي مطلق وليس ادعاءً واقعيًا قابلًا للقياس. يجب تقييم السلوك بالأدلة والقانون المطبق، لا بالشعارات.",
+     "techniqueLabel": "شعار غير قابل للاختبار"
+    }
+   }
+  },
+  {
+   "id": "foh-014",
+   "status": "published",
+   "type": "hasbara",
+   "category": "jerusalem",
+   "technique": "deflection",
+   "source": "ochaPermits",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "Whenever Palestinian civilians are harmed, the responsibility lies entirely with Palestinians because civilians are always used as human shields.",
+     "explanation": "The words “whenever,” “entirely” and “always” pre-judge every incident and replace case-specific evidence with a blanket defence.",
+     "techniqueLabel": "Blanket deflection"
+    },
+    "it": {
+     "statement": "Ogni volta che civili palestinesi vengono colpiti, la responsabilità è interamente palestinese perché i civili vengono sempre usati come scudi umani.",
+     "explanation": "Le parole “ogni volta”, “interamente” e “sempre” anticipano il giudizio su ogni episodio e sostituiscono le prove specifiche con una difesa generale.",
+     "techniqueLabel": "Deviazione generalizzata"
+    },
+    "fr": {
+     "statement": "Chaque fois que des civils palestiniens sont touchés, la responsabilité incombe entièrement aux Palestiniens car les civils sont toujours utilisés comme boucliers humains.",
+     "explanation": "Les mots « chaque fois », « entièrement » et « toujours » préjugent de chaque incident et remplacent les preuves propres à chaque cas par une défense générale.",
+     "techniqueLabel": "Déplacement global de responsabilité"
+    },
+    "ar": {
+     "statement": "كلما تضرر مدنيون فلسطينيون، تقع المسؤولية بالكامل على الفلسطينيين لأن المدنيين يُستخدمون دائمًا دروعًا بشرية.",
+     "explanation": "تحسم كلمات «كلما» و«بالكامل» و«دائمًا» المسؤولية مسبقًا في كل حادثة، وتستبدل الأدلة الخاصة بكل حالة بدفاع عام.",
+     "techniqueLabel": "تحويل شامل للمسؤولية"
+    }
+   }
+  },
+  {
+   "id": "foh-015",
+   "status": "published",
+   "type": "hasbara",
+   "category": "history",
+   "technique": "denial",
+   "source": "nakba",
+   "reviewedAt": "2026-09-09",
+   "reviewBy": "2026-12-09",
+   "reviewer": "YPlus editorial",
+   "translationComplete": {
+    "en": true,
+    "it": true,
+    "fr": true,
+    "ar": true
+   },
+   "copy": {
+    "en": {
+     "statement": "Palestinians mainly left their homes voluntarily in 1948.",
+     "explanation": "This blanket claim contradicts extensive documentation of mass displacement, flight under attack and expulsions during the Nakba.",
+     "techniqueLabel": "Historical denial"
+    },
+    "it": {
+     "statement": "Nel 1948 i palestinesi lasciarono le loro case principalmente di propria volontà.",
+     "explanation": "Questa affermazione generale contraddice l’ampia documentazione di sfollamenti di massa, fughe sotto attacco ed espulsioni durante la Nakba.",
+     "techniqueLabel": "Negazione storica"
+    },
+    "fr": {
+     "statement": "En 1948, les Palestiniens ont principalement quitté leurs foyers volontairement.",
+     "explanation": "Cette affirmation globale contredit l’importante documentation sur le déplacement de masse, la fuite sous les attaques et les expulsions durant la Nakba.",
+     "techniqueLabel": "Déni historique"
+    },
+    "ar": {
+     "statement": "غادر الفلسطينيون منازلهم عام 1948 بصورة طوعية في الأساس.",
+     "explanation": "يتناقض هذا الادعاء الشامل مع التوثيق الواسع للتهجير الجماعي والفرار تحت الهجوم وعمليات الطرد خلال النكبة.",
+     "techniqueLabel": "الإنكار التاريخي"
+    }
+   }
+  }
+ ],
+ "stories": {
+  "en": [
+   {
+    "place": "Al Bustan · Silwan · March 2026",
+    "title": "Five households lost their homes",
+    "body": "UN OCHA documented the demolition of five residential structures in Al Bustan, displacing 18 people, including four children and a pregnant woman.",
+    "source": "ochaSilwan"
+   },
+   {
+    "place": "Batn al Hawa · Silwan · March 2026",
+    "title": "Seventy people were forcibly evicted",
+    "body": "OCHA documented the forced eviction of 15 Palestinian households, including 21 children, to enable settler takeover of the properties.",
+    "source": "ochaBatn"
+   },
+   {
+    "place": "Arab al Jahalin / Wadi Mu'nes · July 2026",
+    "title": "A community’s shelter and livelihood were demolished",
+    "body": "OCHA documented 37 demolished structures and the displacement of 64 people, including 34 children. The structures included shelters, latrines, livestock facilities and water tanks.",
+    "source": "ochaJahalin"
+   }
+  ],
+  "it": [
+   {
+    "place": "Al Bustan · Silwan · marzo 2026",
+    "title": "Cinque famiglie hanno perso la casa",
+    "body": "L’ONU OCHA ha documentato la demolizione di cinque strutture residenziali ad Al Bustan, con lo sfollamento di 18 persone, tra cui quattro bambini e una donna incinta.",
+    "source": "ochaSilwan"
+   },
+   {
+    "place": "Batn al Hawa · Silwan · marzo 2026",
+    "title": "Settanta persone sono state sfrattate con la forza",
+    "body": "OCHA ha documentato lo sfratto forzato di 15 famiglie palestinesi, tra cui 21 bambini, per consentire l’acquisizione degli immobili da parte di coloni.",
+    "source": "ochaBatn"
+   },
+   {
+    "place": "Arab al Jahalin / Wadi Mu'nes · luglio 2026",
+    "title": "Ripari e mezzi di sostentamento demoliti",
+    "body": "OCHA ha documentato 37 strutture demolite e lo sfollamento di 64 persone, tra cui 34 bambini. Tra le strutture: ripari, latrine, recinti per animali e serbatoi d’acqua.",
+    "source": "ochaJahalin"
+   }
+  ],
+  "fr": [
+   {
+    "place": "Al Bustan · Silwan · mars 2026",
+    "title": "Cinq familles ont perdu leur logement",
+    "body": "L’OCHA a documenté la démolition de cinq structures résidentielles à Al Bustan, déplaçant 18 personnes, dont quatre enfants et une femme enceinte.",
+    "source": "ochaSilwan"
+   },
+   {
+    "place": "Batn al Hawa · Silwan · mars 2026",
+    "title": "Soixante-dix personnes expulsées de force",
+    "body": "L’OCHA a documenté l’expulsion forcée de 15 foyers palestiniens, dont 21 enfants, afin de permettre la prise de contrôle des biens par des colons.",
+    "source": "ochaBatn"
+   },
+   {
+    "place": "Arab al Jahalin / Wadi Mu'nes · juillet 2026",
+    "title": "Abris et moyens de subsistance démolis",
+    "body": "L’OCHA a documenté 37 structures démolies et le déplacement de 64 personnes, dont 34 enfants. Il s’agissait notamment d’abris, de latrines, d’installations pour le bétail et de réservoirs d’eau.",
+    "source": "ochaJahalin"
+   }
+  ],
+  "ar": [
+   {
+    "place": "البستان · سلوان · آذار 2026",
+    "title": "خمس عائلات فقدت منازلها",
+    "body": "وثّق مكتب الأمم المتحدة لتنسيق الشؤون الإنسانية هدم خمسة مبانٍ سكنية في حي البستان، ما أدى إلى تهجير 18 شخصًا، بينهم أربعة أطفال وامرأة حامل.",
+    "source": "ochaSilwan"
+   },
+   {
+    "place": "بطن الهوى · سلوان · آذار 2026",
+    "title": "إخلاء سبعين شخصًا بالقوة",
+    "body": "وثّق المكتب الأممي الإخلاء القسري لـ15 أسرة فلسطينية، بينها 21 طفلًا، لتمكين مستوطنين من الاستيلاء على العقارات.",
+    "source": "ochaBatn"
+   },
+   {
+    "place": "عرب الجهالين / وادي مؤنس · تموز 2026",
+    "title": "هدم المأوى ومصادر الرزق",
+    "body": "وثّق المكتب الأممي هدم 37 منشأة وتهجير 64 شخصًا، بينهم 34 طفلًا. وشملت المنشآت مساكن ومراحيض وحظائر وخزانات مياه.",
+    "source": "ochaJahalin"
+   }
+  ]
+ },
+ "advocacy": {
+  "en": {
+   "steps": [
+    {
+     "title": "Start with a person",
+     "body": "Describe whose home, movement, family life or livelihood is affected. Dignity comes before numbers."
+    },
+    {
+     "title": "Name the policy",
+     "body": "Use precise terms: occupation, settlement expansion, residency revocation, permit regime, demolition or forced eviction."
+    },
+    {
+     "title": "Show the evidence",
+     "body": "Link the claim to a court, UN body or rights monitor. Separate verified findings from your interpretation."
+    },
+    {
+     "title": "Invite a concrete response",
+     "body": "Ask the audience to learn, share a source, challenge misleading language, contact representatives or support rights-based action."
+    }
+   ],
+   "sample": "Example: “This is not only a private property dispute. In occupied East Jerusalem, UN documentation shows a wider pattern of forced eviction and displacement. Here is the source, and here is what happened to the families.”",
+   "method": "<strong>Method note:</strong> “Fact” means the statement accurately reports a documented finding in the linked source. “Hasbara” means the statement uses a recognised propaganda or public-relations technique. The game does not claim that every political statement is binary; it teaches visitors to inspect wording, evidence and omitted context. Stories are short summaries of public UN reporting and should be updated before each campaign launch."
+  },
+  "it": {
+   "steps": [
+    {
+     "title": "Parti da una persona",
+     "body": "Spiega chi subisce conseguenze sulla casa, sulla mobilità, sulla famiglia o sul lavoro. La dignità viene prima dei numeri."
+    },
+    {
+     "title": "Nomina la politica",
+     "body": "Usa termini precisi: occupazione, espansione degli insediamenti, revoca della residenza, regime dei permessi, demolizione o sfratto forzato."
+    },
+    {
+     "title": "Mostra le prove",
+     "body": "Collega l’affermazione a un tribunale, a un organismo ONU o a un osservatorio per i diritti. Distingui i fatti verificati dalla tua interpretazione."
+    },
+    {
+     "title": "Proponi una risposta concreta",
+     "body": "Invita il pubblico a informarsi, condividere una fonte, contestare il linguaggio fuorviante, contattare i rappresentanti o sostenere azioni basate sui diritti."
+    }
+   ],
+   "sample": "Esempio: “Non si tratta soltanto di una controversia privata. A Gerusalemme Est occupata, la documentazione ONU mostra un modello più ampio di sfratti forzati e sfollamento. Ecco la fonte ed ecco cosa è accaduto alle famiglie.”",
+   "method": "<strong>Nota metodologica:</strong> “Fatto” significa che l’affermazione riporta correttamente una conclusione documentata nella fonte collegata. “Hasbara” indica l’uso di una tecnica riconoscibile di propaganda o pubbliche relazioni. Il gioco non sostiene che ogni affermazione politica sia binaria: insegna a esaminare parole, prove e contesto omesso. Le storie sintetizzano rapporti pubblici dell’ONU e vanno aggiornate prima di ogni lancio."
+  },
+  "fr": {
+   "steps": [
+    {
+     "title": "Commencez par une personne",
+     "body": "Expliquez qui voit son logement, ses déplacements, sa vie familiale ou ses moyens de subsistance affectés. La dignité précède les chiffres."
+    },
+    {
+     "title": "Nommez la politique",
+     "body": "Employez des termes précis : occupation, expansion des colonies, révocation du statut de résident, régime de permis, démolition ou expulsion forcée."
+    },
+    {
+     "title": "Présentez les preuves",
+     "body": "Reliez l’affirmation à une cour, un organisme de l’ONU ou une organisation de défense des droits. Distinguez les faits vérifiés de votre interprétation."
+    },
+    {
+     "title": "Proposez une réponse concrète",
+     "body": "Invitez le public à s’informer, partager une source, contester un langage trompeur, contacter ses représentants ou soutenir une action fondée sur les droits."
+    }
+   ],
+   "sample": "Exemple : « Il ne s’agit pas seulement d’un litige privé. À Jérusalem-Est occupée, la documentation de l’ONU montre un schéma plus large d’expulsions forcées et de déplacement. Voici la source et ce qui est arrivé aux familles. »",
+   "method": "<strong>Note méthodologique :</strong> « Fait » signifie que l’affirmation rend fidèlement compte d’un constat documenté dans la source liée. « Hasbara » désigne une technique identifiable de propagande ou de relations publiques. Le jeu ne prétend pas que toute déclaration politique est binaire ; il apprend à examiner les mots, les preuves et le contexte omis. Les récits résument des rapports publics de l’ONU et doivent être actualisés avant chaque lancement."
+  },
+  "ar": {
+   "steps": [
+    {
+     "title": "ابدأ بالإنسان",
+     "body": "اشرح من تأثر منزله أو حركته أو حياته العائلية أو مصدر رزقه. الكرامة تأتي قبل الأرقام."
+    },
+    {
+     "title": "سمِّ السياسة بوضوح",
+     "body": "استخدم مصطلحات دقيقة: احتلال، توسع استيطاني، سحب إقامة، نظام تصاريح، هدم أو إخلاء قسري."
+    },
+    {
+     "title": "اعرض الدليل",
+     "body": "اربط المعلومة بمحكمة أو جهة أممية أو مؤسسة حقوقية. افصل بين النتيجة الموثقة وبين تفسيرك الشخصي."
+    },
+    {
+     "title": "اطلب استجابة عملية",
+     "body": "ادعُ الجمهور إلى القراءة أو مشاركة المصدر أو الاعتراض على اللغة المضللة أو التواصل مع ممثليهم أو دعم تحرك قائم على الحقوق."
+    }
+   ],
+   "sample": "مثال: «هذه ليست مجرد قضية عقارية خاصة. في القدس الشرقية المحتلة، توثّق الأمم المتحدة نمطًا أوسع من الإخلاء القسري والتهجير. هذا هو المصدر، وهذه هي التجربة التي عاشتها العائلات.»",
+   "method": "<strong>ملاحظة منهجية:</strong> تعني «حقيقة» أن العبارة تنقل بدقة نتيجة موثقة في المصدر المرتبط بها. وتعني «Hasbara» أن العبارة تستخدم تقنية معروفة في الدعاية أو العلاقات العامة. لا تفترض اللعبة أن كل خطاب سياسي ثنائي وبسيط، بل تدرب الزائر على فحص الكلمات والأدلة والسياق المحذوف. القصص ملخصات قصيرة لتقارير أممية منشورة ويجب تحديثها قبل كل إطلاق للحملة."
+  }
+ },
+ "thisWeek": {
+  "enabled": false,
+  "asOf": "2026-08-11",
+  "validUntil": "2026-08-17",
+  "type": "hasbara",
+  "copy": {
+   "en": {
+    "statement": "",
+    "explanation": ""
+   }
+  },
+  "source": ""
+ },
+ "messageBank": {
+  "shareText": {
+   "en": "I scored {score}/10 in Fact or Hasbara? A media-literacy experience about Palestine.",
+   "it": "Ho ottenuto {score}/10 in Fact or Hasbara?, un’esperienza di alfabetizzazione mediatica sulla Palestina.",
+   "fr": "J’ai obtenu {score}/10 à Fact or Hasbara?, une expérience d’éducation aux médias sur la Palestine.",
+   "ar": "حصلت على {score}/10 في تجربة Fact or Hasbara? للتربية الإعلامية حول فلسطين."
+  },
+  "goDeeperUrl": "",
+  "actionUrl": "",
+  "actionLabel": {
+   "en": "Take action",
+   "it": "Agisci",
+   "fr": "Agir",
+   "ar": "تحرّك"
+  }
+ },
+ "reward": {
+  "badgeId": "evidence-reader",
+  "badgeStorage": "cp_toolkit_badges",
+  "progressStorage": "cp_toolkit_witnessed",
+  "streakStorage": "foh_streak",
+  "toolkitTotal": 14
+ },
+ "analytics": {
+  "prefix": "foh_",
+  "events": [
+   "tool_start",
+   "language_selected",
+   "question_answered",
+   "source_opened",
+   "story_opened",
+   "share",
+   "cta_opened",
+   "tool_complete"
+  ]
+ }
+}
