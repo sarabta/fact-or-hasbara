@@ -3,6 +3,7 @@ name: Deploy to HostGator VPS
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -20,3 +21,4 @@ jobs:
           REMOTE_USER: ${{ secrets.SSH_USER }}
           TARGET: ${{ secrets.TARGET_PATH }}
           ARGS: "-avz --delete"
+          EXCLUDE: "/.git/, /.github/, /README.md"
