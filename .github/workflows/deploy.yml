@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy via rsync over SSH
+      - name: Deploy Fact or Hasbara via rsync over SSH
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -21,4 +21,21 @@ jobs:
           REMOTE_USER: ${{ secrets.SSH_USER }}
           TARGET: ${{ secrets.TARGET_PATH }}
           ARGS: "-avz --delete"
-          EXCLUDE: "/.git/, /.github/, /README.md"
+          EXCLUDE: "/.git/, /.github/, /README.md, /silenced-online/"
+
+      - name: Compute Silenced Online path (sibling folder)
+        id: so
+        env:
+          TP: ${{ secrets.TARGET_PATH }}
+        run: echo "target=$(dirname "${TP%/}")/silenced-online/" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy Silenced Online via rsync over SSH
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_PORT: ${{ secrets.SSH_PORT }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          SOURCE: "silenced-online/"
+          TARGET: ${{ steps.so.outputs.target }}
+          ARGS: "-avz --delete"
