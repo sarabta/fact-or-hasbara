@@ -21,13 +21,16 @@ jobs:
           REMOTE_USER: ${{ secrets.SSH_USER }}
           TARGET: ${{ secrets.TARGET_PATH }}
           ARGS: "-avz --delete"
-          EXCLUDE: "/.git/, /.github/, /README.md, /silenced-online/"
+          EXCLUDE: "/.git/, /.github/, /README.md, /silenced-online/, /road-access/, /cfc/"
 
-      - name: Compute Silenced Online path (sibling folder)
+      - name: Compute sibling folder paths
         id: so
         env:
           TP: ${{ secrets.TARGET_PATH }}
-        run: echo "target=$(dirname "${TP%/}")/silenced-online/" >> "$GITHUB_OUTPUT"
+        run: |
+          echo "target=$(dirname "${TP%/}")/silenced-online/" >> "$GITHUB_OUTPUT"
+          echo "road=$(dirname "${TP%/}")/road-access/" >> "$GITHUB_OUTPUT"
+          echo "cfc=$(dirname "${TP%/}")/call-for-contributions/" >> "$GITHUB_OUTPUT"
 
       - name: Deploy Silenced Online via rsync over SSH
         uses: easingthemes/ssh-deploy@main
@@ -39,3 +42,38 @@ jobs:
           SOURCE: "silenced-online/"
           TARGET: ${{ steps.so.outputs.target }}
           ARGS: "-avz --delete"
+
+      - name: Prepare Road Access (shared runtime + logo)
+        run: |
+          mkdir -p road-access/assets
+          cp silenced-online/support.js road-access/support.js
+          cp silenced-online/assets/yplus-logo.png road-access/assets/yplus-logo.png
+
+      - name: Deploy Road Access via rsync over SSH
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_PORT: ${{ secrets.SSH_PORT }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          SOURCE: "road-access/"
+          TARGET: ${{ steps.so.outputs.road }}
+          ARGS: "-avz --delete"
+
+      - name: Fetch call for contributions page (public repo)
+        uses: actions/checkout@v4
+        with:
+          repository: sarabta/call-for-contributions
+          path: cfc
+
+      - name: Deploy call for contributions via rsync over SSH
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_PORT: ${{ secrets.SSH_PORT }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          SOURCE: "cfc/"
+          TARGET: ${{ steps.so.outputs.cfc }}
+          ARGS: "-avz --delete"
+          EXCLUDE: "/.git/, /.github/, /README.md"
