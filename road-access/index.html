@@ -319,6 +319,8 @@ LANGS = [['en','EN'],['ar','ع'],['fr','FR'],['it','IT']];
 STEP = { welcome: 0, europe: 1, plan: 2, layers: 3, updates: 4, trip: 5, guess: 6, decisions: 7, end: 8 };
 ROUTES = { tulkarm: ['placeTulkarm', 'placeNablus', 'placeRamallah'], jerusalem: ['placeRamallah', 'placeQalandiya', 'placeJerusalem'], other: ['placeBethlehem', 'placeRamallah', 'placeNablus'] };
 LAYERS = [['gate', 'layerGate', 'layersOne'], ['checkpoint', 'layerCheck', 'layersTwo'], ['settler', 'layerSettler', 'settlerLine'], ['military', 'layerMilitary', 'layersFour'], ['permit', 'layerPermit', 'layersThree']];
+routes() { const d = this.state.data; return (d && d.routes) || this.ROUTES; }
+pn(t, k) { const p = this.state.data && this.state.data.places; return (p && p[k] && p[k][this.state.lang]) || t[k]; }
 PTS = { a: [36, 170], m: [170, 112], b: [304, 46], stop: [272, 66] };
 componentDidMount() {
 this.loadAnalytics();
@@ -383,7 +385,7 @@ const base = { dir: s.lang === 'ar' ? 'rtl' : 'ltr', lang: s.lang, isKiosk, t: t
 langs: this.LANGS.map(([code, label]) => ({ label, active: s.lang === code, bg: s.lang === code ? '#002858' : 'transparent', fg: s.lang === code ? '#fff' : '#5B6578', pick: () => this.setLang(code) })) };
 if (!t) return base;
 const step = this.STEP[s.screen], total = 8, arrow = s.lang === 'ar' ? ' ← ' : ' → ';
-const rk = s.route || 'tulkarm', rp = this.ROUTES[rk].map(k => t[k]);
+const rk = s.route || 'tulkarm', rp = this.routes()[rk].map(k => this.pn(t, k));
 const routeLabel = rp[0] + arrow + rp[2];
 const nOn = this.LAYERS.filter(([k]) => s.layers[k]).length;
 const blocked = this.blocked();
@@ -398,7 +400,7 @@ confirmReset: () => { if (step < 2 || window.confirm(t.confirmReset)) this.resta
 begin: () => { this.track('start'); this.go('europe', { eu: 0, euState: 'idle' }); },
 eu: s.eu, euPct: s.eu + '%', euMin: Math.round(s.eu / 5), euX: 30 + 280 * s.eu / 100, euY: 90 - 60 * Math.pow(s.eu / 100, .8),
 euIdle: s.euState === 'idle', euDriving: s.euState === 'driving', euDone: s.euState === 'done', drive: () => this.drive(), toPlan: () => this.go('plan'),
-routes: Object.keys(this.ROUTES).map(k => { const on = s.route === k, p = this.ROUTES[k].map(x => t[x]); return { label: p[0] + arrow + p[2], on, mark: on ? '✓' : '', dot: on ? '#00807A' : '#C9CFD9', border: on ? '#002858' : '#C9CFD9', bg: on ? '#F0F2F6' : '#fff', pick: () => this.setState({ route: k, permit: null }) }; }),
+routes: Object.keys(this.routes()).map(k => { const on = s.route === k, p = this.routes()[k].map(x => this.pn(t, x)); return { label: p[0] + arrow + p[2], on, mark: on ? '✓' : '', dot: on ? '#00807A' : '#C9CFD9', border: on ? '#002858' : '#C9CFD9', bg: on ? '#F0F2F6' : '#fff', pick: () => this.setState({ route: k, permit: null }) }; }),
 goals: [['work', t.goalWork], ['health', t.goalHealth], ['family', t.goalFamily]].map(([k, label]) => { const on = s.goal === k; return { label, on, bg: on ? '#002858' : '#fff', fg: on ? '#fff' : '#002858', border: on ? '#002858' : '#C9CFD9', pick: () => this.setState({ goal: k }) }; }),
 planNotReady: !(s.route && s.goal), planBg: s.route && s.goal ? '#00B0A8' : '#C9CFD9', toLayers: () => { this.track('route_select'); this.go('layers', { layers: {} }); },
 showMap: is.layers || is.trip, routeLabel, mapA: rp[0].toUpperCase(), mapM: rp[1].toUpperCase(), mapB: rp[2].toUpperCase(),
