@@ -9,344 +9,445 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-html,body{margin:0;padding:0;background:#E9ECF1;font-family:Barlow,system-ui,sans-serif;color:#0F1B33;-webkit-font-smoothing:antialiased}
-html[lang="ar"] body,html[lang="ar"] button,html[lang="ar"] [data-serif]{font-family:"IBM Plex Sans Arabic",Barlow,system-ui,sans-serif !important;letter-spacing:0 !important}
-html[lang="ar"] *{letter-spacing:0 !important;text-transform:none !important}
-html[lang="ar"] [data-latin]{letter-spacing:.14em !important;text-transform:uppercase !important}
-html[lang="ar"] [data-latin-tight]{line-height:1.2 !important}
+:root{--bg:#F6F4EF;--surface:#FFFFFF;--surface2:#F0EEE8;--ink:#0F1F38;--muted:#5A6577;--navy:#002856;--primary:#002856;--onPrimary:#FFFFFF;--action:#00AEAC;--onAction:#002856;--tealInk:#00807E;--soft:#E3F6F5;--line:#E2DED5;--gold:#E2A21A;--goldSoft:#FBF1DA;--red:#C8363D;--badSoft:#FBE7E8;--amber:#B7791F;--warnSoft:#FDF3DF;--ok:#17875E;--okSoft:#E3F3EC;--deep:#002856;--outer:#ECE9E2;--segOn:#002856;--segOnFg:#FFFFFF;--shadow:0 1px 2px rgba(0,40,86,.06),0 10px 30px rgba(0,40,86,.08);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#06152B;--surface:#0C2343;--surface2:#112B50;--ink:#EAF1FA;--muted:#9FB0C8;--navy:#EAF1FA;--primary:#FFFFFF;--onPrimary:#002856;--action:#22C7C4;--onAction:#03201F;--tealInk:#4FD9D6;--soft:#0E3A4A;--line:#1E3A63;--goldSoft:#3A2E12;--red:#FF6B72;--badSoft:#3D1A22;--amber:#F0B44A;--warnSoft:#3A2E12;--ok:#3CC48E;--okSoft:#0F3A2E;--deep:#112B50;--outer:#030C1A;--segOn:#22C7C4;--segOnFg:#03201F;--shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.35);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#06152B;--surface:#0C2343;--surface2:#112B50;--ink:#EAF1FA;--muted:#9FB0C8;--navy:#EAF1FA;--primary:#FFFFFF;--onPrimary:#002856;--action:#22C7C4;--onAction:#03201F;--tealInk:#4FD9D6;--soft:#0E3A4A;--line:#1E3A63;--goldSoft:#3A2E12;--red:#FF6B72;--badSoft:#3D1A22;--amber:#F0B44A;--warnSoft:#3A2E12;--ok:#3CC48E;--okSoft:#0F3A2E;--deep:#112B50;--outer:#030C1A;--segOn:#22C7C4;--segOnFg:#03201F;--shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.35);color-scheme:dark}
+html,body{margin:0;padding:0;background:var(--outer);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:16px;line-height:1.6;color:var(--ink);-webkit-font-smoothing:antialiased}
+html[lang="ar"] body,html[lang="ar"] button{font-family:"IBM Plex Sans Arabic","IBM Plex Sans",system-ui,sans-serif !important}
+html[lang="ar"] *{letter-spacing:0 !important;text-transform:none !important;font-style:normal !important}
+html[lang="ar"] body{font-size:17px;line-height:1.8}
+html[lang="ar"] p,html[lang="ar"] li,html[lang="ar"] [data-rich]{line-height:1.8 !important}
+html[lang="ar"] h1,html[lang="ar"] h2{line-height:1.35 !important}
 button{font-family:inherit;color:inherit}
-a{color:#00807A}a:hover{color:#002858}
-:focus-visible{outline:3px solid #00B0A8;outline-offset:3px}
-@keyframes foh-fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-@keyframes foh-stamp{from{opacity:0;transform:rotate(-10deg) scale(1.5)}to{opacity:1;transform:rotate(-6deg) scale(1)}}
-@keyframes foh-shake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-@keyframes foh-pop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+a{color:var(--tealInk)}a:hover{color:var(--navy)}
+:focus-visible{outline:3px solid var(--action);outline-offset:3px}
+@keyframes foh-fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes foh-stamp{from{opacity:0;transform:rotate(-14deg) scale(1.4)}to{opacity:1;transform:rotate(-8deg) scale(1)}}
+@keyframes foh-sheet{from{transform:translateY(100%)}to{transform:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
 </style>
 </helmet>
-<div dir="{{ dir }}" lang="{{ lang }}" style="min-height:100svh;display:flex;justify-content:center;background:#E9ECF1">
-<div style="width:100%;max-width:560px;min-height:100svh;background:#FAFAF7;display:flex;flex-direction:column;box-shadow:0 0 0 1px #DDE1E8">
+<div dir="{{ dir }}" lang="{{ lang }}" style="min-height:100svh;display:flex;justify-content:center;background:var(--outer)">
+<div style="width:100%;max-width:560px;min-height:100svh;background:var(--bg);display:flex;flex-direction:column;box-shadow:0 0 0 1px var(--line)">
 
-  <header style="position:sticky;top:0;z-index:20;background:rgba(250,250,247,.94);backdrop-filter:blur(10px);border-bottom:1px solid #E3E6EC">
-    <div style="display:flex;align-items:center;gap:12px;padding:10px 16px">
-      <img src="assets/yplus-logo.png" alt="Y+" style="height:26px;width:auto;display:block">
-      <span data-latin style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ brand }}</span>
-      <sc-if value="{{ isKiosk }}" hint-placeholder-val="{{ false }}"><span style="margin-inline-start:auto;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#00807A;border:1px solid #00B0A8;border-radius:4px;padding:3px 7px">{{ t.kiosk }}</span></sc-if>
-      <div role="group" aria-label="Language" style="margin-inline-start:auto;display:flex;gap:2px;background:#E9ECF1;border-radius:6px;padding:2px">
-        <sc-for list="{{ langs }}" as="l" hint-placeholder-count="4">
-          <button type="button" onClick="{{ l.pick }}" aria-pressed="{{ l.active }}" style="min-height:32px;min-width:38px;padding:0 9px;border:0;border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;background:{{ l.bg }};color:{{ l.fg }}" style-hover="color:#002858">{{ l.label }}</button>
-        </sc-for>
-      </div>
-    </div>
-    <sc-if value="{{ inGame }}" hint-placeholder-val="{{ false }}">
-      <div style="padding:8px 16px 10px;border-top:1px solid #E3E6EC;background:#fff">
-        <div style="display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;color:#5B6578">
-          <span style="color:#0F1B33">{{ t.question }} <b>{{ qNum }}</b>/10</span>
-          <span style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:4px;background:#E6F7F6;color:#00807A;font-weight:700">{{ modeChip }}</span>
-          <span style="margin-inline-start:auto">{{ t.scoreLabel }} <b style="color:#0F1B33">{{ score }}</b></span>
-          <button type="button" onClick="{{ confirmReset }}" style="min-height:32px;padding:0 8px;border:0;border-radius:4px;background:transparent;font-size:12px;font-weight:700;color:#5B6578;cursor:pointer;text-decoration:underline;text-underline-offset:3px" style-hover="color:#B8412D">↺ {{ t.startOver }}</button>
-          <sc-if value="{{ timed }}" hint-placeholder-val="{{ false }}"><span aria-live="polite" style="min-width:36px;text-align:center;padding:3px 8px;border-radius:4px;font-weight:800;font-variant-numeric:tabular-nums;background:{{ timerBg }};color:{{ timerFg }}">{{ tleft }}</span></sc-if>
-        </div>
-        <div style="margin-top:8px;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px" aria-hidden="true">
-          <sc-for list="{{ dots }}" as="d" hint-placeholder-count="10"><span style="height:4px;border-radius:2px;background:{{ d.bg }};transition:background .3s"></span></sc-for>
-        </div>
-      </div>
-    </sc-if>
-  </header>
+<header style="position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)">
+<div style="display:flex;align-items:center;gap:10px;padding:10px 16px">
+<sc-if value="{{ isLightLogo }}" hint-placeholder-val="{{ true }}"><img src="assets/yplus-logo.png" alt="YPlus" style="height:26px;width:auto;display:block;flex:none"></sc-if><sc-if value="{{ isDarkLogo }}" hint-placeholder-val="{{ false }}"><img src="assets/yplus-logo.png" alt="YPlus" style="height:26px;width:auto;display:block;flex:none;background:#fff;border-radius:6px;padding:2px 4px"></sc-if>
+<span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">{{ brand }}</span>
+<sc-if value="{{ isKiosk }}" hint-placeholder-val="{{ false }}"><span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--tealInk);border:1px solid var(--action);border-radius:4px;padding:3px 7px">{{ t.kiosk }}</span></sc-if>
+<button type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}" style="margin-inline-start:auto;flex:none;width:44px;height:44px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--navy);font-size:17px;cursor:pointer">{{ themeIcon }}</button>
+<div role="group" aria-label="Language" style="flex:none;display:flex;gap:3px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px">
+<sc-for list="{{ langs }}" as="l" hint-placeholder-count="4">
+<button type="button" onClick="{{ l.pick }}" aria-pressed="{{ l.active }}" style="min-height:36px;min-width:36px;padding:0 8px;border:0;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;background:{{ l.bg }};color:{{ l.fg }}">{{ l.label }}</button>
+</sc-for>
+</div>
+</div>
+<sc-if value="{{ inGame }}" hint-placeholder-val="{{ false }}">
+<div style="padding:8px 16px 10px;border-top:1px solid var(--line);background:var(--surface)">
+<div style="display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;color:var(--muted)">
+<span style="font-family:'IBM Plex Mono',monospace;color:var(--ink)">{{ qNum }} / 10</span>
+<span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;background:var(--goldSoft);color:var(--ink);font-weight:700">{{ modeName }}</span>
+<span style="margin-inline-start:auto">{{ t.scoreLabel }} <b style="font-family:'IBM Plex Mono',monospace;color:var(--ink)">{{ score }}</b></span>
+<sc-if value="{{ timed }}" hint-placeholder-val="{{ false }}"><span role="timer" aria-live="off" style="min-width:40px;text-align:center;padding:2px 8px;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-weight:600;background:{{ timerBg }};color:{{ timerFg }}">{{ tleft }}</span></sc-if>
+<button type="button" onClick="{{ confirmReset }}" style="min-height:36px;padding:0 4px;border:0;background:transparent;font-size:12.5px;font-weight:600;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px">↺ {{ t.startOver }}</button>
+</div>
+<div style="margin-top:8px;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px" aria-hidden="true">
+<sc-for list="{{ dots }}" as="d" hint-placeholder-count="10"><span style="height:4px;border-radius:2px;background:{{ d.bg }};transition:background .3s"></span></sc-for>
+</div>
+</div>
+</sc-if>
+</header>
 
-  <main style="flex:1;display:flex;flex-direction:column">
+<main style="flex:1;display:flex;flex-direction:column">
 
-  <sc-if value="{{ inIntro }}" hint-placeholder-val="{{ true }}">
-    <section data-screen-label="Landing" style="display:flex;flex-direction:column;gap:22px;padding:28px 20px 40px;animation:foh-fade .4s both">
-      <div>
-        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#00807A;margin-bottom:12px">{{ t.eyebrow }}</div>
-        <h1 data-latin-tight style="margin:0;font-size:clamp(46px,13vw,76px);line-height:.92;letter-spacing:-.03em;font-weight:800;color:#002858">{{ t.fact }}<br><span style="display:block;font-size:.42em;font-weight:600;color:#5B6578;line-height:1.6">{{ t.or }}</span><span style="color:#B8412D">Hasbara?</span></h1>
-        <p data-serif style="margin:18px 0 0;font-family:'Source Serif 4',Georgia,serif;font-size:clamp(18px,4.4vw,22px);line-height:1.4;color:#0F1B33;max-width:36ch;text-wrap:pretty">{{ t.lede }}</p>
-      </div>
-      <div style="background:#E6F7F6;border-radius:8px;padding:14px 16px;font-size:14px;line-height:1.55;color:#0F1B33">{{ t.definition }}</div>
-      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
-        <div style="border-radius:12px;padding:16px 14px;background:#002858;color:#fff;display:flex;flex-direction:column;gap:8px;min-height:150px"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:#7FD9D4">{{ t.fact }}</span><span style="font-size:14px;line-height:1.45">{{ t.factDesc }}</span></div>
-        <div style="border-radius:12px;padding:16px 14px;background:#B8412D;color:#fff;display:flex;flex-direction:column;gap:8px;min-height:150px"><span data-latin style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:#FFD7CF">Hasbara</span><span style="font-size:14px;line-height:1.45">{{ t.hasbaraDesc }}</span></div>
-      </div>
-      <div>
-        <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#5B6578;margin-bottom:10px">{{ t.chooseMode }}</div>
-        <div style="display:grid;gap:8px">
-          <sc-for list="{{ modes }}" as="m" hint-placeholder-count="3">
-            <button type="button" onClick="{{ m.pick }}" aria-pressed="{{ m.active }}" style="display:flex;flex-direction:column;gap:3px;text-align:start;min-height:56px;padding:12px 16px;border-radius:8px;cursor:pointer;border:1.5px solid {{ m.border }};background:{{ m.bg }};color:{{ m.fg }}"><span style="font-size:16px;font-weight:800">{{ m.label }}</span><span style="font-size:13px;line-height:1.4;opacity:.85">{{ m.help }}</span></button>
-          </sc-for>
-        </div>
-      </div>
-      <sc-if value="{{ hasStreak }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;font-weight:600;color:#5B6578">{{ t.streak }}: <b style="color:#002858">{{ streak }}</b> {{ t.days }}</div></sc-if>
-      <sc-if value="{{ blocked }}" hint-placeholder-val="{{ false }}"><div role="alert" style="background:#FFF1EE;border:1px solid #F0C4BB;border-radius:8px;padding:14px 16px;font-size:14px;color:#7A2A1C;font-weight:600">{{ t.maintenance }}</div></sc-if>
-      <sc-if value="{{ canStart }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ start }}" style="min-height:56px;border:0;border-radius:8px;background:#00B0A8;color:#002858;font-size:17px;font-weight:800;cursor:pointer" style-hover="background:#00C4BB">{{ t.start }} →</button></sc-if>
-      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#5B6578">{{ t.privacy }}</p>
-    </section>
-  </sc-if>
+<sc-if value="{{ inIntro }}" hint-placeholder-val="{{ true }}">
+<section data-screen-label="01 Landing" style="display:flex;flex-direction:column;gap:22px;padding:28px 20px 40px;animation:foh-fade .3s both">
+<div>
+<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--tealInk);margin-bottom:12px">{{ t.eyebrow }}</div>
+<h1 style="margin:0;font-size:clamp(28px,8vw,44px);line-height:1.1;letter-spacing:-.02em;font-weight:700;color:var(--navy)">{{ t.fact }} {{ t.or }} <span style="text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:5px;text-underline-offset:6px">Hasbara?</span></h1>
+<p style="margin:16px 0 0;font-size:17px;line-height:1.6;color:var(--muted);max-width:40ch;text-wrap:pretty">{{ t.lede }}</p>
+</div>
+<div style="background:var(--soft);border-radius:18px;padding:14px 16px;font-size:14.5px;line-height:1.55">{{ t.definition }}</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+<div style="border-radius:18px;padding:14px;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:6px"><span style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--navy)"><span aria-hidden="true" style="width:24px;height:24px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-size:13px">✓</span>{{ t.fact }}</span><span style="font-size:13.5px;line-height:1.5;color:var(--muted)">{{ t.factDesc }}</span></div>
+<div style="border-radius:18px;padding:14px;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:6px"><span style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--navy)"><span aria-hidden="true" style="width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:13px">✕</span>Hasbara</span><span style="font-size:13.5px;line-height:1.5;color:var(--muted)">{{ t.hasbaraDesc }}</span></div>
+</div>
+<div>
+<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:10px">{{ t.chooseMode }}</div>
+<div role="group" aria-label="{{ t.chooseMode }}" style="display:flex;gap:6px">
+<sc-for list="{{ modes }}" as="m" hint-placeholder-count="3">
+<button type="button" onClick="{{ m.pick }}" aria-pressed="{{ m.active }}" style="flex:1;min-height:48px;padding:8px 6px;border-radius:12px;border:1.5px solid {{ m.border }};background:{{ m.bg }};color:{{ m.fg }};font-size:13.5px;font-weight:700;cursor:pointer;line-height:1.25">{{ m.label }}</button>
+</sc-for>
+</div>
+<p style="margin:10px 0 0;font-size:14px;line-height:1.5;color:var(--muted)">{{ modeHelp }}</p>
+</div>
+<sc-if value="{{ hasStreak }}" hint-placeholder-val="{{ false }}"><div style="font-size:13.5px;font-weight:600;color:var(--muted)">{{ t.streak }}: <b style="font-family:'IBM Plex Mono',monospace;color:var(--ink)">{{ streak }}</b> {{ t.days }}</div></sc-if>
+<sc-if value="{{ blocked }}" hint-placeholder-val="{{ false }}"><div role="alert" style="background:var(--badSoft);border-radius:14px;padding:14px 16px;font-size:14px;color:var(--ink);font-weight:600">{{ t.maintenance }}</div></sc-if>
+<sc-if value="{{ canStart }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ start }}" style="min-height:48px;padding:12px 20px;border:0;border-radius:14px;background:var(--primary);color:var(--onPrimary);font-size:16px;font-weight:700;cursor:pointer">{{ t.start }} →</button></sc-if>
+<p style="margin:0;font-size:12.5px;line-height:1.55;color:var(--muted)">{{ t.privacy }}</p>
+</section>
+</sc-if>
 
-  <sc-if value="{{ inGame }}" hint-placeholder-val="{{ false }}">
-    <section data-screen-label="Question" style="display:flex;flex-direction:column;gap:18px;padding:24px 20px 40px;animation:foh-fade .35s both">
-      <div style="display:flex;align-items:baseline;gap:14px">
-        <span style="font-size:64px;line-height:.9;font-weight:800;letter-spacing:-.04em;color:#00B0A8">{{ qPad }}</span>
-        <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ t.question }} {{ qNum }} · {{ item.techniqueLabel }}</div>
-      </div>
-      <div style="position:relative;background:#fff;border:1px solid #E3E6EC;border-radius:12px;padding:22px 20px 24px;animation:{{ cardAnim }}">
-        <div aria-hidden="true" style="position:absolute;top:-10px;inset-inline-start:16px;font-size:56px;line-height:1;color:#E3E6EC;font-family:'Source Serif 4',Georgia,serif">“</div>
-        <p data-serif style="margin:0;font-family:'Source Serif 4',Georgia,serif;font-size:clamp(20px,5vw,24px);line-height:1.4;color:#0F1B33;text-wrap:pretty">{{ item.statement }}</p>
-        <sc-if value="{{ locked }}" hint-placeholder-val="{{ false }}">
-          <div aria-hidden="true" style="position:absolute;inset:0;display:grid;place-items:center;pointer-events:none"><span style="animation:foh-stamp .4s cubic-bezier(.2,.8,.2,1) both;border:3px solid {{ verdictColor }};color:{{ verdictColor }};border-radius:6px;padding:6px 16px;font-size:18px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;background:rgba(255,255,255,.9)">{{ verdictStamp }}</span></div>
-        </sc-if>
-      </div>
-      <sc-if value="{{ unlocked }}" hint-placeholder-val="{{ true }}">
-        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
-          <button type="button" onClick="{{ answerFact }}" style="min-height:96px;border:0;border-radius:12px;background:#002858;color:#fff;font-size:22px;font-weight:800;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:transform .12s" style-hover="transform:translateY(-3px)"><span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7FD9D4">{{ t.documented }}</span>{{ t.tapFact }}</button>
-          <button type="button" onClick="{{ answerHasbara }}" style="min-height:96px;border:0;border-radius:12px;background:#B8412D;color:#fff;font-size:22px;font-weight:800;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:transform .12s" style-hover="transform:translateY(-3px)"><span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#FFD7CF">{{ t.framing }}</span>{{ t.tapHasbara }}</button>
-        </div>
-        <div style="font-size:12px;color:#5B6578;text-align:center">{{ t.keyHint }}</div>
-      </sc-if>
-      <sc-if value="{{ locked }}" hint-placeholder-val="{{ false }}">
-        <div style="display:flex;flex-direction:column;gap:12px;animation:foh-fade .35s both">
-          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:10px;background:{{ resultBg }};color:#fff">
-            <span aria-hidden="true" style="flex:none;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;font-size:18px;font-weight:800;animation:foh-pop .35s both">{{ resultIcon }}</span>
-            <div><div style="font-size:17px;font-weight:800">{{ resultTitle }}</div><div style="font-size:13px;opacity:.9">{{ t.yourAnswer }}: {{ yourAnswer }} · {{ verdictText }}</div></div>
-          </div>
-          <div style="background:#E6F7F6;border-radius:10px;padding:16px 18px 18px">
-            <div style="display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#00807A;margin-bottom:8px"><span style="width:8px;height:8px;border-radius:50%;background:#00B0A8"></span>{{ item.techniqueLabel }}</div>
-            <p style="margin:0;font-size:15.5px;line-height:1.55;color:#0F1B33;text-wrap:pretty">{{ item.explanation }}</p>
-            <a href="{{ item.sourceUrl }}" target="_blank" rel="noopener" onClick="{{ openSource }}" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;min-height:40px;padding:0 14px;border-radius:6px;background:#fff;border:1.5px solid #00B0A8;font-size:13px;font-weight:700;color:#00807A;text-decoration:none">{{ t.source }} ↗<span style="font-weight:500;color:#5B6578">· {{ item.sourceName }}</span></a>
-          </div>
-          <button type="button" onClick="{{ next }}" style="min-height:56px;border:0;border-radius:8px;background:#00B0A8;color:#002858;font-size:17px;font-weight:800;cursor:pointer" style-hover="background:#00C4BB">{{ nextLabel }}</button>
-        </div>
-      </sc-if>
-    </section>
-  </sc-if>
+<sc-if value="{{ inGame }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="02 Round" style="display:flex;flex-direction:column;gap:12px;padding:20px 20px 36px;animation:foh-fade .25s both">
+<div style="position:relative;padding:20px 20px 26px;border-radius:18px;background:#002856;color:#fff;overflow:hidden;box-shadow:var(--shadow)">
+<div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline"><span style="font-size:11px;font-weight:700;color:#E2A21A;text-transform:uppercase;letter-spacing:.06em">{{ techLine }}</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8C4D8">{{ qPad }} / 10</span></div>
+<p data-rich onClick="{{ onGloss }}" style="margin:10px 0 0;font-size:19px;font-weight:600;line-height:1.45;text-wrap:pretty">{{ statementRich }}</p>
+<sc-if value="{{ locked }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position:absolute;inset-inline-end:14px;bottom:10px;border:3px solid currentColor;border-radius:8px;padding:2px 10px;font-weight:700;font-size:15px;text-transform:uppercase;color:{{ stampColor }};animation:foh-stamp .25s ease-out both;transform:rotate(-8deg)">{{ stampText }}</span></sc-if>
+</div>
+<sc-if value="{{ hasTerms }}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:12.5px;color:var(--muted)">ⓘ {{ v.termsHint }}</p></sc-if>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<sc-for list="{{ vote }}" as="b" hint-placeholder-count="2">
+<button type="button" onClick="{{ b.pick }}" disabled="{{ locked }}" aria-pressed="{{ b.picked }}" style="min-height:56px;border-radius:14px;border:2px solid {{ b.border }};background:{{ b.bg }};color:var(--ink);font-weight:700;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:border-color .15s,background .15s"><span aria-hidden="true">{{ b.icon }}</span>{{ b.label }}</button>
+</sc-for>
+</div>
+<sc-if value="{{ unlocked }}" hint-placeholder-val="{{ true }}"><div style="font-size:12px;color:var(--muted);text-align:center">{{ t.keyHint }}</div></sc-if>
+<sc-if value="{{ locked }}" hint-placeholder-val="{{ false }}">
+<div role="status" aria-live="polite" style="display:grid;gap:10px;animation:foh-fade .25s both">
+<div style="display:flex;gap:10px;align-items:center;font-weight:700;font-size:16px;color:var(--ink)"><span aria-hidden="true" style="width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:#fff;flex:none;background:{{ verdictBg }}">{{ verdictIcon }}</span>{{ verdictLine }}</div>
+<div style="border-radius:12px;padding:12px 14px;background:var(--surface2)"><div style="margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--muted)">{{ v.why }}</div><div data-rich onClick="{{ onGloss }}" style="font-size:15px;line-height:1.6">{{ whyRich }}</div></div>
+<sc-if value="{{ hasTerms }}" hint-placeholder-val="{{ false }}">
+<div style="border-radius:12px;padding:12px 14px;background:var(--surface2)">
+<div style="margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--muted)">{{ v.terms }}</div>
+<div style="display:grid;gap:8px">
+<sc-for list="{{ terms }}" as="g" hint-placeholder-count="2"><div style="display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:14px;line-height:1.5"><b style="background:var(--goldSoft);border-radius:8px;padding:0 8px;height:fit-content;white-space:nowrap">{{ g.term }}</b><span>{{ g.def }}</span></div></sc-for>
+</div>
+<sc-if value="{{ showLand }}" hint-placeholder-val="{{ false }}">
+<p style="margin:12px 0 0;font-size:12px;color:var(--muted)">{{ v.landCaption }}</p>
+<div role="img" aria-label="{{ landAria }}" style="display:flex;height:28px;border-radius:8px;overflow:hidden;font-size:11px;font-weight:700;margin-top:6px">
+<sc-for list="{{ land }}" as="a" hint-placeholder-count="3"><span style="flex:{{ a.n }};display:grid;place-items:center;white-space:nowrap;overflow:hidden;background:{{ a.bg }};color:{{ a.fg }}">{{ a.label }}</span></sc-for>
+</div>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{ hasMore }}" hint-placeholder-val="{{ false }}">
+<div style="border:1px solid var(--line);border-radius:12px;background:var(--surface2)">
+<button type="button" onClick="{{ toggleMore }}" aria-expanded="{{ moreOpen }}" style="width:100%;display:flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:0;background:transparent;text-align:start;font-size:14px;font-weight:700;color:var(--navy);cursor:pointer"><span aria-hidden="true" style="flex:none;width:20px;height:20px;border-radius:50%;background:var(--gold);color:#002856;display:grid;place-items:center;font-size:14px;line-height:1">{{ moreSign }}</span>{{ v.more }}</button>
+<sc-if value="{{ moreOpen }}" hint-placeholder-val="{{ false }}"><p data-rich onClick="{{ onGloss }}" style="margin:0;padding:0 14px 12px;font-size:14px;line-height:1.6;color:var(--muted)">{{ moreRich }}</p></sc-if>
+</div>
+</sc-if>
+<p style="margin:0;font-size:12.5px;color:var(--muted)">↗ {{ v.source }}: <a href="{{ item.sourceUrl }}" target="_blank" rel="noopener" onClick="{{ openSource }}" style="font-weight:600">{{ item.sourceName }}</a></p>
+<button type="button" onClick="{{ next }}" style="min-height:48px;padding:12px 20px;border:0;border-radius:14px;background:var(--primary);color:var(--onPrimary);font-size:16px;font-weight:700;cursor:pointer">{{ nextLabel }} {{ fwd }}</button>
+</div>
+</sc-if>
+</section>
+</sc-if>
 
-  <sc-if value="{{ inEnd }}" hint-placeholder-val="{{ false }}">
-    <section data-screen-label="Result" style="display:flex;flex-direction:column;gap:28px;padding:28px 20px 48px;animation:foh-fade .4s both">
-      <div>
-        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#00807A;margin-bottom:10px">{{ t.result }}</div>
-        <div style="display:flex;align-items:baseline;gap:10px"><span style="font-size:96px;line-height:.9;font-weight:800;letter-spacing:-.04em;color:#002858">{{ score }}</span><span style="font-size:22px;font-weight:700;color:#5B6578">{{ t.ofTen }}</span></div>
-        <h2 style="margin:14px 0 0;font-size:clamp(30px,8vw,40px);line-height:1;font-weight:800;color:#002858;letter-spacing:-.02em">{{ rank.title }}</h2>
-        <p data-serif style="margin:12px 0 0;font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.45;color:#0F1B33;text-wrap:pretty">{{ rank.msg }}</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px">
-        <sc-for list="{{ review }}" as="r" hint-placeholder-count="10"><button type="button" onClick="{{ r.pick }}" aria-label="{{ t.question }} {{ r.n }}" style="aspect-ratio:1;border-radius:6px;border:0;background:{{ r.bg }};color:#fff;font-size:12px;font-weight:800;cursor:pointer">{{ r.n }}</button></sc-for>
-      </div>
-      <sc-if value="{{ hasReview }}" hint-placeholder-val="{{ false }}">
-        <div style="background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:14px 16px;animation:foh-fade .25s both">
-          <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:{{ reviewItem.color }}">{{ reviewItem.verdict }} · {{ reviewItem.techniqueLabel }}</div>
-          <p data-serif style="margin:6px 0 8px;font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.4;color:#0F1B33">{{ reviewItem.statement }}</p>
-          <p style="margin:0;font-size:14px;line-height:1.5;color:#5B6578">{{ reviewItem.explanation }}</p>
-          <a href="{{ reviewItem.sourceUrl }}" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font-size:13px;font-weight:700">{{ t.source }} ↗</a>
-        </div>
-      </sc-if>
-      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
-        <div style="background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:14px"><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ t.best }}</div><div style="margin-top:6px;font-size:17px;font-weight:800;color:#002858">{{ bestStreak }}</div></div>
-        <div style="background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:14px"><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ t.avg }}</div><div style="margin-top:6px;font-size:17px;font-weight:800;color:#002858">{{ avgTime }}</div></div>
-      </div>
+<sc-if value="{{ inEnd }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="03 Summary" style="display:flex;flex-direction:column;gap:24px;padding:28px 20px 44px;animation:foh-fade .3s both">
+<div>
+<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--tealInk);margin-bottom:10px">{{ t.result }}</div>
+<div style="display:flex;align-items:baseline;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:72px;line-height:.9;font-weight:600;color:var(--navy)">{{ score }}</span><span style="font-size:20px;font-weight:600;color:var(--muted)">{{ t.ofTen }}</span></div>
+<h2 style="margin:14px 0 0;font-size:clamp(28px,8vw,40px);line-height:1.1;font-weight:700;color:var(--navy);letter-spacing:-.02em">{{ rank.title }}</h2>
+<p style="margin:10px 0 0;font-size:17px;line-height:1.55;text-wrap:pretty">{{ rank.msg }}</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px">
+<sc-for list="{{ review }}" as="r" hint-placeholder-count="10"><button type="button" onClick="{{ r.pick }}" aria-label="{{ r.aria }}" aria-pressed="{{ r.on }}" style="aspect-ratio:1;min-height:30px;border-radius:8px;border:2px solid {{ r.ring }};background:{{ r.bg }};color:#fff;font-size:11px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1"><span aria-hidden="true">{{ r.icon }}</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px">{{ r.n }}</span></button></sc-for>
+</div>
+<sc-if value="{{ hasReview }}" hint-placeholder-val="{{ false }}">
+<div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px 16px;animation:foh-fade .2s both">
+<div style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:{{ reviewItem.color }}">{{ reviewItem.icon }} {{ reviewItem.verdict }} · {{ reviewItem.label }}</div>
+<p data-rich onClick="{{ onGloss }}" style="margin:6px 0 8px;font-size:16px;font-weight:600;line-height:1.45">{{ reviewItem.statementRich }}</p>
+<p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">{{ reviewItem.why }}</p>
+<a href="{{ reviewItem.sourceUrl }}" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font-size:13px;font-weight:600">{{ v.source }}: {{ reviewItem.sourceName }} ↗</a>
+</div>
+</sc-if>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+<div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px"><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--muted)">{{ t.best }}</div><div style="margin-top:6px;font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:var(--navy)">{{ bestStreak }}</div></div>
+<div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px"><div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--muted)">{{ t.avg }}</div><div style="margin-top:6px;font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:var(--navy)">{{ avgTime }}</div></div>
+</div>
+<button type="button" onClick="{{ toRemember }}" style="min-height:48px;padding:12px 20px;border:0;border-radius:14px;background:var(--primary);color:var(--onPrimary);font-size:16px;font-weight:700;cursor:pointer">{{ v.remember.cta }} {{ fwd }}</button>
+<div>
+<h3 style="margin:0 0 6px;font-size:21px;font-weight:700;color:var(--navy)">{{ t.techniquesTitle }}</h3>
+<p style="margin:0 0 12px;font-size:15px;line-height:1.5;color:var(--muted)">{{ t.techniquesIntro }}</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ techniques }}" as="k" hint-placeholder-count="4"><span style="display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;border-radius:999px;font-size:13px;font-weight:700;border:1.5px solid {{ k.border }};background:{{ k.bg }};color:var(--ink)"><span aria-hidden="true">{{ k.icon }}</span>{{ k.name }}<span style="font-size:11.5px;font-weight:600;color:var(--muted)">{{ k.status }}</span></span></sc-for>
+</div>
+</div>
+<sc-if value="{{ hasRoundTerms }}" hint-placeholder-val="{{ false }}">
+<div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px">
+<h3 style="margin:0 0 10px;font-size:17px;font-weight:700;color:var(--navy)">{{ v.roundTerms }}</h3>
+<div style="display:grid;gap:10px">
+<sc-for list="{{ roundTerms }}" as="g" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:14px;line-height:1.5"><b style="background:var(--goldSoft);border-radius:8px;padding:0 8px;height:fit-content;white-space:nowrap">{{ g.term }}</b><span>{{ g.def }}</span></div></sc-for>
+</div>
+</div>
+</sc-if>
+<div style="display:flex;align-items:center;gap:14px;background:#002856;border-radius:18px;padding:16px 18px;color:#fff">
+<svg width="48" height="48" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none" stroke="#E2A21A" stroke-width="3"></circle><path d="M16 27l7 7 14-15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<div><div style="font-size:17px;font-weight:700;line-height:1.15">{{ t.badgeTitle }}</div><div style="margin-top:4px;font-size:12.5px;color:#B8C4D8">{{ t.badgeSub }}</div></div>
+</div>
+<div>
+<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--tealInk);margin-bottom:6px">{{ t.beyondScore }}</div>
+<h3 style="margin:0 0 8px;font-size:21px;font-weight:700;color:var(--navy)">{{ t.realStoriesTitle }}</h3>
+<p style="margin:0 0 14px;font-size:15px;line-height:1.5;color:var(--muted)">{{ t.realStoriesIntro }}</p>
+<div style="display:grid;gap:10px">
+<sc-for list="{{ stories }}" as="s" hint-placeholder-count="3">
+<a href="{{ s.url }}" target="_blank" rel="noopener" onClick="{{ s.open }}" style="display:block;text-decoration:none;color:inherit;background:var(--soft);border-radius:18px;padding:16px 18px">
+<div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--tealInk)">{{ s.place }}</div>
+<div style="margin-top:6px;font-size:17px;font-weight:700;color:var(--navy);line-height:1.25">{{ s.title }}</div>
+<p style="margin:6px 0 10px;font-size:14.5px;line-height:1.5">{{ s.body }}</p>
+<span style="font-size:13px;font-weight:600;color:var(--tealInk);text-decoration:underline;text-underline-offset:3px">{{ v.source }} ↗</span>
+</a>
+</sc-for>
+</div>
+</div>
+<div>
+<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--tealInk);margin-bottom:6px">{{ t.fromAwareness }}</div>
+<h3 style="margin:0 0 8px;font-size:21px;font-weight:700;color:var(--navy)">{{ t.talkTitle }}</h3>
+<p style="margin:0 0 14px;font-size:15px;line-height:1.5;color:var(--muted)">{{ t.talkIntro }}</p>
+<ol style="margin:0;padding:0;list-style:none;display:grid;gap:8px">
+<sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+<li style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:14px"><span style="flex:none;width:26px;height:26px;border-radius:50%;background:var(--primary);color:var(--onPrimary);font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;display:grid;place-items:center">{{ s.n }}</span><div><div style="font-size:15px;font-weight:700;color:var(--navy)">{{ s.title }}</div><div style="margin-top:3px;font-size:14px;line-height:1.5">{{ s.body }}</div></div></li>
+</sc-for>
+</ol>
+<p style="margin:12px 0 0;padding:12px 14px;border-radius:12px;background:var(--surface2);font-size:14.5px;line-height:1.55">{{ sample }}</p>
+</div>
+<div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px">
+<h3 style="margin:0 0 8px;font-size:17px;font-weight:700;color:var(--navy)">{{ t.sources }}</h3>
+<p style="margin:0 0 10px;font-size:13.5px;line-height:1.5;color:var(--muted)">{{ t.sourcesIntro }}</p>
+<ul style="margin:0 0 10px;padding:0;list-style:none;display:grid;gap:8px">
+<sc-for list="{{ sourceList }}" as="s" hint-placeholder-count="6"><li style="font-size:14px;line-height:1.5"><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a></li></sc-for>
+</ul>
+<p data-rich style="margin:0;font-size:12.5px;line-height:1.55;color:var(--muted)">{{ methodRich }}</p>
+</div>
+<div style="display:grid;gap:10px">
+<sc-if value="{{ hasDeeper }}" hint-placeholder-val="{{ false }}"><a href="{{ deeperUrl }}" onClick="{{ ctaDeeper }}" style="min-height:48px;display:flex;align-items:center;justify-content:center;border-radius:14px;border:1.5px solid var(--line);color:var(--ink);font-size:16px;font-weight:700;text-decoration:none">{{ t.goDeeper }} {{ fwd }}</a></sc-if>
+<sc-if value="{{ hasAction }}" hint-placeholder-val="{{ false }}"><a href="{{ actionUrl }}" target="_blank" rel="noopener" onClick="{{ ctaAction }}" style="min-height:48px;display:flex;align-items:center;justify-content:center;border-radius:14px;border:1.5px solid var(--line);color:var(--ink);font-size:16px;font-weight:700;text-decoration:none">{{ actionLabel }} ↗</a></sc-if>
+<button type="button" onClick="{{ toRemember }}" style="min-height:48px;padding:12px 20px;border:0;border-radius:14px;background:var(--primary);color:var(--onPrimary);font-size:16px;font-weight:700;cursor:pointer">{{ v.remember.cta }} {{ fwd }}</button>
+</div>
+</section>
+</sc-if>
 
-      <div>
-        <h3 style="margin:0 0 6px;font-size:22px;font-weight:800;color:#002858;letter-spacing:-.01em">{{ t.techniquesTitle }}</h3>
-        <p style="margin:0 0 12px;font-size:15px;line-height:1.5;color:#5B6578">{{ t.techniquesIntro }}</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <sc-for list="{{ techniques }}" as="k" hint-placeholder-count="4"><span style="display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;border-radius:999px;font-size:13px;font-weight:700;border:1.5px solid {{ k.border }};background:{{ k.bg }};color:{{ k.fg }}">{{ k.name }}<span style="font-size:11px;font-weight:600;opacity:.8">{{ k.status }}</span></span></sc-for>
-        </div>
-      </div>
+<sc-if value="{{ inRemember }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="04 What to remember" style="display:flex;flex-direction:column;gap:20px;padding:30px 20px 44px;animation:foh-fade .3s both">
+<div><div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--tealInk)">Fact or Hasbara?</div><h2 style="margin:6px 0 0;font-size:22px;line-height:1.3;font-weight:700;color:var(--navy)">{{ v.remember.title }}</h2></div>
+<ol style="margin:0;padding:0;list-style:none;display:grid;gap:12px">
+<sc-for list="{{ remItems }}" as="r" hint-placeholder-count="4">
+<li style="display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start"><span aria-hidden="true" style="width:28px;height:28px;border-radius:50%;background:var(--gold);color:#002856;display:grid;place-items:center;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700">{{ r.n }}</span><span style="font-size:15px;line-height:1.55;padding-top:2px">{{ r.text }}</span></li>
+</sc-for>
+</ol>
+<div style="background:#002856;color:#fff;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+<div><b style="display:block;color:#22C7C4;font-size:15px;margin-bottom:2px">{{ v.remember.doTitle }}</b><span style="font-size:15px;line-height:1.55">{{ v.remember.doText }}</span></div>
+<sc-if value="{{ isOnline }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ playDaily }}" style="align-self:flex-start;min-height:44px;padding:8px 14px;border:0;border-radius:12px;background:#FFFFFF;color:#002856;font-size:14px;font-weight:700;cursor:pointer">{{ v.remember.daily }} {{ fwd }}</button></sc-if>
+</div>
+<div style="display:grid;gap:10px">
+<sc-if value="{{ isOnline }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ share }}" style="min-height:48px;padding:12px 20px;border:0;border-radius:14px;background:var(--action);color:var(--onAction);font-size:16px;font-weight:700;cursor:pointer">{{ v.remember.share }}</button></sc-if>
+<button type="button" onClick="{{ again }}" style="min-height:48px;padding:12px 20px;border:1.5px solid var(--line);border-radius:14px;background:transparent;color:var(--ink);font-size:16px;font-weight:700;cursor:pointer">↺ {{ v.remember.again }}</button>
+<button type="button" onClick="{{ toSummary }}" style="min-height:48px;border:0;background:transparent;color:var(--muted);font-size:15px;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px">{{ back }} {{ v.remember.back }}</button>
+</div>
+</section>
+</sc-if>
+</main>
 
-      <div style="display:flex;align-items:center;gap:14px;background:#002858;border-radius:12px;padding:16px 18px;color:#fff">
-        <svg width="52" height="52" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none" stroke="#00B0A8" stroke-width="3"/><path d="M16 27l7 7 14-15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div><div style="font-size:18px;font-weight:800;line-height:1.1">{{ t.badgeTitle }}</div><div style="margin-top:4px;font-size:12.5px;color:#B8C4D8">{{ t.badgeSub }}</div><div style="margin-top:2px;font-size:12.5px;color:#7FD9D4;font-weight:600">{{ t.progress }}</div></div>
-      </div>
+<footer style="margin-top:auto;background:#002856;color:#fff;padding:24px 20px 28px;display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;align-items:center;gap:12px"><img src="assets/yplus-logo.png" alt="YPlus" style="height:28px;width:auto;display:block;background:#fff;border-radius:6px;padding:3px 5px"><span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#B8C4D8">Awareness → Understanding → Action</span></div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#7FE0DE">{{ t.follow }}</span>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+<sc-for list="{{ social }}" as="s" hint-placeholder-count="4">
+<a href="{{ s.url }}" target="_blank" rel="noopener" style="min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;font-size:13px;font-weight:600;color:#fff;text-decoration:none;white-space:nowrap" style-hover="background:#fff;color:#002856">{{ s.name }}</a>
+</sc-for>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.15);padding-top:16px">
+<div style="font-size:14px;font-weight:500">{{ t.story }} <a href="{{ contact.story }}" target="_blank" rel="noopener" style="color:#7FE0DE;font-weight:700;text-decoration:underline;text-underline-offset:3px">{{ t.shareIt }} ↗</a></div>
+<div style="display:flex;gap:14px;font-size:13px"><a href="{{ contact.contact }}" target="_blank" rel="noopener" style="color:#fff;font-weight:600">{{ t.contact }}</a><a href="{{ contact.site }}" target="_blank" rel="noopener" style="color:#B8C4D8;font-weight:600">yplus.ps</a></div>
+</div>
+</footer>
 
-      <div>
-        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#00807A;margin-bottom:6px">{{ t.beyondScore }}</div>
-        <h3 style="margin:0 0 8px;font-size:22px;font-weight:800;color:#002858;letter-spacing:-.01em">{{ t.realStoriesTitle }}</h3>
-        <p style="margin:0 0 14px;font-size:15px;line-height:1.5;color:#5B6578">{{ t.realStoriesIntro }}</p>
-        <div style="display:grid;gap:10px">
-          <sc-for list="{{ stories }}" as="s" hint-placeholder-count="3">
-            <a href="{{ s.url }}" target="_blank" rel="noopener" onClick="{{ s.open }}" style="display:block;text-decoration:none;color:inherit;background:#E6F7F6;border-radius:10px;padding:16px 18px" style-hover="background:#D6F1EF">
-              <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#00807A">{{ s.place }}</div>
-              <div style="margin-top:6px;font-size:17px;font-weight:800;color:#002858;line-height:1.2">{{ s.title }}</div>
-              <p style="margin:6px 0 10px;font-size:14.5px;line-height:1.5;color:#0F1B33">{{ s.body }}</p>
-              <span style="font-size:13px;font-weight:700;color:#00807A;text-decoration:underline;text-underline-offset:3px">{{ t.source }} ↗</span>
-            </a>
-          </sc-for>
-        </div>
-      </div>
+<sc-if value="{{ hasGloss }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:60;display:flex;justify-content:center;align-items:flex-end">
+<div onClick="{{ closeGloss }}" style="position:absolute;inset:0;background:rgba(0,20,45,.35)"></div>
+<div role="dialog" aria-modal="true" aria-labelledby="foh-gl-title" style="position:relative;width:100%;max-width:560px;background:var(--surface);color:var(--ink);border-radius:22px 22px 0 0;border-top:1px solid var(--line);padding:18px 18px 24px;box-shadow:0 -12px 40px -12px rgba(0,0,0,.35);animation:foh-sheet .22s ease-out both">
+<div aria-hidden="true" style="width:40px;height:4px;border-radius:9px;background:var(--line);margin:0 auto 12px"></div>
+<h3 id="foh-gl-title" style="margin:0 0 8px;font-size:19px;font-weight:700;color:var(--navy)">{{ gloss.term }}</h3>
+<p style="margin:0 0 14px;font-size:15.5px;line-height:1.6">{{ gloss.def }}</p>
+<button type="button" onClick="{{ closeGloss }}" ref="{{ glossCloseRef }}" style="min-height:44px;padding:8px 16px;border:1.5px solid var(--line);border-radius:12px;background:transparent;font-size:14px;font-weight:700;color:var(--ink);cursor:pointer">{{ v.close }}</button>
+</div>
+</div>
+</sc-if>
 
-      <div>
-        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#00807A;margin-bottom:6px">{{ t.fromAwareness }}</div>
-        <h3 style="margin:0 0 8px;font-size:22px;font-weight:800;color:#002858;letter-spacing:-.01em">{{ t.talkTitle }}</h3>
-        <p style="margin:0 0 14px;font-size:15px;line-height:1.5;color:#5B6578">{{ t.talkIntro }}</p>
-        <ol style="margin:0;padding:0;list-style:none;display:grid;gap:8px">
-          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
-            <li style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:#fff;border:1px solid #E3E6EC;border-radius:8px"><span style="flex:none;width:26px;height:26px;border-radius:50%;background:#002858;color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center">{{ s.n }}</span><div><div style="font-size:15px;font-weight:800;color:#002858">{{ s.title }}</div><div style="margin-top:3px;font-size:14px;line-height:1.5;color:#0F1B33">{{ s.body }}</div></div></li>
-          </sc-for>
-        </ol>
-        <p data-serif style="margin:12px 0 0;padding:14px 16px;border-inline-start:3px solid #00B0A8;background:#fff;font-family:'Source Serif 4',Georgia,serif;font-size:15px;line-height:1.5;color:#0F1B33">{{ sample }}</p>
-      </div>
-
-      <div style="background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:16px 18px">
-        <h3 style="margin:0 0 8px;font-size:18px;font-weight:800;color:#002858">{{ t.sources }}</h3>
-        <p style="margin:0 0 10px;font-size:13.5px;line-height:1.5;color:#5B6578">{{ t.sourcesIntro }}</p>
-        <ul style="margin:0 0 10px;padding:0;list-style:none;display:grid;gap:8px">
-          <sc-for list="{{ sourceList }}" as="s" hint-placeholder-count="6"><li style="font-size:14px;line-height:1.5"><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a></li></sc-for>
-        </ul>
-        <p style="margin:0;font-size:12.5px;line-height:1.55;color:#5B6578">{{ methodRich }}</p>
-      </div>
-
-      <div style="display:grid;gap:10px">
-        <button type="button" onClick="{{ share }}" style="min-height:56px;border:0;border-radius:8px;background:#002858;color:#fff;font-size:17px;font-weight:800;cursor:pointer" style-hover="background:#0B3A78">{{ t.share }}</button>
-        <sc-if value="{{ hasDeeper }}" hint-placeholder-val="{{ false }}"><a href="{{ deeperUrl }}" onClick="{{ ctaDeeper }}" style="min-height:56px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:#00B0A8;color:#002858;font-size:17px;font-weight:800;text-decoration:none">{{ t.goDeeper }} →</a></sc-if>
-        <sc-if value="{{ hasAction }}" hint-placeholder-val="{{ false }}"><a href="{{ actionUrl }}" target="_blank" rel="noopener" onClick="{{ ctaAction }}" style="min-height:56px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1.5px solid #002858;color:#002858;font-size:17px;font-weight:800;text-decoration:none">{{ actionLabel }} ↗</a></sc-if>
-        <button type="button" onClick="{{ again }}" style="min-height:56px;border:1.5px solid #002858;border-radius:8px;background:transparent;color:#002858;font-size:17px;font-weight:800;cursor:pointer" style-hover="background:#F0F2F6">{{ againLabel }}</button>
-        <button type="button" onClick="{{ reset }}" style="min-height:44px;border:0;background:transparent;color:#5B6578;font-size:14px;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px">↺ {{ t.backHome }}</button>
-      </div>
-    </section>
-  </sc-if>
-  </main>
-
-  <footer style="margin-top:auto;background:#002858;color:#fff;padding:24px 20px 28px;display:flex;flex-direction:column;gap:18px">
-    <div style="display:flex;align-items:center;gap:12px"><img src="assets/yplus-logo.png" alt="Y+" style="height:28px;width:auto;background:#fff;border-radius:4px;padding:3px 5px"><span data-latin style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B8C4D8">Awareness → Understanding → Action</span></div>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#7FD9D4">{{ t.follow }}</span>
-      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
-        <sc-for list="{{ social }}" as="s" hint-placeholder-count="4">
-          <a href="{{ s.url }}" target="_blank" rel="noopener" style="min-height:40px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;font-size:13px;font-weight:700;color:#fff;text-decoration:none;white-space:nowrap" style-hover="background:#fff;color:#002858">{{ s.name }}</a>
-        </sc-for>
-      </div>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.15);padding-top:16px">
-      <div style="font-size:14px;font-weight:600">{{ t.story }} <a href="{{ contact.story }}" target="_blank" rel="noopener" style="color:#7FD9D4;font-weight:800;text-decoration:underline;text-underline-offset:3px">{{ t.shareIt }} ↗</a></div>
-      <div style="display:flex;gap:14px;font-size:13px"><a href="{{ contact.contact }}" target="_blank" rel="noopener" style="color:#fff;font-weight:600">{{ t.contact }}</a><a href="{{ contact.site }}" target="_blank" rel="noopener" style="color:#B8C4D8;font-weight:600">yplus.ps</a></div>
-    </div>
-  </footer>
-
-  <sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
-    <div role="status" aria-live="polite" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#002858;color:#fff;padding:10px 16px;border-radius:6px;font-size:14px;font-weight:600;box-shadow:0 10px 30px -10px rgba(0,0,0,.4);z-index:50">{{ toast }}</div>
-  </sc-if>
+<sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
+<div role="status" aria-live="polite" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#002856;color:#fff;padding:10px 16px;border-radius:14px;font-size:14px;font-weight:600;box-shadow:0 10px 30px -10px rgba(0,0,0,.4);z-index:70">{{ toast }}</div>
+</sc-if>
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;mode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;online&quot;,&quot;kiosk&quot;],&quot;default&quot;:&quot;online&quot;,&quot;tsType&quot;:&quot;'online'|'kiosk'&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;it&quot;,&quot;fr&quot;,&quot;ar&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;defaultDeck&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;fresh&quot;,&quot;daily&quot;],&quot;default&quot;:&quot;fresh&quot;,&quot;tsType&quot;:&quot;'fresh'|'daily'&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;kioskIdleSeconds&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:180,&quot;min&quot;:30,&quot;max&quot;:900,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;gaId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;G-NMEYZ7ZWB5&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Analytics&quot;},&quot;siteUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Deployment&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;mode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;online&quot;,&quot;kiosk&quot;],&quot;default&quot;:&quot;online&quot;,&quot;tsType&quot;:&quot;'online'|'kiosk'&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;ar&quot;,&quot;fr&quot;,&quot;it&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;defaultDeck&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;fresh&quot;,&quot;daily&quot;],&quot;default&quot;:&quot;fresh&quot;,&quot;tsType&quot;:&quot;'fresh'|'daily'&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;kioskIdleSeconds&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:180,&quot;min&quot;:30,&quot;max&quot;:900,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;siteUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://yplus.ps/FactorHasbara/&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;gaId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;G-NMEYZ7ZWB5&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Analytics&quot;}}">
 class Component extends DCLogic {
-  state = { data: null, lang: 'en', screen: 'intro', mode: 'learn', deckType: 'fresh', deck: [], idx: 0, answers: [], locked: false, tleft: 22, times: [], qStart: 0, toast: '', reviewIdx: -1, streak: 0 };
-  LANGS = [['en','EN'],['it','IT'],['fr','FR'],['ar','ع']];
-  componentDidMount() {
-    this.loadAnalytics();
-    fetch(this.props.dataUrl || 'fact-or-hasbara-data.json', { cache: 'no-store' }).then(r => r.json()).then(data => {
-      const q = new URLSearchParams(location.search);
-      let saved = null; try { saved = this.mode() === 'kiosk' ? null : localStorage.getItem('foh_lang'); } catch (e) {}
-      const lang = [q.get('lang'), this.props.defaultLang, saved].find(l => l && data.ui[l]) || 'en';
-      const deckType = q.get('deck') === 'daily' || this.props.defaultDeck === 'daily' ? 'daily' : 'fresh';
-      let streak = 0; try { const s = JSON.parse(localStorage.getItem(data.reward.streakStorage) || 'null'); if (s && this.mode() !== 'kiosk') { const d = (Date.parse(this.today()) - Date.parse(s.last)) / 864e5; streak = d <= 1 ? s.count : 0; } } catch (e) {}
-      this.setState({ data, lang, deckType, streak }, this.applyLang);
-    });
-    this.idle = () => { clearTimeout(this.idleTimer); if (this.mode() !== 'kiosk') return; this.idleTimer = setTimeout(() => { if (this.state.screen !== 'intro') this.reset(); }, (this.props.kioskIdleSeconds ?? 180) * 1000); };
-    ['click', 'touchstart', 'keydown'].forEach(e => window.addEventListener(e, this.idle, { passive: true })); this.idle();
-    this.onKey = e => { if (this.state.screen !== 'game') return; const k = e.key.toLowerCase(); if (!this.state.locked && (k === 'f' || k === '1')) this.answer('fact'); if (!this.state.locked && (k === 'h' || k === '2')) this.answer('hasbara'); if (this.state.locked && k === 'enter') this.next(); };
-    window.addEventListener('keydown', this.onKey);
-  }
-  componentWillUnmount() { clearTimeout(this.idleTimer); clearInterval(this.timer); window.removeEventListener('keydown', this.onKey); ['click', 'touchstart', 'keydown'].forEach(e => window.removeEventListener(e, this.idle)); }
-  mode() { return this.props.mode ?? (new URLSearchParams(location.search).get('mode') === 'kiosk' ? 'kiosk' : 'online'); }
-  today() { return new Date().toISOString().slice(0, 10); }
-  t() { return this.state.data ? this.state.data.ui[this.state.lang] : null; }
-  loadAnalytics() {
-    if (document.getElementById('foh-ga')) return; window.dataLayer = window.dataLayer || [];
-    const ga = (this.props.gaId ?? 'G-NMEYZ7ZWB5').trim(); if (!/^G-[A-Z0-9]+$/i.test(ga)) return;
-    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); }; window.gtag('js', new Date()); window.gtag('config', ga, { anonymize_ip: true, allow_google_signals: false }); this.gaId = ga;
-    const s = document.createElement('script'); s.id = 'foh-ga'; s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga); document.head.appendChild(s);
-  }
-  track(ev, d = {}) {
-    const p = { language: this.state.lang, mode: this.state.mode, deck_type: this.state.deckType, app_version: this.state.data ? this.state.data.meta.version : '', ...d };
-    window.dataLayer = window.dataLayer || [];
-    if (this.gaId && window.gtag) window.gtag('event', 'foh_' + ev, p); else window.dataLayer.push({ event: 'foh_' + ev, ...p });
-    try { window.dispatchEvent(new CustomEvent('foh:' + ev, { detail: p })); } catch (e) {}
-  }
-  applyLang() { document.documentElement.lang = this.state.lang; document.documentElement.dir = this.state.lang === 'ar' ? 'rtl' : 'ltr'; document.title = 'Fact or Hasbara?'; }
-  setLang(lang) { const from = this.state.lang; if (this.mode() !== 'kiosk') try { localStorage.setItem('foh_lang', lang); } catch (e) {} this.setState({ lang }, () => { this.applyLang(); this.track('language_selected', { from_language: from, to_language: lang, screen: this.state.screen }); }); }
-  toastMsg(m) { this.setState({ toast: m }); clearTimeout(this.toastT); this.toastT = setTimeout(() => this.setState({ toast: '' }), 2400); }
-  top() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  rich(html) { return html ? React.createElement('span', { dangerouslySetInnerHTML: { __html: html } }) : null; }
-  validItems() { const d = this.state.data, today = this.today(); return d.items.filter(i => i.status === 'published' && i.reviewBy >= today && d.meta.languages.every(l => i.translationComplete[l])); }
-  rng(seed) { let h = 2166136261; for (const c of seed) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return () => { h += 0x6D2B79F5; let t = Math.imul(h ^ (h >>> 15), 1 | h); t ^= t + Math.imul(t ^ (t >>> 7), 61 | t); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
-  buildDeck(type) {
-    const items = this.validItems(), rnd = type === 'daily' ? this.rng(this.today() + this.state.data.meta.version) : Math.random;
-    const pick = (arr, n) => { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a.slice(0, n); };
-    const half = this.state.data.meta.roundSize / 2, deck = [...pick(items.filter(i => i.type === 'fact'), half), ...pick(items.filter(i => i.type === 'hasbara'), half)];
-    for (let i = deck.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [deck[i], deck[j]] = [deck[j], deck[i]]; } return deck.map(i => i.id);
-  }
-  start() {
-    const deck = this.buildDeck(this.state.deckType);
-    this.setState({ screen: 'game', deck, idx: 0, answers: [], locked: false, times: [], reviewIdx: -1 }, () => { this.top(); this.startTimer(); this.track('tool_start'); });
-  }
-  startTimer() {
-    clearInterval(this.timer); const secs = this.state.data.meta.challengeSeconds; this.setState({ tleft: secs, qStart: Date.now() });
-    if (this.state.mode !== 'challenge') return;
-    this.timer = setInterval(() => { if (this.state.locked) return clearInterval(this.timer); const left = this.state.tleft - 1; if (left <= 0) { clearInterval(this.timer); this.answer(null); } else this.setState({ tleft: left }); }, 1000);
-  }
-  item(id) { const d = this.state.data, it = d.items.find(i => i.id === id), c = it.copy[this.state.lang] || it.copy.en, s = d.sources[it.source]; return { ...c, id: it.id, type: it.type, technique: it.technique, sourceUrl: s.url, sourceName: s.name }; }
-  answer(given) {
-    if (this.state.locked) return; clearInterval(this.timer);
-    const it = this.item(this.state.deck[this.state.idx]), correct = given === it.type, time = (Date.now() - this.state.qStart) / 1000;
-    this.setState(s => ({ locked: true, answers: [...s.answers, { id: it.id, given, correct }], times: [...s.times, time] }), () => this.track('question_answered', { item_id: it.id, item_type: it.type, correct, question_index: this.state.idx }));
-  }
-  next() {
-    if (this.state.idx + 1 >= this.state.deck.length) return this.finish();
-    this.setState(s => ({ idx: s.idx + 1, locked: false }), () => { this.top(); this.startTimer(); });
-  }
-  finish() {
-    const score = this.state.answers.filter(a => a.correct).length, d = this.state.data;
-    this.setState({ screen: 'end' }, this.top); this.track('tool_complete', { score });
-    if (this.mode() === 'kiosk') return;
-    try {
-      const badges = JSON.parse(localStorage.getItem(d.reward.badgeStorage) || '[]'); if (!badges.includes(d.reward.badgeId)) { badges.push(d.reward.badgeId); localStorage.setItem(d.reward.badgeStorage, JSON.stringify(badges)); }
-      const w = JSON.parse(localStorage.getItem(d.reward.progressStorage) || '[]'); if (!w.includes(d.meta.toolId)) { w.push(d.meta.toolId); localStorage.setItem(d.reward.progressStorage, JSON.stringify(w)); }
-      if (this.state.deckType === 'daily') { const s = JSON.parse(localStorage.getItem(d.reward.streakStorage) || 'null'), today = this.today(); let count = 1; if (s && s.last !== today) { const diff = (Date.parse(today) - Date.parse(s.last)) / 864e5; count = diff <= 1 ? s.count + 1 : 1; } else if (s) count = s.count; localStorage.setItem(d.reward.streakStorage, JSON.stringify({ last: today, count })); this.setState({ streak: count }); }
-    } catch (e) {}
-  }
-  reset() { clearInterval(this.timer); this.setState({ screen: 'intro', deck: [], idx: 0, answers: [], locked: false, reviewIdx: -1 }, this.top); }
-  async share() {
-    const t = this.t(), score = this.state.answers.filter(a => a.correct).length, text = (this.state.data.messageBank.shareText[this.state.lang] || t.shareFallback).replace('{score}', score), url = this.props.siteUrl || location.href.split('?')[0];
-    this.track('share', { method: navigator.share ? 'native' : 'copy', score_bucket: score >= 9 ? 'high' : score >= 5 ? 'mid' : 'low' });
-    try { if (navigator.share) { await navigator.share({ title: 'Fact or Hasbara?', text, url }); return; } } catch (e) { return; }
-    try { await navigator.clipboard.writeText(text + ' ' + url); this.toastMsg(t.copied); } catch (e) {}
-  }
-  renderVals() {
-    const s = this.state, t = this.t(), d = s.data, isKiosk = this.mode() === 'kiosk';
-    const base = { dir: s.lang === 'ar' ? 'rtl' : 'ltr', lang: s.lang, brand: d ? d.meta.brand : 'YPlus · Communicating Palestine', isKiosk, t: t || {}, item: {}, rank: {}, reviewItem: {}, scene: {},
-      langs: this.LANGS.map(([code, label]) => ({ label, active: s.lang === code, bg: s.lang === code ? '#002858' : 'transparent', fg: s.lang === code ? '#fff' : '#5B6578', pick: () => this.setLang(code) })),
-      inIntro: s.screen === 'intro', inGame: s.screen === 'game', inEnd: s.screen === 'end', hasToast: !!s.toast, toast: s.toast, contact: d ? d.meta.contact : {}, social: d ? d.meta.contact.social.map(([name, url]) => ({ name, url })) : [] };
-    if (!t) return base;
-    const valid = this.validItems(), half = d.meta.roundSize / 2, blocked = valid.filter(i => i.type === 'fact').length < half || valid.filter(i => i.type === 'hasbara').length < half;
-    const modeDefs = [['learn', 'learn', t.learnMode, t.learnHelp], ['challenge', 'challenge', t.challengeMode, t.challengeHelp], ['daily', 'daily', t.dailyMode, t.dailyHelp]];
-    const modeKey = s.deckType === 'daily' ? 'daily' : s.mode;
-    const modes = modeDefs.filter(m => !(isKiosk && m[0] === 'daily')).map(([key, , label, help]) => { const active = modeKey === key; return { label, help, active, border: active ? '#002858' : '#C9CFD9', bg: active ? '#002858' : '#fff', fg: active ? '#fff' : '#0F1B33', pick: () => this.setState(key === 'daily' ? { deckType: 'daily', mode: 'learn' } : { deckType: 'fresh', mode: key }) }; });
-    const score = s.answers.filter(a => a.correct).length;
-    const out = { ...base, modes, blocked, canStart: !blocked, start: () => this.start(), hasStreak: s.streak > 0 && !isKiosk, streak: s.streak, score, timed: s.mode === 'challenge', tleft: s.tleft, timerBg: s.tleft <= 5 ? '#B8412D' : '#E9ECF1', timerFg: s.tleft <= 5 ? '#fff' : '#0F1B33', modeChip: s.deckType === 'daily' ? t.dailyMode : s.mode === 'challenge' ? t.challengeChip : t.learnChip, methodRich: this.rich(d.advocacy[s.lang].method), sample: d.advocacy[s.lang].sample,
-      steps: d.advocacy[s.lang].steps.map((x, i) => ({ ...x, n: i + 1 })), stories: d.stories[s.lang].map(x => ({ ...x, url: d.sources[x.source].url, open: () => this.track('story_opened', { story_id: x.source }) })),
-      sourceList: Object.values(d.sources), share: () => this.share(), confirmReset: () => { if (s.answers.length === 0 || window.confirm(t.confirmReset)) this.reset(); }, again: () => this.start(), againLabel: isKiosk ? t.again : t.again, reset: () => this.reset(),
-      hasDeeper: !!d.messageBank.goDeeperUrl, deeperUrl: d.messageBank.goDeeperUrl, ctaDeeper: () => this.track('cta_opened', { cta_type: 'deeper' }), hasAction: !!d.messageBank.actionUrl, actionUrl: d.messageBank.actionUrl, actionLabel: d.messageBank.actionLabel[s.lang], ctaAction: () => this.track('cta_opened', { cta_type: 'action' }),
-      dots: Array.from({ length: d.meta.roundSize }, (_, i) => ({ bg: s.answers[i] ? (s.answers[i].correct ? '#00B0A8' : '#B8412D') : i === s.idx && s.screen === 'game' ? '#002858' : '#E3E6EC' })) };
-    if (s.screen === 'game' && s.deck.length) {
-      const it = this.item(s.deck[s.idx]), a = s.answers[s.idx], isFact = it.type === 'fact';
-      Object.assign(out, { item: it, qNum: s.idx + 1, qPad: String(s.idx + 1).padStart(2, '0'), locked: s.locked, unlocked: !s.locked, answerFact: () => this.answer('fact'), answerHasbara: () => this.answer('hasbara'), next: () => this.next(), nextLabel: s.idx + 1 >= s.deck.length ? t.seeResult : t.next,
-        cardAnim: a && !a.correct ? 'foh-shake .4s both' : 'none', verdictColor: isFact ? '#002858' : '#B8412D', verdictStamp: isFact ? t.tapFact : 'Hasbara', verdictText: isFact ? t.thisFact : t.thisHasbara,
-        resultBg: a && a.correct ? '#00807A' : '#B8412D', resultIcon: a && a.correct ? '✓' : '✕', resultTitle: a ? (a.given === null ? t.timesUp : a.correct ? t.correct : t.notQuite) : '', yourAnswer: a ? (a.given === 'fact' ? t.tapFact : a.given === 'hasbara' ? t.tapHasbara : '—'.replace('—', '·')) : '', openSource: () => this.track('source_opened', { source_id: it.sourceUrl, item_id: it.id }) });
-    }
-    if (s.screen === 'end') {
-      const rank = t.ranks.find(r => score >= r.min) || t.ranks[t.ranks.length - 1];
-      const rev = s.reviewIdx >= 0 ? this.item(s.deck[s.reviewIdx]) : null, ra = rev ? s.answers[s.reviewIdx] : null;
-      let best = 0, run = 0; s.answers.forEach(a => { run = a.correct ? run + 1 : 0; best = Math.max(best, run); });
-      const techMap = {}; s.answers.forEach((a, i) => { const it = this.item(s.deck[i]); if (it.type === 'hasbara' && it.technique) techMap[it.technique] = techMap[it.technique] || { got: 0, missed: 0 }, techMap[it.technique][a.correct ? 'got' : 'missed']++; });
-      Object.assign(out, { rank, bestStreak: best, avgTime: s.mode === 'challenge' ? (s.times.reduce((x, y) => x + y, 0) / s.times.length).toFixed(1) + 's' : t.notTimed,
-        review: s.answers.map((a, i) => ({ n: i + 1, bg: a.correct ? '#00B0A8' : '#B8412D', pick: () => this.setState({ reviewIdx: s.reviewIdx === i ? -1 : i }) })), hasReview: !!rev,
-        reviewItem: rev ? { ...rev, verdict: ra.correct ? t.correct : t.notQuite, color: ra.correct ? '#00807A' : '#B8412D' } : {},
-        techniques: Object.entries(techMap).map(([k, v]) => { const ok = v.missed === 0; return { name: (d.techniques[k] || {})[s.lang] || k, status: ok ? t.got : t.missed, border: ok ? '#00B0A8' : '#B8412D', bg: ok ? '#E6F7F6' : '#FFF1EE', fg: ok ? '#00807A' : '#B8412D' }; }) });
-    }
-    return out;
-  }
+state = { data: null, v2: null, lang: 'en', screen: 'intro', mode: 'learn', deckType: 'fresh', deck: [], idx: 0, answers: [], locked: false, tleft: 22, times: [], qStart: 0, toast: '', reviewIdx: -1, streak: 0, moreOpen: false, gloss: null, theme: null };
+LANGS = [['en','EN'],['ar','ع'],['fr','FR'],['it','IT']];
+LS = 'border:0;background:none;padding:0;margin:0;font:inherit;font-weight:inherit;color:inherit;cursor:help;text-decoration:underline dotted 2px;text-decoration-color:#E2A21A;text-underline-offset:4px';
+glossCloseRef = React.createRef();
+componentDidMount() {
+this.loadAnalytics();
+let theme = null; try { theme = localStorage.getItem('yplus_theme'); } catch (e) {}
+this.setState({ theme }, () => this.applyTheme());
+Promise.all([fetch(this.props.dataUrl || 'fact-or-hasbara-data.json', { cache: 'no-store' }).then(r => r.json()), fetch('foh-v2.json', { cache: 'no-store' }).then(r => r.json())]).then(([data, v2]) => {
+v2.extraItems.forEach(x => { if (!data.items.find(i => i.id === x.id)) data.items.push(x); });
+Object.assign(data.techniques, v2.techniques);
+const q = new URLSearchParams(location.search);
+let saved = null; try { saved = this.mode() === 'kiosk' ? null : localStorage.getItem('foh_lang'); } catch (e) {}
+const lang = [q.get('lang'), this.props.defaultLang, saved].find(l => l && data.ui[l] && v2.ui[l]) || 'en';
+const deckType = q.get('deck') === 'daily' || this.props.defaultDeck === 'daily' ? 'daily' : 'fresh';
+let streak = 0; try { const s = JSON.parse(localStorage.getItem(data.reward.streakStorage) || 'null'); if (s && this.mode() !== 'kiosk') { const d = (Date.parse(this.today()) - Date.parse(s.last)) / 864e5; streak = d <= 1 ? s.count : 0; } } catch (e) {}
+this.setState({ data, v2, lang, deckType, streak }, this.applyLang);
+}).catch(err => console.warn('[foh] data load failed:', err && err.message));
+this.idle = () => { clearTimeout(this.idleTimer); if (this.mode() !== 'kiosk') return; this.idleTimer = setTimeout(() => { if (this.state.screen !== 'intro') this.reset(); }, (this.props.kioskIdleSeconds ?? 180) * 1000); };
+['click', 'touchstart', 'keydown'].forEach(e => window.addEventListener(e, this.idle, { passive: true })); this.idle();
+this.onKey = e => {
+if (e.key === 'Escape' && this.state.gloss) return this.setState({ gloss: null });
+if (this.state.screen !== 'game' || this.state.gloss) return;
+const k = e.key.toLowerCase();
+if (!this.state.locked && (k === 'f' || k === '1')) this.answer('fact');
+if (!this.state.locked && (k === 'h' || k === '2')) this.answer('hasbara');
+};
+window.addEventListener('keydown', this.onKey);
+}
+componentWillUnmount() { clearTimeout(this.idleTimer); clearInterval(this.timer); window.removeEventListener('keydown', this.onKey); ['click', 'touchstart', 'keydown'].forEach(e => window.removeEventListener(e, this.idle)); }
+componentDidUpdate(pp, ps) {
+if (this.state.gloss && !ps.gloss && this.glossCloseRef.current) this.glossCloseRef.current.focus();
+if (!this.state.gloss && ps.gloss && this.glossReturn) { try { this.glossReturn.focus(); } catch (e) {} this.glossReturn = null; }
+}
+mode() { return this.props.mode ?? (new URLSearchParams(location.search).get('mode') === 'kiosk' ? 'kiosk' : 'online'); }
+today() { return new Date().toISOString().slice(0, 10); }
+t() { return this.state.data ? this.state.data.ui[this.state.lang] : null; }
+v() { return this.state.v2 ? this.state.v2.ui[this.state.lang] : null; }
+isDark() { return this.state.theme ? this.state.theme === 'dark' : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches); }
+applyTheme() { const r = document.documentElement; if (this.state.theme) r.setAttribute('data-theme', this.state.theme); else r.removeAttribute('data-theme'); }
+toggleTheme() { const theme = this.isDark() ? 'light' : 'dark'; try { localStorage.setItem('yplus_theme', theme); } catch (e) {} this.setState({ theme }, () => { this.applyTheme(); this.track('theme', { theme }); }); }
+loadAnalytics() {
+if (document.getElementById('foh-ga')) return; window.dataLayer = window.dataLayer || [];
+const ga = (this.props.gaId ?? 'G-NMEYZ7ZWB5').trim(); if (!/^G-[A-Z0-9]+$/i.test(ga)) return;
+window.gtag = window.gtag || function () { window.dataLayer.push(arguments); }; window.gtag('js', new Date()); window.gtag('config', ga, { anonymize_ip: true, allow_google_signals: false }); this.gaId = ga;
+const s = document.createElement('script'); s.id = 'foh-ga'; s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga); document.head.appendChild(s);
+}
+track(ev, d = {}) {
+const p = { language: this.state.lang, mode: this.state.mode, deck_type: this.state.deckType, app_version: this.state.data ? this.state.data.meta.version : '', ...d };
+window.dataLayer = window.dataLayer || [];
+if (this.gaId && window.gtag) window.gtag('event', 'foh_' + ev, p); else window.dataLayer.push({ event: 'foh_' + ev, ...p });
+}
+applyLang() { const r = document.documentElement; r.lang = this.state.lang; r.dir = this.state.lang === 'ar' ? 'rtl' : 'ltr'; document.title = 'Fact or Hasbara? · YPlus'; }
+setLang(lang) { if (this.mode() !== 'kiosk') try { localStorage.setItem('foh_lang', lang); } catch (e) {} this.setState({ lang }, () => { this.applyLang(); this.track('language_selected', { to_language: lang }); }); }
+toastMsg(m) { this.setState({ toast: m }); clearTimeout(this.toastT); this.toastT = setTimeout(() => this.setState({ toast: '' }), 2400); }
+top() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+rich(html) { return html ? React.createElement('span', { dangerouslySetInnerHTML: { __html: html } }) : null; }
+esc(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+scan(text) {
+const G = this.state.v2.glossary, lang = this.state.lang, used = [], out = [];
+let rest = this.esc(text);
+while (rest) {
+let best = null; const low = rest.toLowerCase();
+for (const k in G) { if (used.includes(k)) continue; for (const m of (G[k].match[lang] || [])) { const i = low.indexOf(m.toLowerCase()); if (i >= 0 && (!best || i < best.i || (i === best.i && m.length > best.len))) best = { i, k, len: m.length }; } }
+if (!best) { out.push(rest); break; }
+out.push(rest.slice(0, best.i), `<button type="button" data-term="${best.k}" aria-haspopup="dialog" style="${this.LS}">${rest.substr(best.i, best.len)}</button>`);
+used.push(best.k); rest = rest.slice(best.i + best.len);
+}
+return { html: out.join(''), keys: used };
+}
+def(k) { const g = this.state.v2.glossary[k], [term, def] = g[this.state.lang] || g.en; return { key: k, term, def }; }
+onGloss(e) { const b = e.target && e.target.closest ? e.target.closest('[data-term]') : null; if (!b) return; e.preventDefault(); e.stopPropagation(); this.glossReturn = b; const k = b.getAttribute('data-term'); this.setState({ gloss: k }); this.track('glossary_open', { term: k }); }
+validItems() { const d = this.state.data, today = this.today(); return d.items.filter(i => i.status === 'published' && i.reviewBy >= today && d.meta.languages.every(l => i.translationComplete[l])); }
+rng(seed) { let h = 2166136261; for (const c of seed) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return () => { h += 0x6D2B79F5; let t = Math.imul(h ^ (h >>> 15), 1 | h); t ^= t + Math.imul(t ^ (t >>> 7), 61 | t); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+buildDeck(type) {
+const items = this.validItems(), rnd = type === 'daily' ? this.rng(this.today() + this.state.data.meta.version) : Math.random;
+const pick = (arr, n) => { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a.slice(0, n); };
+const half = this.state.data.meta.roundSize / 2, deck = [...pick(items.filter(i => i.type === 'fact'), half), ...pick(items.filter(i => i.type === 'hasbara'), half)];
+for (let i = deck.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [deck[i], deck[j]] = [deck[j], deck[i]]; } return deck.map(i => i.id);
+}
+start() { const deck = this.buildDeck(this.state.deckType); this.setState({ screen: 'game', deck, idx: 0, answers: [], locked: false, times: [], reviewIdx: -1, moreOpen: false }, () => { this.top(); this.startTimer(); this.track('tool_start'); }); }
+startTimer() {
+clearInterval(this.timer); const secs = this.state.data.meta.challengeSeconds; this.setState({ tleft: secs, qStart: Date.now() });
+if (this.state.mode !== 'challenge') return;
+this.timer = setInterval(() => { if (this.state.locked || this.state.gloss) return; const left = this.state.tleft - 1; if (left <= 0) { clearInterval(this.timer); this.answer(null); } else this.setState({ tleft: left }); }, 1000);
+}
+item(id) {
+const d = this.state.data, v2 = this.state.v2, lang = this.state.lang, it = d.items.find(i => i.id === id), c = it.copy[lang] || it.copy.en, s = d.sources[it.source];
+const st = this.scan(c.statement), wy = this.scan(c.explanation), mo = v2.more[id] ? (v2.more[id][lang] || v2.more[id].en) : '';
+const keys = [...st.keys, ...wy.keys.filter(k => !st.keys.includes(k))];
+const label = it.type === 'hasbara' && it.technique ? ((d.techniques[it.technique] || {})[lang] || c.techniqueLabel) : c.techniqueLabel;
+return { ...c, id: it.id, type: it.type, technique: it.technique, sourceUrl: s.url, sourceName: s.name, label, statementHtml: st.html, whyHtml: wy.html, more: mo, moreHtml: mo ? this.scan(mo).html : '', keys, land: v2.meta.landItems.includes(id) || keys.includes('areaC') };
+}
+answer(given) {
+if (this.state.locked) return; clearInterval(this.timer);
+const it = this.item(this.state.deck[this.state.idx]), correct = given === it.type, time = (Date.now() - this.state.qStart) / 1000;
+this.setState(s => ({ locked: true, moreOpen: false, answers: [...s.answers, { id: it.id, given, correct }], times: [...s.times, time] }), () => this.track('question_answered', { item_id: it.id, item_type: it.type, correct, question_index: this.state.idx }));
+}
+next() { if (this.state.idx + 1 >= this.state.deck.length) return this.finish(); this.setState(s => ({ idx: s.idx + 1, locked: false, moreOpen: false }), () => { this.top(); this.startTimer(); }); }
+finish() {
+const score = this.state.answers.filter(a => a.correct).length, d = this.state.data;
+this.setState({ screen: 'end' }, this.top); this.track('tool_complete', { score });
+if (this.mode() === 'kiosk') return;
+try {
+const badges = JSON.parse(localStorage.getItem(d.reward.badgeStorage) || '[]'); if (!badges.includes(d.reward.badgeId)) { badges.push(d.reward.badgeId); localStorage.setItem(d.reward.badgeStorage, JSON.stringify(badges)); }
+const w = JSON.parse(localStorage.getItem(d.reward.progressStorage) || '[]'); if (!w.includes(d.meta.toolId)) { w.push(d.meta.toolId); localStorage.setItem(d.reward.progressStorage, JSON.stringify(w)); }
+if (this.state.deckType === 'daily') { const s = JSON.parse(localStorage.getItem(d.reward.streakStorage) || 'null'), today = this.today(); let count = 1; if (s && s.last !== today) { const diff = (Date.parse(today) - Date.parse(s.last)) / 864e5; count = diff <= 1 ? s.count + 1 : 1; } else if (s) count = s.count; localStorage.setItem(d.reward.streakStorage, JSON.stringify({ last: today, count })); this.setState({ streak: count }); }
+} catch (e) {}
+}
+reset() { clearInterval(this.timer); this.setState({ screen: 'intro', deck: [], idx: 0, answers: [], locked: false, reviewIdx: -1, gloss: null }, this.top); }
+async share() {
+const t = this.t(), score = this.state.answers.filter(a => a.correct).length, text = (this.state.data.messageBank.shareText[this.state.lang] || t.shareFallback).replace('{score}', score), url = this.props.siteUrl || 'https://yplus.ps/FactorHasbara/';
+this.track('share', { score_bucket: score >= 9 ? 'high' : score >= 5 ? 'mid' : 'low' });
+try { if (navigator.share) { await navigator.share({ title: 'Fact or Hasbara?', text, url }); return; } } catch (e) { return; }
+try { await navigator.clipboard.writeText(text + ' ' + url); this.toastMsg(t.copied); } catch (e) {}
+}
+renderVals() {
+const s = this.state, t = this.t(), v = this.v(), d = s.data, isKiosk = this.mode() === 'kiosk', dark = this.isDark(), rtl = s.lang === 'ar';
+const base = { dir: rtl ? 'rtl' : 'ltr', lang: s.lang, brand: d ? d.meta.brand : 'YPlus · Communicating Palestine', isKiosk, isOnline: !isKiosk, t: t || {}, v: v || { remember: {} }, item: {}, rank: {}, reviewItem: {}, gloss: {},
+isDarkLogo: dark, isLightLogo: !dark, themeIcon: dark ? '☀' : '☾', toggleTheme: () => this.toggleTheme(),
+langs: this.LANGS.map(([code, label]) => ({ label, active: s.lang === code, bg: s.lang === code ? 'var(--segOn)' : 'transparent', fg: s.lang === code ? 'var(--segOnFg)' : 'var(--muted)', pick: () => this.setLang(code) })),
+inIntro: s.screen === 'intro', inGame: s.screen === 'game', inEnd: s.screen === 'end', inRemember: s.screen === 'remember', hasToast: !!s.toast, toast: s.toast, contact: d ? d.meta.contact : {}, social: d ? d.meta.contact.social.map(([name, url]) => ({ name, url })) : [], hasGloss: false };
+if (!t || !v) return base;
+const fwd = rtl ? '←' : '→';
+const valid = this.validItems(), half = d.meta.roundSize / 2, blocked = valid.filter(i => i.type === 'fact').length < half || valid.filter(i => i.type === 'hasbara').length < half;
+const modeKey = s.deckType === 'daily' ? 'daily' : s.mode;
+const modeDefs = [['learn', v.modes[0], t.learnHelp], ['challenge', v.modes[1], t.challengeHelp], ['daily', v.modes[2], t.dailyHelp]].filter(m => !(isKiosk && m[0] === 'daily'));
+const modes = modeDefs.map(([key, label]) => { const active = modeKey === key; return { label, active, border: active ? 'var(--gold)' : 'var(--line)', bg: active ? 'var(--goldSoft)' : 'var(--surface)', fg: active ? 'var(--ink)' : 'var(--muted)', pick: () => this.setState(key === 'daily' ? { deckType: 'daily', mode: 'learn' } : { deckType: 'fresh', mode: key }) }; });
+const score = s.answers.filter(a => a.correct).length;
+const word = type => type === 'fact' ? t.fact : 'Hasbara';
+const out = { ...base, fwd, back: rtl ? '→' : '←', themeLabel: dark ? v.light : v.dark, modes, modeHelp: (modeDefs.find(m => m[0] === modeKey) || modeDefs[0])[2], blocked, canStart: !blocked, start: () => this.start(),
+hasStreak: s.streak > 0 && !isKiosk, streak: s.streak, score, timed: s.mode === 'challenge', tleft: s.tleft, timerBg: s.tleft <= 5 ? 'var(--red)' : 'var(--surface2)', timerFg: s.tleft <= 5 ? '#fff' : 'var(--ink)', modeName: v.modes[modeKey === 'daily' ? 2 : modeKey === 'challenge' ? 1 : 0],
+onGloss: e => this.onGloss(e), hasGloss: !!s.gloss, gloss: s.gloss ? this.def(s.gloss) : {}, closeGloss: () => this.setState({ gloss: null }), glossCloseRef: this.glossCloseRef,
+methodRich: this.rich(d.advocacy[s.lang].method), sample: d.advocacy[s.lang].sample, steps: d.advocacy[s.lang].steps.map((x, i) => ({ ...x, n: i + 1 })),
+stories: d.stories[s.lang].map(x => ({ ...x, url: d.sources[x.source].url, open: () => this.track('story_opened', { story_id: x.source }) })), sourceList: Object.values(d.sources),
+share: () => this.share(), confirmReset: () => { if (s.answers.length === 0 || window.confirm(t.confirmReset)) this.reset(); }, again: () => this.start(),
+playDaily: () => this.setState({ deckType: 'daily', mode: 'learn' }, () => this.start()),
+toRemember: () => { this.setState({ screen: 'remember' }, this.top); this.track('remember_view'); }, toSummary: () => this.setState({ screen: 'end' }, this.top), remItems: v.remember.items.map((text, i) => ({ n: i + 1, text })),
+hasDeeper: !!d.messageBank.goDeeperUrl, deeperUrl: d.messageBank.goDeeperUrl, ctaDeeper: () => this.track('cta_opened', { cta_type: 'deeper' }), hasAction: !!d.messageBank.actionUrl, actionUrl: d.messageBank.actionUrl, actionLabel: d.messageBank.actionLabel ? d.messageBank.actionLabel[s.lang] : '', ctaAction: () => this.track('cta_opened', { cta_type: 'action' }),
+dots: Array.from({ length: d.meta.roundSize }, (_, i) => ({ bg: s.answers[i] ? (s.answers[i].correct ? 'var(--ok)' : 'var(--red)') : i === s.idx && s.screen === 'game' ? 'var(--navy)' : 'var(--line)' })) };
+if (s.screen === 'game' && s.deck.length) {
+const it = this.item(s.deck[s.idx]), a = s.answers[s.idx], isFact = it.type === 'fact';
+const vote = [['fact', '✓', t.tapFact], ['hasbara', '✗', t.tapHasbara]].map(([k, icon, label]) => {
+const isRight = s.locked && k === it.type, isWrong = s.locked && a && a.given === k && !a.correct;
+return { icon, label, picked: !!(a && a.given === k), border: isRight ? 'var(--ok)' : isWrong ? 'var(--red)' : 'var(--line)', bg: isRight ? 'var(--okSoft)' : isWrong ? 'var(--badSoft)' : 'var(--surface)', pick: () => this.answer(k) };
+});
+const head = a ? (a.given === null ? t.timesUp : a.correct ? t.correct : t.notQuite) : '';
+Object.assign(out, { item: it, qNum: s.idx + 1, qPad: String(s.idx + 1).padStart(2, '0'), locked: s.locked, unlocked: !s.locked, vote,
+techLine: s.locked ? `${word(it.type)} · ${it.label}` : v.statement, statementRich: this.rich(it.statementHtml), stampText: word(it.type), stampColor: isFact ? '#5BE0B0' : '#FF8A8F',
+verdictBg: a && a.correct ? 'var(--ok)' : 'var(--red)', verdictIcon: a && a.correct ? '✓' : '✗', verdictLine: `${head}: ${v.itIs} ${word(it.type)}`,
+whyRich: this.rich(it.whyHtml), hasTerms: it.keys.length > 0, terms: it.keys.map(k => this.def(k)), showLand: it.land,
+land: v.landLabels.map((label, i) => ({ label: `${label} · ${this.landN(i)}%`, n: this.landN(i), bg: ['#5E6F87', '#3F5C85', '#E2A21A'][i], fg: i === 2 ? '#002856' : '#FFFFFF' })),
+landAria: v.landLabels.map((l, i) => `${l} ${this.landN(i)}%`).join(', '),
+hasMore: !!it.more, moreOpen: s.moreOpen, moreSign: s.moreOpen ? '\u2212' : '+', moreRich: this.rich(it.moreHtml), toggleMore: () => { if (!s.moreOpen) this.track('learn_more'); this.setState(x => ({ moreOpen: !x.moreOpen })); },
+next: () => this.next(), nextLabel: s.idx + 1 >= s.deck.length ? t.seeResult : t.next, openSource: () => this.track('source_opened', { item_id: it.id }) });
+}
+if (s.screen === 'end' || s.screen === 'remember') {
+const rank = t.ranks.find(r => score >= r.min) || t.ranks[t.ranks.length - 1];
+const rev = s.reviewIdx >= 0 ? this.item(s.deck[s.reviewIdx]) : null, ra = rev ? s.answers[s.reviewIdx] : null;
+let best = 0, run = 0; s.answers.forEach(a => { run = a.correct ? run + 1 : 0; best = Math.max(best, run); });
+const techMap = {}, termKeys = [];
+s.answers.forEach((a, i) => { const it = this.item(s.deck[i]); it.keys.forEach(k => { if (!termKeys.includes(k)) termKeys.push(k); }); if (it.type === 'hasbara' && it.technique) { techMap[it.technique] = techMap[it.technique] || { got: 0, missed: 0 }; techMap[it.technique][a.correct ? 'got' : 'missed']++; } });
+Object.assign(out, { rank, bestStreak: best, avgTime: s.mode === 'challenge' && s.times.length ? (s.times.reduce((x, y) => x + y, 0) / s.times.length).toFixed(1) + 's' : t.notTimed,
+review: s.answers.map((a, i) => { const on = s.reviewIdx === i; return { n: i + 1, on, icon: a.correct ? '✓' : '✗', aria: `${t.question} ${i + 1}: ${a.correct ? t.correct : t.notQuite}`, bg: a.correct ? 'var(--ok)' : 'var(--red)', ring: on ? 'var(--gold)' : 'transparent', pick: () => this.setState({ reviewIdx: on ? -1 : i }) }; }), hasReview: !!rev,
+reviewItem: rev ? { ...rev, icon: ra.correct ? '✓' : '✗', verdict: `${ra.correct ? t.correct : t.notQuite}: ${v.itIs} ${word(rev.type)}`, color: ra.correct ? 'var(--ok)' : 'var(--red)', statementRich: this.rich(rev.statementHtml), why: rev.explanation } : {},
+techniques: Object.entries(techMap).map(([k, x]) => { const ok = x.missed === 0; return { name: (d.techniques[k] || {})[s.lang] || k, icon: ok ? '✓' : '✗', status: ok ? t.got : t.missed, border: ok ? 'var(--ok)' : 'var(--red)', bg: ok ? 'var(--okSoft)' : 'var(--badSoft)' }; }),
+hasRoundTerms: termKeys.length > 0, roundTerms: termKeys.map(k => this.def(k)) });
+}
+return out;
+}
+landN(i) { const v2 = this.state.v2; return (v2 && v2.meta.landShare[i]) || 0; }
 }
 </script>
 </body>
