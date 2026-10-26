@@ -40,7 +40,7 @@ input[type=range].so::-moz-range-thumb{width:28px;height:28px;border-radius:50%;
 
 <header style="position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)">
 <div style="display:flex;align-items:center;gap:12px;padding:10px 16px">
-<sc-if value="{{ isLightLogo }}" hint-placeholder-val="{{ true }}"><img src="assets/yplus-logo.png" alt="YPlus" style="height:26px;width:auto;display:block;flex:none"></sc-if><sc-if value="{{ isDarkLogo }}" hint-placeholder-val="{{ false }}"><img src="assets/yplus-logo.png" alt="YPlus" style="height:26px;width:auto;display:block;flex:none;background:#fff;border-radius:6px;padding:2px 4px"></sc-if>
+<sc-if value="{{ isLightLogo }}" hint-placeholder-val="{{ true }}"><img src="https://yplus.ps/wp-content/uploads/2026/10/yplus-logo-color.png" alt="YPlus" style="height:26px;width:auto;display:block;flex:none"></sc-if><sc-if value="{{ isDarkLogo }}" hint-placeholder-val="{{ false }}"><img src="https://yplus.ps/wp-content/uploads/2026/10/yplus-logo-on-dark.png" alt="YPlus" style="height:26px;width:auto;display:block;flex:none"></sc-if>
 <span data-latin style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--muted)">{{ t.brand }}</span>
 <sc-if value="{{ isKiosk }}" hint-placeholder-val="{{ false }}"><span style="margin-inline-start:auto;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--tealInk);border:1px solid var(--action);border-radius:4px;padding:3px 7px">{{ t.kiosk }}</span></sc-if>
 <button type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}" style="margin-inline-start:auto;flex:none;width:44px;height:44px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--navy);font-size:17px;cursor:pointer">{{ themeIcon }}</button>
@@ -496,7 +496,7 @@ input[type=range].so::-moz-range-thumb{width:28px;height:28px;border-radius:50%;
 </main>
 
 <footer style="margin-top:auto;background:#002856;color:#fff;padding:24px 20px 28px;display:flex;flex-direction:column;gap:18px">
-<div style="display:flex;align-items:center;gap:12px"><img src="assets/yplus-logo.png" alt="YPlus" style="height:28px;width:auto;display:block;background:#fff;border-radius:6px;padding:3px 5px"><span data-latin style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:#B8C4D8">Awareness → Understanding → Action</span></div>
+<div style="display:flex;align-items:center;gap:12px"><img src="https://yplus.ps/wp-content/uploads/2026/10/yplus-logo-on-dark.png" alt="YPlus" style="height:28px;width:auto;display:block"><span data-latin style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:#B8C4D8">Awareness → Understanding → Action</span></div>
 <div style="display:flex;flex-direction:column;gap:10px">
 <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#7FD9D4">{{ t.follow }}</span>
 <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
