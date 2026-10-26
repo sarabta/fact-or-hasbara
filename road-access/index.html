@@ -3,430 +3,466 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who Gets the Road? · YPlus</title>
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-html,body{margin:0;padding:0;background:#E9ECF1;font-family:Barlow,system-ui,sans-serif;color:#0F1B33;-webkit-font-smoothing:antialiased}
-html[lang="ar"] body,html[lang="ar"] button,html[lang="ar"] input,html[lang="ar"] [data-serif]{font-family:"IBM Plex Sans Arabic",Barlow,system-ui,sans-serif !important}
-html[lang="ar"] *{letter-spacing:0 !important;text-transform:none !important}
-html[lang="ar"] [data-latin]{letter-spacing:.14em !important;text-transform:uppercase !important}
-html[lang="ar"] [data-latin-tight]{line-height:1.2 !important}
+:root{--bg:#F6F4EF;--surface:#FFFFFF;--surface2:#F0EEE8;--ink:#0F1F38;--muted:#5A6577;--navy:#002856;--primary:#002856;--onPrimary:#FFFFFF;--action:#00AEAC;--onAction:#002856;--tealInk:#00807E;--line:#E2DED5;--road:#5E9A4A;--roadSoft:#E8F0E3;--mapBg:#EEF1E8;--red:#C8363D;--badSoft:#FBE7E8;--amber:#9A6412;--warnSoft:#FDF3DF;--ok:#17875E;--outer:#ECE9E2;--segOn:#002856;--segOnFg:#FFFFFF;--shadow:0 1px 2px rgba(0,40,86,.06),0 10px 30px rgba(0,40,86,.08);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#06152B;--surface:#0C2343;--surface2:#112B50;--ink:#EAF1FA;--muted:#9FB0C8;--navy:#EAF1FA;--primary:#FFFFFF;--onPrimary:#002856;--action:#22C7C4;--onAction:#03201F;--tealInk:#4FD9D6;--line:#1E3A63;--roadSoft:#16301F;--mapBg:#0F2A2E;--red:#FF6B72;--badSoft:#3D1A22;--amber:#F0B44A;--warnSoft:#3A2E12;--ok:#3CC48E;--outer:#030C1A;--segOn:#22C7C4;--segOnFg:#03201F;--shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.35);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#06152B;--surface:#0C2343;--surface2:#112B50;--ink:#EAF1FA;--muted:#9FB0C8;--navy:#EAF1FA;--primary:#FFFFFF;--onPrimary:#002856;--action:#22C7C4;--onAction:#03201F;--tealInk:#4FD9D6;--line:#1E3A63;--roadSoft:#16301F;--mapBg:#0F2A2E;--red:#FF6B72;--badSoft:#3D1A22;--amber:#F0B44A;--warnSoft:#3A2E12;--ok:#3CC48E;--outer:#030C1A;--segOn:#22C7C4;--segOnFg:#03201F;--shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.35);color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--outer);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:16px;line-height:1.6;color:var(--ink);-webkit-font-smoothing:antialiased}
+html[lang="ar"] body,html[lang="ar"] button,html[lang="ar"] input{font-family:"IBM Plex Sans Arabic","IBM Plex Sans",system-ui,sans-serif !important}
+html[lang="ar"] *{letter-spacing:0 !important;text-transform:none !important;font-style:normal !important}
+html[lang="ar"] body{font-size:17px;line-height:1.8}
 button,input{font-family:inherit;color:inherit}
-a{color:#00807A}a:hover{color:#002858}
-:focus-visible{outline:3px solid #00B0A8;outline-offset:3px}
+a{color:var(--tealInk)}a:hover{color:var(--navy)}
+:focus-visible{outline:3px solid var(--action);outline-offset:3px}
 input[type=range].so{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;margin:0;cursor:grab}
-input[type=range].so::-webkit-slider-runnable-track{height:4px;background:#C9CFD9;border-radius:2px}
-input[type=range].so::-moz-range-track{height:4px;background:#C9CFD9;border-radius:2px}
-input[type=range].so::-webkit-slider-thumb{-webkit-appearance:none;width:34px;height:34px;margin-top:-15px;border-radius:50%;background:#002858;border:3px solid #fff;box-shadow:0 4px 14px -4px rgba(0,40,88,.6)}
-input[type=range].so::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:#002858;border:3px solid #fff}
-@keyframes so-fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-@keyframes so-pulse{0%,100%{opacity:1}50%{opacity:.35}}
-@keyframes so-slide{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+input[type=range].so::-webkit-slider-runnable-track{height:4px;background:var(--line);border-radius:2px}
+input[type=range].so::-moz-range-track{height:4px;background:var(--line);border-radius:2px}
+input[type=range].so::-webkit-slider-thumb{-webkit-appearance:none;width:34px;height:34px;margin-top:-15px;border-radius:50%;background:var(--primary);border:3px solid var(--surface);box-shadow:var(--shadow)}
+input[type=range].so::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:var(--primary);border:3px solid var(--surface)}
+@keyframes so-fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes so-sheet{from{transform:translateY(100%)}to{transform:none}}
+@keyframes so-pop{0%{opacity:0;transform:scale(.6)}60%{opacity:1;transform:scale(1.15)}100%{opacity:1;transform:scale(1)}}
+@keyframes so-flash{0%{opacity:0;transform:translateY(6px)}15%{opacity:1;transform:none}80%{opacity:1}100%{opacity:0}}
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
 </style>
 </helmet>
-<div dir="{{ dir }}" lang="{{ lang }}" style="min-height:100svh;display:flex;justify-content:center;background:#E9ECF1">
-<div style="width:100%;max-width:560px;min-height:100svh;background:#FAFAF7;display:flex;flex-direction:column;box-shadow:0 0 0 1px #DDE1E8">
-<header style="position:sticky;top:0;z-index:20;background:rgba(250,250,247,.94);backdrop-filter:blur(10px);border-bottom:1px solid #E3E6EC">
-<div style="display:flex;align-items:center;gap:12px;padding:10px 16px">
-<img src="assets/yplus-logo.png" alt="Y+" style="height:26px;width:auto;display:block">
-<span data-latin style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ t.brand }}</span>
-<sc-if value="{{ isKiosk }}" hint-placeholder-val="{{ false }}"><span style="margin-inline-start:auto;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#00807A;border:1px solid #00B0A8;border-radius:4px;padding:3px 7px">{{ t.kiosk }}</span></sc-if>
-<div role="group" aria-label="Language" style="margin-inline-start:auto;display:flex;gap:2px;background:#E9ECF1;border-radius:6px;padding:2px">
-<sc-for list="{{ langs }}" as="l" hint-placeholder-count="4">
-<button type="button" onClick="{{ l.pick }}" aria-pressed="{{ l.active }}" style="min-height:32px;min-width:38px;padding:0 9px;border:0;border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;background:{{ l.bg }};color:{{ l.fg }}" style-hover="color:#002858">{{ l.label }}</button>
-</sc-for>
-</div>
-</div>
-<sc-if value="{{ inFlow }}" hint-placeholder-val="{{ false }}">
-<div style="padding:8px 16px 10px;border-top:1px solid #E3E6EC;background:#fff">
-<div style="display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;color:#5B6578">
-<span>{{ stepLabel }}</span>
-<button type="button" onClick="{{ confirmReset }}" style="margin-inline-start:auto;min-height:32px;padding:0 6px;border:0;background:transparent;font-size:12px;font-weight:700;color:#5B6578;cursor:pointer;text-decoration:underline;text-underline-offset:3px" style-hover="color:#B8412D">↺ {{ t.startOver }}</button>
-</div>
-<div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ progress }}" aria-label="Progress" style="margin-top:8px;height:3px;background:#E3E6EC;border-radius:2px;overflow:hidden"><div style="height:100%;width:{{ progressPct }};background:#00B0A8;transition:width .4s"></div></div>
-</div>
-</sc-if>
-</header>
-<main style="flex:1;display:flex;flex-direction:column">
-<sc-if value="{{ is.welcome }}" hint-placeholder-val="{{ true }}">
-<section data-screen-label="01 Welcome" style="display:flex;flex-direction:column;gap:22px;padding:28px 20px 40px;animation:so-fade .4s both">
-<div>
-<div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#00807A;margin-bottom:12px">{{ t.experienceKicker }}</div>
-<h1 data-latin-tight style="margin:0;font-size:clamp(46px,13vw,76px);line-height:.92;letter-spacing:-.03em;font-weight:800;color:#002858">{{ t.t1 }}<br><span style="color:#00B0A8">{{ t.t2 }}</span></h1>
-<p style="margin:16px 0 0;font-size:clamp(20px,5vw,24px);line-height:1.25;font-weight:700;color:#0F1B33;text-wrap:balance">{{ t.heroMeta }}</p>
-<p data-serif style="margin:12px 0 0;font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.45;color:#0F1B33;text-wrap:pretty">{{ t.heroCopy }}</p>
-</div>
-<div style="background:#E6F7F6;border-radius:8px;padding:14px 16px;font-size:14px;line-height:1.55;color:#0F1B33">{{ t.demoPill }} · {{ t.mapScale }}</div>
-<button type="button" onClick="{{ begin }}" style="min-height:56px;border:0;border-radius:8px;background:#00B0A8;color:#002858;font-size:17px;font-weight:800;cursor:pointer" style-hover="background:#00C4BB">{{ t.start }} →</button>
-</section>
-</sc-if>
-<sc-if value="{{ is.europe }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="02 Europe" style="display:flex;flex-direction:column;gap:14px;padding:24px 20px 40px;animation:so-fade .35s both">
-<h2 style="margin:0;font-size:28px;line-height:1.1;font-weight:800;color:#002858">{{ t.euTitle }}</h2>
-<p style="margin:0;font-size:15px;line-height:1.5;color:#5B6578">{{ t.euroText }}</p>
-<div style="background:#fff;border:1px solid #E3E6EC;border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px">
-<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:15px;font-weight:800;color:#002858">{{ t.euroFromTo }}</span><span style="font-size:30px;font-weight:800;color:#00807A;font-variant-numeric:tabular-nums">{{ euMin }}′</span></div>
-<svg viewBox="0 0 340 120" role="img" aria-label="{{ t.euroFromTo }}" style="width:100%;height:auto;display:block;background:#F0F2F6;border-radius:8px">
-<path d="M30 90 C110 85 200 40 310 30" fill="none" stroke="#00B0A8" stroke-width="6" stroke-linecap="round"></path>
-<circle cx="30" cy="90" r="7" fill="#fff" stroke="#002858" stroke-width="3"></circle>
-<circle cx="310" cy="30" r="7" fill="#fff" stroke="#002858" stroke-width="3"></circle>
-<g style="transform:translate({{ euX }}px,{{ euY }}px);transition:transform .12s linear"><circle cx="0" cy="0" r="9" fill="#002858" stroke="#fff" stroke-width="3"></circle></g>
-</svg>
-<div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ eu }}" style="height:8px;border-radius:4px;background:#E3E6EC;overflow:hidden"><div style="height:100%;width:{{ euPct }};background:#00B0A8"></div></div>
-</div>
-<sc-if value="{{ euIdle }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ drive }}" style="min-height:56px;border:0;border-radius:8px;background:#002858;color:#fff;font-size:17px;font-weight:800;cursor:pointer">{{ t.drive }} →</button></sc-if>
-<sc-if value="{{ euDriving }}" hint-placeholder-val="{{ false }}"><div style="text-align:center;font-size:15px;font-weight:700;color:#5B6578">{{ t.driving }}</div></sc-if>
-<sc-if value="{{ euDone }}" hint-placeholder-val="{{ false }}">
-<div style="display:flex;flex-direction:column;gap:12px;animation:so-fade .3s both">
-<div style="background:#E6F7F6;border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.55"><b>{{ t.arriveNormally }}</b> {{ t.euDone }}</div>
-<button type="button" onClick="{{ toPlan }}" style="min-height:56px;border:0;border-radius:8px;background:#00B0A8;color:#002858;font-size:17px;font-weight:800;cursor:pointer">{{ t.continue }} →</button>
-</div>
-</sc-if>
-</section>
-</sc-if>
-<sc-if value="{{ is.plan }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="03 Plan" style="display:flex;flex-direction:column;gap:14px;padding:24px 20px 40px;animation:so-fade .35s both">
-<h2 style="margin:0;font-size:28px;line-height:1.1;font-weight:800;color:#002858">{{ t.planTitle }}</h2>
-<p style="margin:0;font-size:15px;line-height:1.5;color:#5B6578">{{ t.planHint }}</p>
-<div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ t.routeLabel }}</div>
-<div style="display:grid;gap:8px">
-<sc-for list="{{ routes }}" as="r" hint-placeholder-count="3">
-<button type="button" onClick="{{ r.pick }}" aria-pressed="{{ r.on }}" style="display:flex;align-items:center;gap:12px;text-align:start;min-height:56px;padding:10px 14px;border-radius:8px;border:1.5px solid {{ r.border }};background:{{ r.bg }};font-size:16px;font-weight:800;cursor:pointer;color:#0F1B33"><span style="flex:none;width:26px;height:26px;border-radius:50%;background:{{ r.dot }};color:#fff;display:grid;place-items:center;font-size:12px">{{ r.mark }}</span>{{ r.label }}</button>
-</sc-for>
-</div>
-<div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ t.purposeLabel }}</div>
-<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
-<sc-for list="{{ goals }}" as="g" hint-placeholder-count="3">
-<button type="button" onClick="{{ g.pick }}" aria-pressed="{{ g.on }}" style="min-height:52px;padding:0 8px;border-radius:8px;border:1.5px solid {{ g.border }};background:{{ g.bg }};color:{{ g.fg }};font-size:15px;font-weight:800;cursor:pointer">{{ g.label }}</button>
-</sc-for>
-</div>
-<button type="button" onClick="{{ toLayers }}" disabled="{{ planNotReady }}" style="min-height:56px;border:0;border-radius:8px;background:{{ planBg }};color:#002858;font-size:17px;font-weight:800;cursor:pointer">{{ t.continue }} →</button>
-</section>
-</sc-if>
-<sc-if value="{{ is.layers }}" hint-placeholder-val="{{ false }}">
-<div style="display:flex;flex-direction:column;gap:6px;padding:24px 20px 0;animation:so-fade .35s both">
-<h2 style="margin:0;font-size:28px;line-height:1.1;font-weight:800;color:#002858">{{ t.layersTitle }}</h2>
-<p style="margin:0;font-size:15px;line-height:1.5;color:#5B6578">{{ t.layersHint }}</p>
-</div>
-</sc-if>
-<sc-if value="{{ is.trip }}" hint-placeholder-val="{{ false }}">
-<div style="display:flex;flex-direction:column;gap:6px;padding:24px 20px 0;animation:so-fade .35s both">
-<h2 style="margin:0;font-size:28px;line-height:1.1;font-weight:800;color:#002858">{{ t.tripTitle }}</h2>
-<p style="margin:0;font-size:15px;line-height:1.5;color:#5B6578">{{ t.tripHint }}</p>
-</div>
-</sc-if>
-<sc-if value="{{ showMap }}" hint-placeholder-val="{{ false }}">
-<div data-screen-label="Map" style="padding:14px 20px 0">
-<div style="background:#fff;border:1px solid #E3E6EC;border-radius:12px;padding:10px">
-<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:2px 4px 8px"><span style="font-size:13px;font-weight:800;color:#002858">{{ routeLabel }}</span><span data-latin style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#00807A;border:1px solid #00B0A8;border-radius:4px;padding:2px 6px">{{ t.mapScale }}</span></div>
-<svg viewBox="0 0 340 210" role="img" aria-label="{{ routeLabel }}" style="width:100%;height:auto;display:block;background:#F0F2F6;border-radius:8px">
-<sc-if value="{{ lay.military }}" hint-placeholder-val="{{ false }}"><path d="M210 140 L280 128 L300 180 L232 196 Z" fill="#00B0A8" fill-opacity=".14" stroke="#00807A" stroke-width="1.5" stroke-dasharray="5 4"></path><text x="236" y="172" font-size="9" font-weight="700" fill="#00807A">▲ MIL</text></sc-if>
-<sc-if value="{{ showDetour }}" hint-placeholder-val="{{ false }}"><path d="M36 170 C90 205 200 210 248 160 S296 90 304 46" fill="none" stroke="#002858" stroke-width="3" stroke-dasharray="7 7" opacity=".6"></path></sc-if>
-<path d="M36 170 C90 160 120 118 170 112 S260 70 304 46" fill="none" stroke="{{ routeColor }}" stroke-width="6" stroke-linecap="round"></path>
-<sc-if value="{{ lay.gate }}" hint-placeholder-val="{{ false }}"><g><rect x="92" y="130" width="30" height="8" rx="2" fill="#E0A030" stroke="#7A5512" stroke-width="1" transform="rotate(-22 107 134)"></rect><text x="84" y="156" font-size="9" font-weight="800" fill="#7A5512">GATE</text></g></sc-if>
-<sc-if value="{{ lay.checkpoint }}" hint-placeholder-val="{{ false }}"><g><path d="M224 72l16 16m0-16-16 16" stroke="#B8412D" stroke-width="5" stroke-linecap="round"></path><text x="216" y="104" font-size="9" font-weight="800" fill="#B8412D">CHECK</text></g></sc-if>
-<sc-if value="{{ lay.settler }}" hint-placeholder-val="{{ false }}"><g><circle cx="128" cy="76" r="8" fill="#B8412D" fill-opacity=".85"></circle><text x="140" y="80" font-size="9" font-weight="800" fill="#B8412D">!</text></g></sc-if>
-<sc-if value="{{ lay.permit }}" hint-placeholder-val="{{ false }}"><g><rect x="280" y="52" width="8" height="34" rx="2" fill="#002858"></rect><text x="250" y="100" font-size="9" font-weight="800" fill="#002858">PERMIT</text></g></sc-if>
-<circle cx="36" cy="170" r="8" fill="#fff" stroke="#002858" stroke-width="3"></circle>
-<circle cx="170" cy="112" r="7" fill="#fff" stroke="#002858" stroke-width="3"></circle>
-<circle cx="304" cy="46" r="8" fill="#fff" stroke="#002858" stroke-width="3"></circle>
-<text x="20" y="196" font-size="11" font-weight="800" fill="#0F1B33">{{ mapA }}</text>
-<text x="150" y="98" font-size="11" font-weight="800" fill="#0F1B33">{{ mapM }}</text>
-<text x="326" y="26" font-size="11" font-weight="800" fill="#0F1B33" text-anchor="end">{{ mapB }}</text>
-<g style="transform:translate({{ tx }}px,{{ ty }}px);transition:transform .8s ease"><circle cx="0" cy="0" r="10" fill="#00B0A8" stroke="#002858" stroke-width="3"></circle></g>
-</svg>
-</div>
-</div>
-</sc-if>
-<sc-if value="{{ is.layers }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="04 Layers" style="display:flex;flex-direction:column;gap:12px;padding:14px 20px 40px">
-<div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:{{ layColor }}"><span>{{ layNeed }}</span></div>
-<div style="display:grid;gap:8px">
-<sc-for list="{{ layerList }}" as="x" hint-placeholder-count="5">
-<div style="border-radius:8px;border:1.5px solid {{ x.border }};background:{{ x.bg }};overflow:hidden">
-<button type="button" onClick="{{ x.toggle }}" aria-pressed="{{ x.on }}" style="width:100%;display:flex;align-items:center;gap:12px;text-align:start;min-height:52px;padding:8px 14px;border:0;background:transparent;cursor:pointer;color:#0F1B33"><span style="flex:none;width:22px;height:22px;border-radius:5px;border:2px solid #002858;background:{{ x.box }};color:#fff;display:grid;place-items:center;font-size:13px;font-weight:800">{{ x.mark }}</span><span style="flex:1;font-size:15px;font-weight:700">{{ x.label }}</span></button>
-<sc-if value="{{ x.on }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 14px 12px 48px;font-size:13.5px;line-height:1.45;color:#5B6578;animation:so-slide .25s both">{{ x.line }}</p></sc-if>
-</div>
-</sc-for>
-</div>
-<button type="button" onClick="{{ toUpdates }}" disabled="{{ layNotReady }}" style="min-height:56px;border:0;border-radius:8px;background:{{ layBg }};color:#002858;font-size:17px;font-weight:800;cursor:pointer">{{ t.continue }} →</button>
-</section>
-</sc-if>
-<sc-if value="{{ is.updates }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="05 Updates" style="display:flex;flex-direction:column;gap:14px;padding:24px 20px 40px;animation:so-fade .35s both">
-<h2 style="margin:0;font-size:28px;line-height:1.1;font-weight:800;color:#002858">{{ t.communityTitle }}</h2>
-<p style="margin:0;font-size:15px;line-height:1.5;color:#5B6578">{{ t.updatesHint }}</p>
-<div style="background:#002858;border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:200px">
-<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;font-weight:800;color:#fff">{{ routeLabel }}</span><span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#7FD9D4">{{ t.sampleOnly }}</span></div>
-<sc-for list="{{ msgs }}" as="m" hint-placeholder-count="3">
-<div style="align-self:flex-start;max-width:88%;background:#fff;color:#0F1B33;border-radius:10px;border-start-start-radius:2px;padding:10px 12px;animation:so-slide .3s both"><div style="font-size:11px;font-weight:800;color:#00807A;margin-bottom:2px">{{ m.time }}</div><div style="font-size:15px;line-height:1.4">{{ m.text }}</div></div>
-</sc-for>
-<sc-if value="{{ typing }}" hint-placeholder-val="{{ false }}"><div style="align-self:flex-start;display:flex;gap:4px;padding:10px 12px;background:rgba(255,255,255,.15);border-radius:10px"><span style="width:6px;height:6px;border-radius:50%;background:#fff;animation:so-pulse 1s infinite"></span><span style="width:6px;height:6px;border-radius:50%;background:#fff;animation:so-pulse 1s .2s infinite"></span><span style="width:6px;height:6px;border-radius:50%;background:#fff;animation:so-pulse 1s .4s infinite"></span></div></sc-if>
-</div>
-<sc-if value="{{ msgsDone }}" hint-placeholder-val="{{ false }}">
-<div style="display:flex;flex-direction:column;gap:12px;animation:so-fade .3s both">
-<div style="background:#E6F7F6;border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.55">{{ t.updateNote }}</div>
-<button type="button" onClick="{{ toTrip }}" style="min-height:56px;border:0;border-radius:8px;background:#00B0A8;color:#002858;font-size:17px;font-weight:800;cursor:pointer">{{ t.continue }} →</button>
-</div>
-</sc-if>
-</section>
-</sc-if>
-<sc-if value="{{ is.trip }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="06 Trip" style="display:flex;flex-direction:column;gap:12px;padding:14px 20px 40px">
-<ol style="margin:0;padding:0;list-style:none;display:grid;gap:6px">
-<sc-for list="{{ stages }}" as="s" hint-placeholder-count="3">
-<li style="display:flex;gap:12px;padding:10px 14px;border-radius:8px;background:#fff;border:1.5px solid {{ s.border }};opacity:{{ s.op }};transition:opacity .3s"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:{{ s.bg }};color:#fff;display:grid;place-items:center;font-size:12px;font-weight:800">{{ s.mark }}</span><div><div style="font-size:15px;font-weight:800;color:#002858">{{ s.title }}</div><sc-if value="{{ s.current }}" hint-placeholder-val="{{ false }}"><div style="margin-top:2px;font-size:13.5px;line-height:1.45;color:#5B6578">{{ s.text }}</div></sc-if></div></li>
-</sc-for>
-</ol>
-<sc-if value="{{ needPermit }}" hint-placeholder-val="{{ false }}">
-<div style="display:flex;flex-direction:column;gap:8px;animation:so-fade .3s both">
-<div style="font-size:14px;font-weight:800;color:#002858">{{ t.permitQ }}</div>
-<sc-for list="{{ permits }}" as="p" hint-placeholder-count="2">
-<button type="button" onClick="{{ p.pick }}" aria-pressed="{{ p.on }}" style="display:flex;align-items:center;gap:10px;text-align:start;min-height:52px;padding:8px 14px;border-radius:8px;border:1.5px solid {{ p.border }};background:{{ p.bg }};font-size:14.5px;font-weight:700;cursor:pointer;color:#0F1B33"><span style="flex:none;width:18px;height:18px;border-radius:50%;border:2px solid #002858;background:{{ p.dot }}"></span>{{ p.label }}</button>
-</sc-for>
-</div>
-</sc-if>
-<sc-if value="{{ tripNotDone }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ advance }}" style="min-height:56px;border:0;border-radius:8px;background:#002858;color:#fff;font-size:17px;font-weight:800;cursor:pointer">{{ goLabel }} →</button></sc-if>
-<sc-if value="{{ tripDone }}" hint-placeholder-val="{{ false }}">
-<div style="display:flex;flex-direction:column;gap:12px;animation:so-slide .4s both">
-<div role="status" style="background:#002858;color:#fff;border-radius:10px;padding:16px 18px">
-<div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:{{ outTagColor }}">{{ outTag }}</span><span style="font-size:28px;font-weight:800;color:{{ outTimeColor }};font-variant-numeric:tabular-nums;white-space:nowrap">{{ outTime }}</span></div>
-<p style="margin:8px 0 0;font-size:16px;line-height:1.5">{{ outText }}</p>
-<div style="margin-top:10px;display:inline-flex;min-height:28px;align-items:center;padding:0 10px;border-radius:999px;background:#FFF1EE;color:#B8412D;font-size:13px;font-weight:800">{{ goalLine }}</div>
-</div>
-<p data-serif style="margin:0;font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.5">{{ t.routeReveal }}</p>
-<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
-<div style="background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:12px 14px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ t.euTitle }}</div><div style="margin-top:4px;font-size:26px;font-weight:800;color:#00807A">20′</div></div>
-<div style="background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:12px 14px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ routeLabel }}</div><div style="margin-top:4px;font-size:26px;font-weight:800;color:#B8412D;white-space:nowrap">{{ outTime }}</div></div>
-</div>
-<button type="button" onClick="{{ toGuess }}" style="min-height:56px;border:0;border-radius:8px;background:#00B0A8;color:#002858;font-size:17px;font-weight:800;cursor:pointer">{{ t.continue }} →</button>
-</div>
-</sc-if>
-</section>
-</sc-if>
-<sc-if value="{{ is.guess }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="07 Evidence" style="display:flex;flex-direction:column;gap:14px;padding:24px 20px 40px;animation:so-fade .35s both">
-<h2 style="margin:0;font-size:28px;line-height:1.1;font-weight:800;color:#002858">{{ t.guessTitle }}</h2>
-<div style="background:#fff;border:1px solid #E3E6EC;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px">
-<p style="margin:0;font-size:16px;font-weight:700;line-height:1.4">{{ t.guessQ }}</p>
-<div style="display:flex;align-items:baseline;gap:8px"><span style="font-size:12px;font-weight:700;color:#5B6578">{{ t.yourGuess }}</span><span style="font-size:32px;font-weight:800;color:#002858;font-variant-numeric:tabular-nums">{{ guess }}</span></div>
-<input class="so" type="range" min="0" max="1500" step="25" value="{{ guess }}" onChange="{{ onGuess }}" onInput="{{ onGuess }}" disabled="{{ guessShown }}" aria-label="{{ t.guessQ }}">
-<sc-if value="{{ guessHidden }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ revealGuess }}" style="min-height:48px;border:0;border-radius:8px;background:#002858;color:#fff;font-size:16px;font-weight:800;cursor:pointer">{{ t.reveal }}</button></sc-if>
-<sc-if value="{{ guessShown }}" hint-placeholder-val="{{ false }}">
-<div style="display:grid;gap:6px;animation:so-fade .3s both">
-<div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#5B6578"><span style="min-width:80px">{{ t.yourGuess }}</span><div style="flex:1;height:12px;border-radius:6px;background:#E3E6EC;overflow:hidden"><div style="height:100%;width:{{ guessPct }};background:#5B6578"></div></div><span style="min-width:40px;text-align:end">{{ guess }}</span></div>
-<div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#00807A"><span style="min-width:80px">{{ t.documented }}</span><div style="flex:1;height:12px;border-radius:6px;background:#E3E6EC;overflow:hidden"><div style="height:100%;width:61.7%;background:#00B0A8"></div></div><span style="min-width:40px;text-align:end">925</span></div>
-</div>
-</sc-if>
-</div>
-<sc-if value="{{ guessShown }}" hint-placeholder-val="{{ false }}">
-<div style="display:flex;flex-direction:column;gap:10px;animation:so-fade .35s both">
-<h3 style="margin:6px 0 0;font-size:20px;font-weight:800;color:#002858">{{ t.evidenceTitle }}</h3>
-<sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
-<div style="display:flex;gap:14px;align-items:baseline;background:{{ s.bg }};border-radius:10px;padding:14px 16px">
-<span style="flex:none;min-width:84px;font-size:30px;font-weight:800;letter-spacing:-.02em;color:{{ s.fg }};font-variant-numeric:tabular-nums">{{ s.n }}</span>
-<div><div style="font-size:15px;font-weight:800;color:#0F1B33">{{ s.title }}</div><div style="font-size:14px;line-height:1.45;color:#0F1B33">{{ s.label }}</div><a href="{{ s.url }}" target="_blank" rel="noopener" onClick="{{ s.open }}" style="display:inline-block;margin-top:4px;font-size:12px;font-weight:700">{{ t.source }}: OCHA · {{ s.date }} ↗</a></div>
-</div>
-</sc-for>
-<button type="button" onClick="{{ toDecisions }}" style="min-height:56px;border:0;border-radius:8px;background:#00B0A8;color:#002858;font-size:17px;font-weight:800;cursor:pointer">{{ t.continue }} →</button>
-</div>
-</sc-if>
-</section>
-</sc-if>
-<sc-if value="{{ is.decisions }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="08 Decisions" style="display:flex;flex-direction:column;gap:14px;padding:24px 20px 40px;animation:so-fade .35s both">
-<h2 style="margin:0;font-size:28px;line-height:1.1;font-weight:800;color:#002858">{{ t.journeyTitle }}</h2>
-<p style="margin:0;font-size:15px;line-height:1.5;color:#5B6578">{{ t.decisionsHint }}</p>
-<div style="display:grid;gap:8px">
-<sc-for list="{{ checks }}" as="c" hint-placeholder-count="4">
-<button type="button" onClick="{{ c.pick }}" aria-pressed="{{ c.on }}" style="display:flex;align-items:center;gap:12px;text-align:start;min-height:64px;padding:10px 14px;border-radius:10px;border:1.5px solid {{ c.border }};background:{{ c.bg }};cursor:pointer;color:#0F1B33"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:{{ c.dot }};color:#fff;display:grid;place-items:center;font-size:13px;font-weight:800">{{ c.mark }}</span><span><span style="display:block;font-size:15.5px;font-weight:800">{{ c.title }}</span><span style="display:block;font-size:13.5px;color:#5B6578;margin-top:2px">{{ c.text }}</span></span></button>
-</sc-for>
-</div>
-<sc-if value="{{ checksDone }}" hint-placeholder-val="{{ false }}">
-<div style="display:flex;flex-direction:column;gap:12px;animation:so-fade .3s both">
-<figure style="margin:0;background:#002858;color:#fff;border-radius:10px;padding:18px">
-<blockquote data-serif style="margin:0;font-family:'Source Serif 4',Georgia,serif;font-size:20px;line-height:1.4">“{{ t.quote }}”</blockquote>
-<figcaption style="margin-top:10px;font-size:12.5px;color:#7FD9D4;font-weight:600">{{ t.quoteBy }}</figcaption>
-</figure>
-<button type="button" onClick="{{ toEnd }}" style="min-height:56px;border:0;border-radius:8px;background:#00B0A8;color:#002858;font-size:17px;font-weight:800;cursor:pointer">{{ t.continue }} →</button>
-</div>
-</sc-if>
-</section>
-</sc-if>
-<sc-if value="{{ is.end }}" hint-placeholder-val="{{ false }}">
-<section data-screen-label="09 End" style="display:flex;flex-direction:column;gap:24px;padding:28px 20px 48px;animation:so-fade .4s both">
-<div>
-<h2 style="margin:0;font-size:clamp(28px,7.5vw,38px);line-height:1.08;font-weight:800;color:#002858;letter-spacing:-.02em;text-wrap:balance">{{ t.ctaTitle }}</h2>
-<p data-serif style="margin:14px 0 0;font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.5;text-wrap:pretty">{{ t.ctaCopy }}</p>
-</div>
-<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
-<div style="background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:14px;grid-column:1 / -1"><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ t.yourRoute }}</div><div style="margin-top:6px;font-size:17px;font-weight:800;color:#002858">{{ routeLabel }}</div></div>
-<div style="background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:14px"><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ t.yourPurpose }}</div><div style="margin-top:6px;font-size:17px;font-weight:800;color:#002858">{{ goalName }}</div></div>
-<div style="background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:14px"><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ t.outcome }}</div><div style="margin-top:6px;font-size:22px;font-weight:800;color:#B8412D;white-space:nowrap">{{ outTime }}</div></div>
-</div>
-<div style="display:flex;align-items:center;gap:14px;background:#002858;border-radius:12px;padding:16px 18px;color:#fff">
-<svg width="52" height="52" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none" stroke="#00B0A8" stroke-width="3"></circle><path d="M16 27l7 7 14-15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-<div><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#7FD9D4">{{ t.badge }}</div><div style="font-size:18px;font-weight:800;line-height:1.1;margin-top:2px">{{ t.badgeName }}</div><div style="margin-top:4px;font-size:12.5px;color:#B8C4D8">{{ t.badgeSub }}</div></div>
-</div>
-<div style="display:flex;flex-direction:column;gap:10px">
-<div data-serif style="padding:14px 16px;border-radius:10px;background:#fff;border:1px solid #E3E6EC;font-family:'Source Serif 4',Georgia,serif;font-size:15px;line-height:1.5;user-select:all">{{ t.adv }}</div>
-<button type="button" onClick="{{ copyAdv }}" style="min-height:56px;border:0;border-radius:8px;background:#00B0A8;color:#002858;font-size:17px;font-weight:800;cursor:pointer">{{ t.copy }}</button>
-<button type="button" onClick="{{ share }}" style="min-height:56px;border:0;border-radius:8px;background:#002858;color:#fff;font-size:17px;font-weight:800;cursor:pointer">{{ t.share }} ↗</button>
-<button type="button" onClick="{{ restart }}" style="min-height:56px;border:1.5px solid #002858;border-radius:8px;background:transparent;color:#002858;font-size:17px;font-weight:800;cursor:pointer">↺ {{ t.restart }}</button>
-</div>
-<div style="background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:16px 18px">
-<h3 style="margin:0 0 6px;font-size:18px;font-weight:800;color:#002858">{{ t.sourcesTitle }}</h3>
-<p style="margin:0 0 10px;font-size:13.5px;line-height:1.5;color:#5B6578">{{ t.methodNote }}</p>
-<ul style="margin:0;padding:0;list-style:none;display:grid;gap:8px">
-<sc-for list="{{ sourceList }}" as="s" hint-placeholder-count="3"><li style="font-size:14px;line-height:1.5"><a href="{{ s.url }}" target="_blank" rel="noopener" onClick="{{ s.open }}">{{ s.name }} ↗</a></li></sc-for>
-</ul>
-</div>
-</section>
-</sc-if>
-</main>
-<footer style="margin-top:auto;background:#002858;color:#fff;padding:24px 20px 28px;display:flex;flex-direction:column;gap:18px">
-<div style="display:flex;align-items:center;gap:12px"><img src="assets/yplus-logo.png" alt="Y+" style="height:28px;width:auto;background:#fff;border-radius:4px;padding:3px 5px"><span data-latin style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B8C4D8">Awareness → Understanding → Action</span></div>
-<div style="display:flex;flex-direction:column;gap:10px">
-<span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#7FD9D4">{{ t.follow }}</span>
-<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
-<sc-for list="{{ social }}" as="s" hint-placeholder-count="4">
-<a href="{{ s.url }}" target="_blank" rel="noopener" style="min-height:40px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;font-size:13px;font-weight:700;color:#fff;text-decoration:none;white-space:nowrap" style-hover="background:#fff;color:#002858">{{ s.name }}</a>
-</sc-for>
-</div>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.15);padding-top:16px">
-<div style="font-size:14px;font-weight:600">{{ t.story }} <a href="{{ contact.story }}" target="_blank" rel="noopener" style="color:#7FD9D4;font-weight:800;text-decoration:underline;text-underline-offset:3px">{{ t.shareIt }} ↗</a></div>
-<div style="display:flex;gap:14px;font-size:13px"><a href="{{ contact.contact }}" target="_blank" rel="noopener" style="color:#fff;font-weight:600">{{ t.contact }}</a><a href="{{ contact.site }}" target="_blank" rel="noopener" style="color:#B8C4D8;font-weight:600">yplus.ps</a></div>
-</div>
-</footer>
-<sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
-<div role="status" aria-live="polite" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#002858;color:#fff;padding:10px 16px;border-radius:6px;font-size:14px;font-weight:600;box-shadow:0 10px 30px -10px rgba(0,0,0,.4);z-index:50">{{ toast }}</div>
-</sc-if>
+<div dir="{{ dir }}" lang="{{ lang }}" style="min-height:100svh;display:flex;justify-content:center;background:var(--outer)">
+<div style="width:100%;max-width:560px;min-height:100svh;background:var(--bg);display:flex;flex-direction:column;box-shadow:0 0 0 1px var(--line)">
+  <header style="position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)">
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 16px">
+      <sc-if value="{{ isLightLogo }}" hint-placeholder-val="{{ true }}"><img src="https://yplus.ps/wp-content/uploads/2026/10/yplus-logo-color.png" alt="YPlus" style="height:26px;width:auto;display:block;flex:none"></sc-if><sc-if value="{{ isDarkLogo }}" hint-placeholder-val="{{ false }}"><img src="https://yplus.ps/wp-content/uploads/2026/10/yplus-logo-on-dark.png" alt="YPlus" style="height:26px;width:auto;display:block;flex:none"></sc-if>
+      <sc-if value="{{ isKiosk }}" hint-placeholder-val="{{ false }}"><span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--tealInk);border:1px solid var(--action);border-radius:4px;padding:3px 7px">{{ t.kiosk }}</span></sc-if>
+      <button type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}" style="margin-inline-start:auto;flex:none;width:44px;height:44px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--navy);font-size:17px;cursor:pointer">{{ themeIcon }}</button>
+      <div role="group" aria-label="Language" style="flex:none;display:flex;gap:3px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px">
+        <sc-for list="{{ langs }}" as="l" hint-placeholder-count="4">
+          <button type="button" onClick="{{ l.pick }}" aria-pressed="{{ l.active }}" style="min-height:38px;min-width:38px;padding:0 8px;border:0;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;background:{{ l.bg }};color:{{ l.fg }}">{{ l.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <sc-if value="{{ inFlow }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:6px 16px 8px;border-top:1px solid var(--line);background:var(--surface)">
+        <div style="display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;color:var(--muted)">
+          <span>{{ stepLabel }}</span>
+          <button type="button" onClick="{{ restart }}" style="margin-inline-start:auto;min-height:32px;padding:0 6px;border:0;background:transparent;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px">↺ {{ t.startOver }}</button>
+        </div>
+        <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ progress }}" aria-label="Progress" style="margin-top:4px;height:3px;background:var(--line);border-radius:2px;overflow:hidden"><div style="height:100%;width:{{ progressPct }};background:var(--road);transition:width .3s ease-out"></div></div>
+      </div>
+    </sc-if>
+  </header>
+  <main style="flex:1;display:flex;flex-direction:column">
+  <sc-if value="{{ is.welcome }}" hint-placeholder-val="{{ true }}">
+    <section data-screen-label="01 Welcome" style="display:flex;flex-direction:column;gap:22px;padding:32px 20px 44px;animation:so-fade .3s ease-out both">
+      <div>
+        <div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--tealInk);margin-bottom:12px">04 · yplus.ps/road-access</div>
+        <h1 style="margin:0;font-size:clamp(40px,11vw,60px);line-height:1.02;letter-spacing:-.02em;font-weight:700;color:var(--navy)">{{ t.t1 }} <span style="color:var(--tealInk)">{{ t.t2 }}</span></h1>
+        <p style="margin:16px 0 0;font-size:20px;line-height:1.35;font-weight:600;text-wrap:balance">{{ v.route }} · {{ v.purpose }}</p>
+        <p style="margin:10px 0 0;font-size:16px;line-height:1.6;color:var(--muted);text-wrap:pretty">{{ v.heroCopy }}</p>
+      </div>
+      <span style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--warnSoft);color:var(--amber)"><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>{{ v.label }}</span>
+      <button type="button" onClick="{{ begin }}" style="min-height:52px;padding:12px 20px;border:0;border-radius:14px;background:var(--action);color:var(--onAction);font-size:17px;font-weight:700;cursor:pointer">{{ v.start }} {{ fwd }}</button>
+    </section>
+  </sc-if>
+  <sc-if value="{{ is.plan }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="02 Plan" style="display:flex;flex-direction:column;gap:16px;padding:26px 20px 44px;animation:so-fade .3s ease-out both">
+      <h2 style="margin:0;font-size:26px;line-height:1.2;font-weight:700;color:var(--navy)">{{ v.planTitle }}</h2>
+      <p style="margin:0;font-size:16px;line-height:1.6;color:var(--muted)">{{ v.planHint }}</p>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:18px;display:grid;gap:14px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <span aria-hidden="true" style="flex:none;width:40px;height:40px;border-radius:50%;background:var(--roadSoft);display:grid;place-items:center"><span style="width:14px;height:14px;border-radius:50%;background:var(--road)"></span></span>
+          <div style="min-width:0"><div style="font-size:19px;font-weight:700;color:var(--navy);line-height:1.3">{{ v.route }}</div><span style="display:inline-flex;margin-top:4px;align-items:center;min-height:26px;padding:0 10px;border-radius:999px;border:1.5px solid var(--road);font-size:13px;font-weight:600">{{ v.purpose }}</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+          <sc-for list="{{ planFacts }}" as="f" hint-placeholder-count="4">
+            <div style="background:var(--surface2);border-radius:12px;padding:10px 12px"><div style="font-size:12px;font-weight:600;color:var(--muted)">{{ f.k }}</div><div dir="ltr" style="unicode-bidi:isolate;text-align:start;font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:600">{{ f.v }}</div></div>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)"><span aria-hidden="true" style="flex:none;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--muted);display:grid;place-items:center;font-size:12px;font-weight:700">?</span>{{ v.noSpoil }}</div>
+      </div>
+      <button type="button" onClick="{{ startJourney }}" style="min-height:52px;padding:12px 20px;border:0;border-radius:14px;background:var(--action);color:var(--onAction);font-size:17px;font-weight:700;cursor:pointer">{{ v.go }} {{ fwd }}</button>
+    </section>
+  </sc-if>
+  <sc-if value="{{ is.journey }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="03 Journey" style="display:flex;flex-direction:column;gap:10px;padding:14px 16px 24px;padding-bottom:{{ jPad }}">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px">
+        <span style="font-size:15px;font-weight:700;color:var(--navy)">{{ v.route }}</span>
+        <span style="font-size:13px;color:var(--muted)">{{ v.purpose }}</span>
+      </div>
+      <span style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--warnSoft);color:var(--amber)"><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>{{ v.label }}</span>
+      <div style="position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px">
+        <div style="background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px;text-align:center"><div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em">{{ hudT }}</div><div dir="ltr" style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600">{{ clock }}</div></div>
+        <div style="background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px;text-align:center"><div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em">{{ hudK }}</div><div dir="ltr" style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600">{{ kmTxt }}<span style="font-size:13px;color:var(--muted)">/48</span></div></div>
+        <div style="background:{{ delayBg }};border:1px solid var(--line);border-radius:12px;padding:8px;text-align:center;transition:background .3s ease-out"><div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em">{{ hudD }}</div><div dir="ltr" style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:var(--red)">+{{ delayTxt }}<span style="font-size:13px"> min</span></div></div>
+        <sc-if value="{{ hasFlash }}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="position:absolute;inset-inline-end:6px;top:-12px;background:var(--red);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;padding:2px 9px;border-radius:999px;animation:so-flash 1.6s ease-out both">{{ flash }}</div></sc-if>
+      </div>
+      <div style="position:relative;background:var(--mapBg);border:1px solid var(--line);border-radius:18px;overflow:hidden">
+        <svg viewBox="0 0 340 226" role="img" aria-label="{{ mapAria }}" style="display:block;width:100%;height:auto">
+          <path d="M0 160 C60 130 100 190 170 165 S280 130 340 160 V226 H0Z" fill="var(--road)" fill-opacity=".14"></path>
+          <path d="M0 60 C60 30 120 90 190 55 S300 20 340 45 V0 H0Z" fill="var(--road)" fill-opacity=".1"></path>
+          <path d="M56 34 L96 46 L132 72 L158 104 L196 122 L238 146 L262 172 L286 192" fill="none" stroke="var(--line)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M56 34 L96 46 L132 72 L158 104 L196 122 L238 146 L262 172 L286 192" pathLength="100" fill="none" stroke="var(--road)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="100 100" stroke-dashoffset="{{ doneOffset }}"></path>
+          <sc-if value="{{ detour }}" hint-placeholder-val="{{ false }}"><path d="{{ detourD }}" fill="none" stroke="var(--amber)" stroke-width="4" stroke-dasharray="6 7" stroke-linecap="round"></path></sc-if>
+          <circle cx="56" cy="34" r="7" fill="var(--surface)" stroke="var(--navy)" stroke-width="3"></circle><text x="70" y="24" font-size="12" font-weight="700" fill="var(--ink)">{{ v.origin }}</text>
+          <circle cx="286" cy="192" r="7" fill="var(--surface)" stroke="var(--navy)" stroke-width="3"></circle><text x="272" y="216" font-size="12" font-weight="700" fill="var(--ink)" text-anchor="end">{{ v.dest }}</text>
+          <sc-for list="{{ pins }}" as="p" hint-placeholder-count="0">
+            <g transform="{{ p.tr }}"><g style="animation:so-pop .3s ease-out both"><rect x="-12" y="-12" width="24" height="24" rx="6" fill="var(--red)"></rect><path d="{{ p.icon }}" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"></path><text x="16" y="4" font-size="11" font-weight="700" fill="var(--red)" font-family="IBM Plex Mono, monospace">km {{ p.km }}</text></g></g>
+          </sc-for>
+          <g transform="{{ carTr }}"><circle r="11" fill="var(--surface)" stroke="var(--navy)" stroke-width="3"></circle><circle r="4.5" fill="{{ carDot }}"></circle></g>
+        </svg>
+        <span style="position:absolute;inset-inline-end:10px;top:8px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)">{{ t.mapScale }}</span>
+      </div>
+      <ol aria-label="{{ v.stage }}" style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px">
+        <sc-for list="{{ stages }}" as="s" hint-placeholder-count="3">
+          <li style="display:grid;gap:4px"><span style="height:6px;border-radius:9px;background:{{ s.bar }};transition:background .3s ease-out"></span><span dir="ltr" style="unicode-bidi:isolate;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:{{ s.fg }};text-align:center">{{ s.label }}</span></li>
+        </sc-for>
+      </ol>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px 14px;display:grid;gap:10px">
+        <div style="display:grid;gap:4px">
+          <div style="display:flex;justify-content:space-between;gap:8px;font-size:13px;font-weight:600;color:var(--muted)"><span>{{ v.cmpEu }}</span><sc-if value="{{ euDone }}" hint-placeholder-val="{{ false }}"><span style="color:var(--ok);font-weight:700">✓ {{ v.arrivedNow }}</span></sc-if></div>
+          <div style="position:relative;height:22px"><div style="position:absolute;inset-inline:0;top:8px;height:6px;border-radius:9px;background:var(--line)"></div><div style="position:absolute;inset-inline-start:0;top:8px;height:6px;border-radius:9px;background:var(--muted);width:{{ euPct }}"></div><div aria-hidden="true" style="position:absolute;top:2px;inset-inline-start:{{ euPct }};width:18px;height:18px;margin-inline-start:-9px;border-radius:5px;background:#8A94A6;border:2px solid var(--surface)"></div></div>
+        </div>
+        <div style="display:grid;gap:4px">
+          <div style="display:flex;justify-content:space-between;gap:8px;font-size:13px;font-weight:600"><span>{{ v.cmpYou }}</span><span style="color:{{ statusFg }};font-weight:700">{{ status }}</span></div>
+          <div style="position:relative;height:22px"><div style="position:absolute;inset-inline:0;top:8px;height:6px;border-radius:9px;background:var(--line)"></div><div style="position:absolute;inset-inline-start:0;top:8px;height:6px;border-radius:9px;background:var(--road);width:{{ youPct }}"></div><div aria-hidden="true" style="position:absolute;top:2px;inset-inline-start:{{ youPct }};width:18px;height:18px;margin-inline-start:-9px;border-radius:5px;background:var(--road);border:2px solid var(--surface)"></div></div>
+        </div>
+      </div>
+      <sc-if value="{{ hasWhy }}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:14px;line-height:1.55;padding:10px 12px;border-radius:12px;background:var(--surface2);animation:so-fade .25s ease-out both">{{ why }}</p></sc-if>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px">
+        <button type="button" onClick="{{ togglePause }}" disabled="{{ ctrlOff }}" aria-pressed="{{ paused }}" style="min-height:48px;padding:8px 12px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-size:15px;font-weight:700;cursor:pointer;opacity:{{ ctrlOp }}">{{ pauseIcon }} {{ pauseLabel }}</button>
+        <button type="button" onClick="{{ toggleSpeed }}" disabled="{{ ctrlOff }}" aria-pressed="{{ fast }}" style="min-height:48px;padding:8px 12px;border-radius:14px;border:1.5px solid {{ speedBorder }};background:{{ speedBg }};color:var(--ink);font-size:15px;font-weight:700;cursor:pointer;opacity:{{ ctrlOp }}">{{ speedLabel }}</button>
+      </div>
+      <sc-if value="{{ showSeeResult }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ toResult }}" style="min-height:52px;padding:12px 20px;border:0;border-radius:14px;background:var(--action);color:var(--onAction);font-size:17px;font-weight:700;cursor:pointer;animation:so-fade .25s ease-out both">{{ v.seeResult }} {{ fwd }}</button></sc-if>
+    </section>
+  </sc-if>
+  <sc-if value="{{ is.result }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="04 Result" style="display:flex;flex-direction:column;gap:14px;padding:26px 20px 44px;animation:so-fade .3s ease-out both">
+      <span style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--warnSoft);color:var(--amber)"><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>{{ v.label }}</span>
+      <div role="status" style="background:#002856;color:#fff;border-radius:18px;padding:18px;box-shadow:var(--shadow)">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7FE0DE">{{ v.resultK }}</div>
+        <h2 style="margin:6px 0 0;font-size:22px;line-height:1.35;font-weight:700">{{ resTitle }}</h2>
+        <div style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;min-height:30px;padding:4px 12px;border-radius:999px;background:{{ examBg }};color:#fff;font-size:14px;font-weight:700;line-height:1.35">{{ examIcon }} {{ examLine }}</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+        <sc-for list="{{ resFacts }}" as="f" hint-placeholder-count="3">
+          <div style="background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px"><div style="font-size:12px;font-weight:600;color:var(--muted);line-height:1.3">{{ f.k }}</div><div dir="ltr" style="unicode-bidi:isolate;text-align:start;font-family:'IBM Plex Mono',monospace;font-size:17px;font-weight:600;color:{{ f.c }}">{{ f.v }}</div></div>
+        </sc-for>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;gap:10px">
+        <div style="display:grid;gap:4px"><div style="display:flex;justify-content:space-between;gap:8px;font-size:13px;font-weight:600;color:var(--muted)"><span>{{ v.cmpEu }}</span><span dir="ltr" style="font-family:'IBM Plex Mono',monospace">55′</span></div><div style="height:10px;border-radius:9px;background:var(--line);overflow:hidden"><div style="height:100%;background:var(--muted);width:{{ cmpEuW }}"></div></div></div>
+        <div style="display:grid;gap:4px"><div style="display:flex;justify-content:space-between;gap:8px;font-size:13px;font-weight:600"><span>{{ v.cmpYou }}</span><span dir="ltr" style="font-family:'IBM Plex Mono',monospace;color:var(--red)">{{ totalMin }}′</span></div><div style="height:10px;border-radius:9px;background:var(--line);overflow:hidden"><div style="height:100%;background:var(--road);width:{{ cmpYouW }}"></div></div></div>
+      </div>
+      <div style="display:grid;gap:8px">
+        <h3 style="margin:4px 0 0;font-size:17px;font-weight:700;color:var(--navy)">{{ v.happened }}</h3>
+        <sc-for list="{{ hitList }}" as="h" hint-placeholder-count="2">
+          <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px">
+            <span dir="ltr" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--red);padding-top:3px">km {{ h.km }}</span>
+            <div><div style="font-size:15px;font-weight:700">{{ h.name }}</div><div style="font-size:14px;color:var(--muted)">{{ h.choice }} · <b style="color:var(--ink)">{{ h.cost }}</b></div></div>
+          </div>
+        </sc-for>
+        <p style="margin:0;font-size:14px;color:var(--muted)">{{ v.eventsVary }}</p>
+      </div>
+      <button type="button" onClick="{{ toGuess }}" style="min-height:52px;padding:12px 20px;border:0;border-radius:14px;background:var(--action);color:var(--onAction);font-size:17px;font-weight:700;cursor:pointer">{{ t.continue }} {{ fwd }}</button>
+      <button type="button" onClick="{{ startJourney }}" style="min-height:48px;padding:10px 20px;border:1.5px solid var(--line);border-radius:14px;background:transparent;color:var(--ink);font-size:16px;font-weight:700;cursor:pointer">↺ {{ v.rem.again }}</button>
+    </section>
+  </sc-if>
+  <sc-if value="{{ is.guess }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="05 Evidence" style="display:flex;flex-direction:column;gap:14px;padding:26px 20px 44px;animation:so-fade .3s ease-out both">
+      <h2 style="margin:0;font-size:26px;line-height:1.2;font-weight:700;color:var(--navy)">{{ t.guessTitle }}</h2>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:16px;display:flex;flex-direction:column;gap:10px">
+        <p style="margin:0;font-size:16px;font-weight:600;line-height:1.5">{{ t.guessQ }}</p>
+        <div style="display:flex;align-items:baseline;gap:8px"><span style="font-size:13px;font-weight:600;color:var(--muted)">{{ t.yourGuess }}</span><span style="font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;color:var(--navy)">{{ guess }}</span></div>
+        <input class="so" type="range" min="0" max="1500" step="25" value="{{ guess }}" onChange="{{ onGuess }}" onInput="{{ onGuess }}" disabled="{{ guessShown }}" aria-label="{{ t.guessQ }}">
+        <sc-if value="{{ guessHidden }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ revealGuess }}" style="min-height:48px;border:0;border-radius:14px;background:var(--primary);color:var(--onPrimary);font-size:16px;font-weight:700;cursor:pointer">{{ t.reveal }}</button></sc-if>
+        <sc-if value="{{ guessShown }}" hint-placeholder-val="{{ false }}">
+          <div role="status" style="display:grid;gap:6px;animation:so-fade .3s ease-out both">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--muted)"><span style="min-width:84px">{{ t.yourGuess }}</span><div style="flex:1;height:12px;border-radius:6px;background:var(--line);overflow:hidden"><div style="height:100%;width:{{ guessPct }};background:var(--muted)"></div></div><span dir="ltr" style="min-width:40px;text-align:end;font-family:'IBM Plex Mono',monospace">{{ guess }}</span></div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--tealInk)"><span style="min-width:84px">{{ t.documented }}</span><div style="flex:1;height:12px;border-radius:6px;background:var(--line);overflow:hidden"><div style="height:100%;width:61.7%;background:var(--road)"></div></div><span dir="ltr" style="min-width:40px;text-align:end;font-family:'IBM Plex Mono',monospace">925</span></div>
+          </div>
+        </sc-if>
+      </div>
+      <sc-if value="{{ guessShown }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:10px;animation:so-fade .3s ease-out both">
+          <h3 style="margin:6px 0 0;font-size:19px;font-weight:700;color:var(--navy)">{{ t.evidenceTitle }}</h3>
+          <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+            <div style="display:flex;gap:14px;align-items:baseline;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px">
+              <span dir="ltr" style="flex:none;min-width:76px;font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:var(--navy)">{{ s.n }}</span>
+              <div><div style="font-size:15px;font-weight:700">{{ s.title }}</div><div style="font-size:14px;line-height:1.5;color:var(--muted)">{{ s.label }}</div><a href="{{ s.url }}" target="_blank" rel="noopener" onClick="{{ s.open }}" style="display:inline-block;margin-top:4px;font-size:13px;font-weight:600">{{ t.source }}: OCHA · {{ s.date }} ↗</a></div>
+            </div>
+          </sc-for>
+          <button type="button" onClick="{{ toEnd }}" style="min-height:52px;padding:12px 20px;border:0;border-radius:14px;background:var(--action);color:var(--onAction);font-size:17px;font-weight:700;cursor:pointer">{{ t.continue }} {{ fwd }}</button>
+        </div>
+      </sc-if>
+    </section>
+  </sc-if>
+  <sc-if value="{{ is.end }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="06 Summary" style="display:flex;flex-direction:column;gap:20px;padding:28px 20px 44px;animation:so-fade .3s ease-out both">
+      <div>
+        <h2 style="margin:0;font-size:clamp(26px,7vw,34px);line-height:1.2;font-weight:700;color:var(--navy);text-wrap:balance">{{ t.ctaTitle }}</h2>
+        <p style="margin:12px 0 0;font-size:17px;line-height:1.6;color:var(--muted);text-wrap:pretty">{{ t.ctaCopy }}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+        <div style="grid-column:1 / -1;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px"><div style="font-size:12px;font-weight:600;color:var(--muted)">{{ t.yourRoute }}</div><div style="font-size:17px;font-weight:700;color:var(--navy)">{{ v.route }}</div></div>
+        <div style="background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px"><div style="font-size:12px;font-weight:600;color:var(--muted)">{{ t.yourPurpose }}</div><div style="font-size:15px;font-weight:700;color:var(--navy);line-height:1.4">{{ v.purpose }}</div></div>
+        <div style="background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px"><div style="font-size:12px;font-weight:600;color:var(--muted)">{{ t.outcome }}</div><div style="font-size:15px;font-weight:700;color:{{ examTxt }};line-height:1.4">{{ examIcon }} {{ examShort }}</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;background:#002856;border-radius:18px;padding:16px 18px;color:#fff">
+        <svg width="48" height="48" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none" stroke="#5E9A4A" stroke-width="3"></circle><path d="M16 27l7 7 14-15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <div><div style="font-size:12px;font-weight:700;color:#7FE0DE">{{ t.badge }}</div><div style="font-size:18px;font-weight:700;line-height:1.2">{{ t.badgeName }}</div><div style="margin-top:2px;font-size:13px;color:#B8C4D8">{{ t.badgeSub }}</div></div>
+      </div>
+      <div style="display:grid;gap:10px">
+        <div style="padding:14px 16px;border-radius:14px;background:var(--surface);border:1px solid var(--line);font-size:15px;line-height:1.6;user-select:all">{{ v.adv }}</div>
+        <button type="button" onClick="{{ copyAdv }}" style="min-height:48px;padding:10px 20px;border:1.5px solid var(--line);border-radius:14px;background:transparent;color:var(--ink);font-size:16px;font-weight:700;cursor:pointer">⧉ {{ t.copy }}</button>
+        <button type="button" onClick="{{ toRemember }}" style="min-height:52px;padding:12px 20px;border:0;border-radius:14px;background:var(--action);color:var(--onAction);font-size:17px;font-weight:700;cursor:pointer">{{ v.rem.title }} {{ fwd }}</button>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px">
+        <h3 style="margin:0 0 6px;font-size:17px;font-weight:700;color:var(--navy)">{{ t.sourcesTitle }}</h3>
+        <p style="margin:0 0 10px;font-size:14px;line-height:1.55;color:var(--muted)">{{ v.label }}. {{ t.methodNote }}</p>
+        <ul style="margin:0;padding:0;list-style:none;display:grid;gap:8px">
+          <sc-for list="{{ sourceList }}" as="s" hint-placeholder-count="3"><li style="font-size:14px;line-height:1.5"><a href="{{ s.url }}" target="_blank" rel="noopener" onClick="{{ s.open }}">{{ s.name }} ↗</a></li></sc-for>
+        </ul>
+      </div>
+    </section>
+  </sc-if>
+  <sc-if value="{{ is.remember }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="07 What to remember" style="display:flex;flex-direction:column;gap:20px;padding:30px 20px 44px;animation:so-fade .3s ease-out both">
+      <div><div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--tealInk)">{{ t.t1 }} {{ t.t2 }}</div><h2 style="margin:6px 0 0;font-size:26px;line-height:1.25;font-weight:700;color:var(--navy)">{{ v.rem.title }}</h2></div>
+      <ol style="margin:0;padding:0;list-style:none;display:grid;gap:14px">
+        <sc-for list="{{ remItems }}" as="r" hint-placeholder-count="5"><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;align-items:start"><span aria-hidden="true" style="width:30px;height:30px;border-radius:50%;background:var(--road);color:#fff;display:grid;place-items:center;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600">{{ r.n }}</span><span style="font-size:16px;line-height:1.55;padding-top:2px">{{ r.text }}</span></li></sc-for>
+      </ol>
+      <div style="background:#002856;color:#fff;border-radius:18px;padding:16px 18px"><b style="display:block;color:#7FE0DE;font-size:15px;margin-bottom:4px">{{ v.rem.doTitle }}</b><span style="font-size:15px;line-height:1.6">{{ v.rem.doText }}</span> <a href="{{ ochaUrl }}" target="_blank" rel="noopener" onClick="{{ openOcha }}" style="color:#7FE0DE;font-weight:600">OCHA ↗</a></div>
+      <div style="display:grid;gap:10px">
+        <button type="button" onClick="{{ share }}" style="min-height:52px;padding:12px 20px;border:0;border-radius:14px;background:var(--action);color:var(--onAction);font-size:17px;font-weight:700;cursor:pointer">⤴ {{ v.rem.share }}</button>
+        <button type="button" onClick="{{ restart }}" style="min-height:48px;padding:10px 20px;border:1.5px solid var(--line);border-radius:14px;background:transparent;color:var(--ink);font-size:16px;font-weight:700;cursor:pointer">↺ {{ v.rem.again }}</button>
+        <button type="button" onClick="{{ toSummary }}" style="min-height:48px;border:0;background:transparent;color:var(--muted);font-size:15px;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px">{{ back }} {{ v.rem.back }}</button>
+      </div>
+    </section>
+  </sc-if>
+  </main>
+  <footer style="margin-top:auto;background:#002856;color:#fff;padding:24px 20px 28px;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;align-items:center;gap:12px"><img src="https://yplus.ps/wp-content/uploads/2026/10/yplus-logo-on-dark.png" alt="YPlus" style="height:28px;width:auto;display:block"><span style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:#B8C4D8">Awareness → Understanding → Action</span></div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:#7FE0DE">{{ t.follow }}</span>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+        <sc-for list="{{ social }}" as="s" hint-placeholder-count="4">
+          <a href="{{ s.url }}" target="_blank" rel="noopener" style="min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;font-size:13px;font-weight:600;color:#fff;text-decoration:none;white-space:nowrap" style-hover="background:#fff;color:#002856">{{ s.name }}</a>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.15);padding-top:16px">
+      <div style="font-size:14px;font-weight:600">{{ t.story }} <a href="{{ contact.story }}" target="_blank" rel="noopener" style="color:#7FE0DE;font-weight:700;text-decoration:underline;text-underline-offset:3px">{{ t.shareIt }} ↗</a></div>
+      <div style="display:flex;gap:14px;font-size:13px"><a href="{{ contact.contact }}" target="_blank" rel="noopener" style="color:#fff;font-weight:600">{{ t.contact }}</a><a href="{{ contact.site }}" target="_blank" rel="noopener" style="color:#B8C4D8;font-weight:600">yplus.ps</a></div>
+    </div>
+  </footer>
+  <sc-if value="{{ hasEvent }}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-modal="false" aria-labelledby="road-ev-h" style="position:fixed;left:0;right:0;bottom:0;margin-inline:auto;max-width:560px;z-index:40;background:var(--surface);color:var(--ink);border-radius:18px 18px 0 0;border-top:4px solid var(--red);box-shadow:0 -14px 40px -10px rgba(0,20,45,.35);padding:16px 16px 20px;animation:so-sheet .25s ease-out both;max-height:70svh;overflow:auto">
+      <div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--red)">⚠ {{ ev.k }}</div>
+      <h3 id="road-ev-h" style="margin:4px 0 4px;font-size:19px;line-height:1.35;font-weight:700">{{ ev.h }}</h3>
+      <div style="font-size:13px;font-weight:600;color:var(--muted);margin-bottom:8px">{{ v.choose }}</div>
+      <div style="display:grid;gap:8px">
+        <sc-for list="{{ evChoices }}" as="c" hint-placeholder-count="3">
+          <button type="button" data-ev-choice="1" onClick="{{ c.pick }}" style="width:100%;text-align:start;min-height:56px;padding:10px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);cursor:pointer;display:grid;gap:2px;transition:border-color .15s ease-out" style-hover="border-color:var(--road)"><b style="font-size:15px;line-height:1.35">{{ c.label }}</b><span style="font-size:13px;font-weight:600;color:{{ c.fg }}">{{ c.icon }} {{ c.cost }}</span></button>
+        </sc-for>
+      </div>
+      <div style="margin-top:10px;font-size:12px;font-weight:600;color:var(--amber)">● {{ v.label }}</div>
+    </div>
+  </sc-if>
+  <div aria-live="polite" role="status" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">{{ live }}</div>
+  <sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
+    <div role="status" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#002856;color:#fff;padding:10px 16px;border-radius:12px;font-size:14px;font-weight:600;box-shadow:var(--shadow);z-index:50">{{ toast }}</div>
+  </sc-if>
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;mode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;online&quot;,&quot;kiosk&quot;],&quot;default&quot;:&quot;online&quot;,&quot;tsType&quot;:&quot;'online'|'kiosk'&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;ar&quot;,&quot;fr&quot;,&quot;it&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;kioskIdleSeconds&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:90,&quot;min&quot;:30,&quot;max&quot;:600,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;gaId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;G-NMEYZ7ZWB5&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Analytics&quot;}}">
+<script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-INIT = { screen: 'welcome', eu: 0, euState: 'idle', route: null, goal: null, layers: {}, msgN: 0, stage: 0, permit: null, guess: 300, guessShown: false, checks: {} };
-state = { data: null, lang: 'en', toast: '', ...this.INIT };
-LANGS = [['en','EN'],['ar','ع'],['fr','FR'],['it','IT']];
-STEP = { welcome: 0, europe: 1, plan: 2, layers: 3, updates: 4, trip: 5, guess: 6, decisions: 7, end: 8 };
-ROUTES = { tulkarm: ['placeTulkarm', 'placeNablus', 'placeRamallah'], jerusalem: ['placeRamallah', 'placeQalandiya', 'placeJerusalem'], other: ['placeBethlehem', 'placeRamallah', 'placeNablus'] };
-LAYERS = [['gate', 'layerGate', 'layersOne'], ['checkpoint', 'layerCheck', 'layersTwo'], ['settler', 'layerSettler', 'settlerLine'], ['military', 'layerMilitary', 'layersFour'], ['permit', 'layerPermit', 'layersThree']];
-routes() { const d = this.state.data; return (d && d.routes) || this.ROUTES; }
-pn(t, k) { const p = this.state.data && this.state.data.places; return (p && p[k] && p[k][this.state.lang]) || t[k]; }
-PTS = { a: [36, 170], m: [170, 112], b: [304, 46], stop: [272, 66] };
-componentDidMount() {
-this.loadAnalytics();
-fetch(this.props.dataUrl || 'road-access-data.json', { cache: 'no-store' }).then(r => r.json()).then(data => Promise.all(['ar', 'fr', 'it'].filter(l => !data.ui[l]).map(l => fetch('i18n/' + l + '.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(u => { if (u) data.ui[l] = u; }).catch(() => {}))).then(() => data)).then(data => {
-const q = new URLSearchParams(location.search).get('lang');
-const lang = [q, this.props.defaultLang].find(l => l && data.ui[l]) || 'en';
-this.setState({ data, lang }, () => { this.applyLang(); this.track('load'); });
-});
-this.idle = () => { clearTimeout(this.idleT); if (this.mode() !== 'kiosk') return; this.idleT = setTimeout(() => { if (this.state.screen !== 'welcome') this.restart(); }, (this.props.kioskIdleSeconds ?? 90) * 1000); };
-['click', 'touchstart', 'keydown', 'input'].forEach(e => window.addEventListener(e, this.idle, { passive: true })); this.idle();
-}
-componentWillUnmount() { this.clearTimers(); clearTimeout(this.idleT); ['click', 'touchstart', 'keydown', 'input'].forEach(e => window.removeEventListener(e, this.idle)); }
-clearTimers() { clearInterval(this.euT); clearTimeout(this.msgT); }
-mode() { return this.props.mode ?? (new URLSearchParams(location.search).get('mode') === 'kiosk' ? 'kiosk' : 'online'); }
-t() { return this.state.data ? this.state.data.ui[this.state.lang] : null; }
-applyLang() { document.documentElement.lang = this.state.lang; document.documentElement.dir = this.state.lang === 'ar' ? 'rtl' : 'ltr'; document.title = 'Who Gets the Road? · YPlus'; }
-loadAnalytics() {
-if (document.getElementById('road-ga')) return; window.dataLayer = window.dataLayer || [];
-const ga = (this.props.gaId ?? 'G-NMEYZ7ZWB5').trim(); if (!/^G-[A-Z0-9]+$/i.test(ga)) return;
-window.gtag = window.gtag || function () { window.dataLayer.push(arguments); }; window.gtag('js', new Date()); window.gtag('config', ga, { anonymize_ip: true, allow_google_signals: false }); this.gaId = ga;
-const s = document.createElement('script'); s.id = 'road-ga'; s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga); document.head.appendChild(s);
-}
-track(ev, d = {}) {
-const p = { language: this.state.lang, mode: this.mode(), route: this.state.route || '', purpose: this.state.goal || '', ...d };
-if (this.gaId && window.gtag) window.gtag('event', 'road_' + ev, p); else { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'road_' + ev, ...p }); }
-}
-go(screen, extra = {}) { this.setState({ screen, ...extra }, () => window.scrollTo({ top: 0, behavior: 'smooth' })); }
-toastMsg(m) { this.setState({ toast: m }); clearTimeout(this.toastT); this.toastT = setTimeout(() => this.setState({ toast: '' }), 2200); }
-setLang(lang) { this.setState({ lang }, () => { this.applyLang(); this.track('language_change'); }); }
-drive() {
-this.setState({ euState: 'driving', eu: 0 }); clearInterval(this.euT);
-this.euT = setInterval(() => { const n = Math.min(100, this.state.eu + 4); this.setState({ eu: n }); if (n >= 100) { clearInterval(this.euT); this.setState({ euState: 'done' }); this.track('europe_complete'); } }, 80);
-}
-startMsgs() {
-this.setState({ msgN: 0 }); clearTimeout(this.msgT);
-const tick = () => { const n = this.state.msgN + 1; this.setState({ msgN: n }); if (n < 3) this.msgT = setTimeout(tick, 1300); };
-this.msgT = setTimeout(tick, 900);
-}
-advance() {
-const s = this.state, t = this.t();
-if (s.stage === 1 && s.route === 'jerusalem' && !s.permit) return this.toastMsg(t.permitFirst);
-const n = s.stage + 1; this.setState({ stage: n });
-if (n === 2) this.track('trip_complete', { outcome: this.blocked() ? 'blocked' : 'arrived', permit: s.permit || '' });
-}
-blocked() { return this.state.route === 'jerusalem' && this.state.permit === 'none'; }
-restart() { this.clearTimers(); this.track('restart'); this.setState({ ...this.INIT, layers: {}, checks: {}, lang: this.state.lang }, () => window.scrollTo({ top: 0 })); }
-finish() {
-this.track('complete'); this.go('end');
-if (this.mode() === 'kiosk') return;
-try { const r = this.state.data.reward, b = JSON.parse(localStorage.getItem(r.badgeStorage) || '[]'); if (!b.includes(r.badgeId)) { b.push(r.badgeId); localStorage.setItem(r.badgeStorage, JSON.stringify(b)); } const w = JSON.parse(localStorage.getItem(r.progressStorage) || '[]'); if (!w.includes(this.state.data.meta.toolId)) { w.push(this.state.data.meta.toolId); localStorage.setItem(r.progressStorage, JSON.stringify(w)); } } catch (e) {}
-}
-async copyAdv() { const t = this.t(); this.track('share_message'); try { await navigator.clipboard.writeText(t.adv); this.toastMsg(t.copied); } catch (e) { this.toastMsg(t.copyFail); } }
-async share() {
-const t = this.t(), url = 'https://yplus.ps/road-access/?utm_source=share&utm_medium=referral&utm_campaign=road-access';
-this.track('share_link');
-try { if (navigator.share) { await navigator.share({ title: t.t1 + ' ' + t.t2, text: t.adv, url }); return; } await navigator.clipboard.writeText(url); this.toastMsg(t.linkCopied); } catch (e) {}
-}
-renderVals() {
-const s = this.state, t = this.t(), d = s.data, isKiosk = this.mode() === 'kiosk';
-const is = {}; Object.keys(this.STEP).forEach(k => is[k] = s.screen === k);
-const base = { dir: s.lang === 'ar' ? 'rtl' : 'ltr', lang: s.lang, isKiosk, t: t || {}, is, lay: {}, contact: d ? d.meta.contact : {}, social: d ? d.meta.contact.social.map(([name, url]) => ({ name, url })) : [], hasToast: !!s.toast, toast: s.toast,
-langs: this.LANGS.map(([code, label]) => ({ label, active: s.lang === code, bg: s.lang === code ? '#002858' : 'transparent', fg: s.lang === code ? '#fff' : '#5B6578', pick: () => this.setLang(code) })) };
-if (!t) return base;
-const step = this.STEP[s.screen], total = 8, arrow = s.lang === 'ar' ? ' ← ' : ' → ';
-const rk = s.route || 'tulkarm', rp = this.routes()[rk].map(k => this.pn(t, k));
-const routeLabel = rp[0] + arrow + rp[2];
-const nOn = this.LAYERS.filter(([k]) => s.layers[k]).length;
-const blocked = this.blocked();
-const pt = s.stage === 0 ? this.PTS.a : s.stage === 1 ? this.PTS.m : (blocked ? this.PTS.stop : this.PTS.b);
-const tripDone = s.stage >= 2;
-const out = rk === 'tulkarm' ? [t.tulResult, t.tulResultText, '2-3 h'] : rk === 'jerusalem' ? [t.placeJerusalem, blocked ? t.jerNoPermit : t.jerPermit, blocked ? '✕' : '?'] : [routeLabel, t.otherText, '?'];
-const goalName = { work: t.goalWork, health: t.goalHealth, family: t.goalFamily }[s.goal] || '';
-const ocha = d.sources.find(x => x.id === 'ocha');
-return { ...base,
-inFlow: step > 0, stepLabel: t.stepOf.replace('{n}', step).replace('{total}', total), progress: Math.round(step / total * 100), progressPct: Math.round(step / total * 100) + '%',
-confirmReset: () => { if (step < 2 || window.confirm(t.confirmReset)) this.restart(); },
-begin: () => { this.track('start'); this.go('europe', { eu: 0, euState: 'idle' }); },
-eu: s.eu, euPct: s.eu + '%', euMin: Math.round(s.eu / 5), euX: 30 + 280 * s.eu / 100, euY: 90 - 60 * Math.pow(s.eu / 100, .8),
-euIdle: s.euState === 'idle', euDriving: s.euState === 'driving', euDone: s.euState === 'done', drive: () => this.drive(), toPlan: () => this.go('plan'),
-routes: Object.keys(this.routes()).map(k => { const on = s.route === k, p = this.routes()[k].map(x => this.pn(t, x)); return { label: p[0] + arrow + p[2], on, mark: on ? '✓' : '', dot: on ? '#00807A' : '#C9CFD9', border: on ? '#002858' : '#C9CFD9', bg: on ? '#F0F2F6' : '#fff', pick: () => this.setState({ route: k, permit: null }) }; }),
-goals: [['work', t.goalWork], ['health', t.goalHealth], ['family', t.goalFamily]].map(([k, label]) => { const on = s.goal === k; return { label, on, bg: on ? '#002858' : '#fff', fg: on ? '#fff' : '#002858', border: on ? '#002858' : '#C9CFD9', pick: () => this.setState({ goal: k }) }; }),
-planNotReady: !(s.route && s.goal), planBg: s.route && s.goal ? '#00B0A8' : '#C9CFD9', toLayers: () => { this.track('route_select'); this.go('layers', { layers: {} }); },
-showMap: is.layers || is.trip, routeLabel, mapA: rp[0].toUpperCase(), mapM: rp[1].toUpperCase(), mapB: rp[2].toUpperCase(),
-lay: s.layers, routeColor: nOn >= 3 || is.trip ? '#B8412D' : '#00B0A8', showDetour: (is.trip && s.stage >= 1 && !!s.layers.gate) || (is.layers && !!s.layers.gate),
-tx: is.layers ? this.PTS.a[0] : pt[0], ty: is.layers ? this.PTS.a[1] : pt[1],
-layerList: this.LAYERS.map(([k, lk, ln]) => { const on = !!s.layers[k]; return { label: t[lk], line: t[ln], on, mark: on ? '✓' : '', box: on ? '#002858' : '#fff', border: on ? '#002858' : '#E3E6EC', bg: '#fff', toggle: () => this.setState({ layers: { ...s.layers, [k]: !on } }) }; }),
-layNeed: t.layersNeed.replace('{n}', Math.min(3, nOn)), layColor: nOn >= 3 ? '#00807A' : '#5B6578', layNotReady: nOn < 3, layBg: nOn >= 3 ? '#00B0A8' : '#C9CFD9',
-toUpdates: () => { this.track('layers_complete', { layers: nOn }); this.go('updates'); this.startMsgs(); },
-msgs: ['08:12', '08:19', '08:24'].slice(0, s.msgN).map((time, i) => ({ time, text: t['msg' + (i + 1)] })), typing: is.updates && s.msgN < 3, msgsDone: s.msgN >= 3,
-toTrip: () => this.go('trip', { stage: 0, permit: null }),
-stages: [0, 1, 2].map(i => ({ title: t.stageTitles[i], text: i === 2 && blocked ? t.jerNoPermit : t.stageText[i], current: s.stage === i || (i === 2 && tripDone), mark: s.stage > i ? '✓' : String(i + 1), bg: s.stage > i ? '#00807A' : s.stage === i ? '#002858' : '#C9CFD9', border: s.stage === i ? '#002858' : '#E3E6EC', op: s.stage >= i ? 1 : .5 })),
-needPermit: rk === 'jerusalem' && s.stage >= 1,
-permits: [['none', t.noPermit], ['permit', t.hasPermit]].map(([k, label]) => { const on = s.permit === k; return { label, on, dot: on ? '#002858' : '#fff', border: on ? '#002858' : '#C9CFD9', bg: on ? '#F0F2F6' : '#fff', pick: () => { if (s.stage < 2) this.setState({ permit: k }); } }; }),
-goLabel: t.stageGo[Math.min(s.stage, 1)], advance: () => this.advance(), tripDone, tripNotDone: !tripDone,
-outTag: out[0], outText: out[1], outTime: out[2], outTagColor: blocked ? '#FFB4A6' : '#7FD9D4', outTimeColor: blocked ? '#FF8A73' : '#fff',
-goalLine: { work: t.goalWorkLine, health: t.goalHealthLine, family: t.goalFamilyLine }[s.goal] || '', goalName,
-toGuess: () => this.go('guess', { guess: 300, guessShown: false }),
-guess: s.guess, onGuess: e => this.setState({ guess: +e.target.value }), guessShown: s.guessShown, guessHidden: !s.guessShown, guessPct: (s.guess / 1500 * 100) + '%',
-revealGuess: () => { this.setState({ guessShown: true }); this.track('guess_reveal', { guess: s.guess }); },
-stats: d.stats.map((x, i) => ({ n: x.n, title: t[x.k], label: t[x.d], date: x.date, url: ocha.url, bg: i === 0 ? '#E6F7F6' : '#fff', fg: i === 0 ? '#00807A' : '#002858', open: () => this.track('source_open', { source: x.src }) })),
-toDecisions: () => this.go('decisions', { checks: {} }),
-checks: [1, 2, 3, 4].map(i => { const on = !!s.checks[i]; return { title: t['j' + i + 'Title'], text: t['j' + i + 'Text'], on, mark: on ? '✓' : String(i), dot: on ? '#00807A' : '#002858', border: on ? '#00807A' : '#C9CFD9', bg: on ? '#E6F7F6' : '#fff', pick: () => this.setState({ checks: { ...s.checks, [i]: true } }) }; }),
-checksDone: [1, 2, 3, 4].every(i => s.checks[i]), toEnd: () => this.finish(),
-copyAdv: () => this.copyAdv(), share: () => this.share(), restart: () => this.restart(),
-sourceList: d.sources.map(x => ({ name: x.name, url: x.url, open: () => this.track('source_open', { source: x.id }) })) };
-}
+  INIT = { screen: 'welcome', m: 0, delay: 0, paused: false, busy: false, speed: 1, evQ: [], evOpen: null, hits: [], detour: false, ended: null, euDone: false, flash: '', why: '', live: '', guess: 300, guessShown: false };
+  state = { data: null, v2: null, theme: null, lang: 'en', toast: '', ...this.INIT };
+  LANGS = [['en', 'EN'], ['ar', 'ع'], ['fr', 'FR'], ['it', 'IT']];
+  STEP = { welcome: 0, plan: 1, journey: 2, result: 3, guess: 4, end: 5, remember: 6 };
+  P = [[56, 34], [96, 46], [132, 72], [158, 104], [196, 122], [238, 146], [262, 172], [286, 192]];
+  ICON = { flying: 'M-6 0h12', gate: 'M-6 -6l12 12M6 -6l-12 12' };
+  componentDidMount() {
+    this.loadAnalytics();
+    let theme = null; try { theme = localStorage.getItem('yplus_theme'); } catch (e) {}
+    this.setState({ theme }, () => this.applyTheme());
+    Promise.all([fetch(this.props.dataUrl || 'road-access-data.json', { cache: 'no-store' }).then(r => r.json()), fetch('road-v2.json', { cache: 'no-store' }).then(r => r.json())]).then(([data, v2]) => {
+      const q = new URLSearchParams(location.search).get('lang');
+      const lang = [q, this.props.defaultLang].find(l => l && data.ui[l] && v2.ui[l]) || 'en';
+      this.setState({ data, v2, lang }, () => { this.applyLang(); this.track('load'); });
+    }).catch(err => console.warn('[road] data load failed:', err && err.message));
+    this.idle = () => { clearTimeout(this.idleT); if (this.mode() !== 'kiosk') return; this.idleT = setTimeout(() => { if (this.state.screen !== 'welcome') this.restart(); }, (this.props.kioskIdleSeconds ?? 90) * 1000); };
+    ['click', 'touchstart', 'keydown', 'input'].forEach(e => window.addEventListener(e, this.idle, { passive: true })); this.idle();
+  }
+  componentDidUpdate(pp, ps) { if (this.state.evOpen && !ps.evOpen) setTimeout(() => { const b = document.querySelector('[data-ev-choice]'); if (b) b.focus(); }, 60); }
+  componentWillUnmount() { this.stop(); clearTimeout(this.idleT); ['click', 'touchstart', 'keydown', 'input'].forEach(e => window.removeEventListener(e, this.idle)); }
+  stop() { clearInterval(this.loop); clearInterval(this.anim); clearTimeout(this.startT); }
+  mode() { return this.props.mode ?? (new URLSearchParams(location.search).get('mode') === 'kiosk' ? 'kiosk' : 'online'); }
+  rm() { return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); }
+  sc() { return this.state.v2.scenario; }
+  isDark() { return this.state.theme ? this.state.theme === 'dark' : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches); }
+  applyTheme() { const r = document.documentElement; if (this.state.theme) r.setAttribute('data-theme', this.state.theme); else r.removeAttribute('data-theme'); }
+  toggleTheme() { const theme = this.isDark() ? 'light' : 'dark'; try { localStorage.setItem('yplus_theme', theme); } catch (e) {} this.setState({ theme }, () => { this.applyTheme(); this.track('theme', { theme }); }); }
+  applyLang() { const r = document.documentElement; r.lang = this.state.lang; r.dir = this.state.lang === 'ar' ? 'rtl' : 'ltr'; document.title = 'Who Gets the Road? · YPlus'; }
+  setLang(lang) { this.setState({ lang }, () => { this.applyLang(); this.track('language_change'); }); }
+  loadAnalytics() {
+    if (document.getElementById('road-ga')) return; window.dataLayer = window.dataLayer || [];
+    const ga = (this.props.gaId ?? 'G-NMEYZ7ZWB5').trim(); if (!/^G-[A-Z0-9]+$/i.test(ga)) return;
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); }; window.gtag('js', new Date()); window.gtag('config', ga, { anonymize_ip: true, allow_google_signals: false }); this.gaId = ga;
+    const s = document.createElement('script'); s.id = 'road-ga'; s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga); document.head.appendChild(s);
+  }
+  track(ev, d = {}) {
+    const p = { language: this.state.lang, mode: this.mode(), route: 'nablus-ramallah', ...d };
+    if (this.gaId && window.gtag) window.gtag('event', 'road_' + ev, p); else { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'road_' + ev, ...p }); }
+  }
+  go(screen, extra = {}) { this.setState({ screen, ...extra }, () => window.scrollTo({ top: 0, behavior: this.rm() ? 'auto' : 'smooth' })); }
+  toastMsg(m) { this.setState({ toast: m }); clearTimeout(this.toastT); this.toastT = setTimeout(() => this.setState({ toast: '' }), 2200); }
+  along(pts, f) {
+    const seg = []; let tot = 0;
+    for (let i = 1; i < pts.length; i++) { const l = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); seg.push(l); tot += l; }
+    let d = Math.max(0, Math.min(1, f)) * tot;
+    for (let i = 0; i < seg.length; i++) { if (d <= seg[i] || i === seg.length - 1) { const q = seg[i] ? Math.min(1, d / seg[i]) : 0; return [pts[i][0] + (pts[i + 1][0] - pts[i][0]) * q, pts[i][1] + (pts[i + 1][1] - pts[i][1]) * q]; } d -= seg[i]; }
+    return pts[pts.length - 1];
+  }
+  detourPts() { const sc = this.sc(), [a, b] = sc.detour, p = this.along(this.P, a / sc.km), q = this.along(this.P, b / sc.km); return [p, [p[0] - 34, p[1] + 26], [q[0] - 48, q[1] + 36], q]; }
+  pos(km) { const sc = this.sc(), [a, b] = sc.detour; if (this.state.detour && km > a && km < b) return this.along(this.detourPts(), (km - a) / (b - a)); return this.along(this.P, km / sc.km); }
+  draw() {
+    const evs = this.sc().events, f = this.props.forceEvents || 'random';
+    if (f === 'both') return evs.slice(); if (f === 'first') return [evs[0]]; if (f === 'second') return [evs[1]];
+    let pick = []; while (!pick.length) pick = evs.filter(e => Math.random() < e.p);
+    return pick;
+  }
+  startJourney() {
+    this.stop();
+    const evQ = this.draw();
+    this.track('journey_start', { events: evQ.map(e => e.id).join('+') });
+    this.go('journey', { ...this.INIT, screen: 'journey', guess: this.state.guess, evQ, live: this.state.v2.ui[this.state.lang].driving });
+    this.startT = setTimeout(() => this.play(), 700);
+  }
+  play() { clearInterval(this.loop); const rm = this.rm(); this.loop = setInterval(() => this.tick(rm), rm ? 1100 : 50); }
+  kmOf(m) { const sc = this.sc(); return m * sc.km / sc.baseMin; }
+  checkEu() {
+    const s = this.state, base = this.sc().baseMin;
+    if (!s.euDone && s.m + s.delay >= base) this.setState(s.delay > 0 && !s.ended ? { euDone: true, live: s.v2.ui[s.lang].euArrived } : { euDone: true });
+  }
+  tick(rm) {
+    const s = this.state; if (s.screen !== 'journey' || s.paused || s.busy || s.evOpen || s.ended) return;
+    const sc = this.sc(), km = this.kmOf(s.m), v = s.v2.ui[s.lang];
+    const secs = (this.props.driveSeconds ?? 18) / s.speed;
+    const next = rm ? (sc.waypoints.find(w => w > km + 0.01) || sc.km) : km + sc.km * 0.05 / secs;
+    const ev = s.evQ.find(e => !s.hits.some(h => h.id === e.id) && e.km > km - 0.001 && e.km <= next);
+    if (ev) {
+      this.setState({ m: ev.km * sc.baseMin / sc.km, evOpen: ev.id, why: '', live: v.ev[ev.id].k + '. ' + v.ev[ev.id].h }, () => this.checkEu());
+      this.track('event', { event: ev.id }); return;
+    }
+    if (next >= sc.km) {
+      clearInterval(this.loop);
+      this.setState({ m: sc.baseMin, ended: 'arrived', live: v.arrivedNow }, () => this.checkEu());
+      this.track('journey_end', { outcome: 'arrived', delay: s.delay }); return;
+    }
+    this.setState({ m: next * sc.baseMin / sc.km }, () => this.checkEu());
+  }
+  choose(ev, c) {
+    const s = this.state, v = s.v2.ui[s.lang], hit = { id: ev.id, k: c.k, km: ev.km, min: c.min || 0 }, why = v.why[ev.id + '_' + c.k];
+    this.track('choice', { event: ev.id, choice: c.k });
+    if (c.end) {
+      clearInterval(this.loop);
+      this.setState({ evOpen: null, hits: [...s.hits, hit], ended: 'interrupted', why, live: v.turnedBack + '. ' + why });
+      this.track('journey_end', { outcome: 'interrupted', delay: s.delay }); return;
+    }
+    const from = s.delay, to = from + c.min, label = '+' + c.min + ' min';
+    this.setState({ evOpen: null, hits: [...s.hits, hit], busy: true, why, detour: s.detour || !!c.detour, flash: label, live: v.added.replace('{n}', label) + '. ' + why });
+    clearInterval(this.anim);
+    const done = () => { clearInterval(this.anim); this.setState({ delay: to, busy: false }, () => this.checkEu()); };
+    setTimeout(() => this.setState({ flash: '' }), 1700);
+    if (this.rm()) { setTimeout(done, 400); return; }
+    const t0 = Date.now(), dur = 1100;
+    this.anim = setInterval(() => { const q = Math.min(1, (Date.now() - t0) / dur); if (q >= 1) return done(); this.setState({ delay: from + (to - from) * (1 - Math.pow(1 - q, 3)) }, () => this.checkEu()); }, 30);
+  }
+  restart() { this.stop(); this.track('restart'); this.setState({ ...this.INIT }, () => window.scrollTo({ top: 0 })); }
+  hm(min) { const t = Math.round(min), h = Math.floor(t / 60) % 24, mm = t % 60; return String(h).padStart(2, '0') + ':' + String(mm).padStart(2, '0'); }
+  dur(min) { const v = this.state.v2.ui[this.state.lang], t = Math.round(min), h = Math.floor(t / 60), mm = t % 60, sp = this.state.lang === 'en' ? '' : ' '; return h ? `${h}${sp}${v.h} ${mm}${sp}${v.m}` : `${mm}${sp}${v.m}`; }
+  finish() {
+    this.track('complete'); this.go('end');
+    if (this.mode() === 'kiosk') return;
+    try { const d = this.state.data, r = d.reward, b = JSON.parse(localStorage.getItem(r.badgeStorage) || '[]'); if (!b.includes(r.badgeId)) { b.push(r.badgeId); localStorage.setItem(r.badgeStorage, JSON.stringify(b)); } const w = JSON.parse(localStorage.getItem(r.progressStorage) || '[]'); if (!w.includes(d.meta.toolId)) { w.push(d.meta.toolId); localStorage.setItem(r.progressStorage, JSON.stringify(w)); } } catch (e) {}
+  }
+  async copyAdv() { const s = this.state, t = s.data.ui[s.lang]; this.track('share_message'); try { await navigator.clipboard.writeText(s.v2.ui[s.lang].adv); this.toastMsg(t.copied); } catch (e) { this.toastMsg(t.copyFail); } }
+  async share() {
+    const s = this.state, t = s.data.ui[s.lang], v = s.v2.ui[s.lang], url = 'https://yplus.ps/road-access/?utm_source=share&utm_medium=referral&utm_campaign=road-access';
+    this.track('share_link');
+    try { if (navigator.share) { await navigator.share({ title: t.t1 + ' ' + t.t2, text: v.shareText, url }); return; } } catch (e) { if (e && e.name === 'AbortError') return; }
+    try { await navigator.clipboard.writeText(v.shareText); this.toastMsg(t.linkCopied); } catch (e) { this.toastMsg(url); }
+  }
+  renderVals() {
+    const s = this.state, d = s.data, isKiosk = this.mode() === 'kiosk', dark = this.isDark(), rtl = s.lang === 'ar';
+    const t = d ? d.ui[s.lang] : null, v = s.v2 ? s.v2.ui[s.lang] : null;
+    const is = {}; Object.keys(this.STEP).forEach(k => is[k] = s.screen === k);
+    const base = { dir: rtl ? 'rtl' : 'ltr', lang: s.lang, isKiosk, t: t || {}, v: v || { rem: {}, ev: {} }, is, ev: {}, evChoices: [], pins: [], stages: [], isDarkLogo: dark, isLightLogo: !dark, themeIcon: dark ? '\u2600' : '\u263e', themeLabel: dark ? 'Light mode' : 'Dark mode', toggleTheme: () => this.toggleTheme(),
+      contact: d ? d.meta.contact : {}, social: d ? d.meta.contact.social.map(([name, url]) => ({ name, url })) : [], hasToast: !!s.toast, toast: s.toast, live: s.live, fwd: rtl ? '←' : '→', back: rtl ? '→' : '←', restart: () => this.restart(),
+      langs: this.LANGS.map(([code, label]) => ({ label, active: s.lang === code, bg: s.lang === code ? 'var(--segOn)' : 'transparent', fg: s.lang === code ? 'var(--segOnFg)' : 'var(--muted)', pick: () => this.setLang(code) })) };
+    if (!t || !v) return base;
+    const sc = this.sc(), step = this.STEP[s.screen], km = this.kmOf(s.m), elapsed = s.m + s.delay;
+    const [cx, cy] = this.pos(km);
+    const evObj = s.evOpen ? sc.events.find(e => e.id === s.evOpen) : null;
+    const stages = [[0, 16], [16, 32], [32, 48]].map(([a, b]) => {
+      const hit = s.hits.some(h => h.km >= a && h.km < b), done = km >= b - 0.01, cur = km >= a && !done;
+      return { label: (hit ? '! ' : done ? '✓ ' : '') + a + ' to ' + b + ' km', bar: hit ? 'var(--red)' : done ? 'var(--road)' : cur ? 'color-mix(in srgb,var(--road) 45%,var(--line))' : 'var(--line)', fg: hit ? 'var(--red)' : 'var(--muted)' };
+    });
+    const stopped = s.evOpen || s.busy;
+    const status = s.ended === 'arrived' ? v.arrivedNow : s.ended ? v.turnedBack : stopped ? v.stoppedNow : s.paused ? v.pausedL : v.driving;
+    const statusFg = s.ended === 'arrived' ? 'var(--ok)' : (s.ended || stopped) ? 'var(--red)' : 'var(--muted)';
+    const interrupted = s.ended === 'interrupted';
+    const arrival = sc.depart + sc.baseMin + s.delay, totalMin = Math.round(interrupted ? elapsed : sc.baseMin + s.delay);
+    const examState = interrupted ? 'missed' : arrival <= sc.deadline ? 'ok' : 'late';
+    const examLine = examState === 'ok' ? v.examOk : examState === 'missed' ? v.examMissed : v.examLate.replace('{n}', this.dur(arrival - sc.deadline));
+    const maxT = Math.max(totalMin, sc.baseMin);
+    const dp = this.detourPts();
+    const srcOcha = d.sources.find(x => x.id === 'ocha');
+    return { ...base, is,
+      inFlow: step > 0, progress: Math.round(step / 6 * 100), progressPct: (step / 6 * 100) + '%', stepLabel: v.stage + ' ' + step + ' / 6',
+      begin: () => { this.track('start'); this.go('plan'); },
+      planFacts: [[v.depart, this.hm(sc.depart)], [v.planned, this.hm(sc.depart + sc.baseMin)], [v.exam, this.hm(sc.deadline)], [v.distance, sc.km + ' km']].map(([k, val]) => ({ k, v: val })),
+      startJourney: () => this.startJourney(),
+      hudT: v.hud[0], hudK: v.hud[1], hudD: v.hud[2], clock: this.hm(sc.depart + elapsed), kmTxt: Math.round(km), delayTxt: Math.round(s.delay),
+      delayBg: s.delay > 0 ? 'var(--badSoft)' : 'var(--surface)', hasFlash: !!s.flash, flash: s.flash,
+      mapAria: v.route + ', km ' + Math.round(km) + ' / ' + sc.km, doneOffset: 100 - km / sc.km * 100,
+      detour: s.detour, detourD: 'M' + dp.map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' L'),
+      pins: s.hits.map(h => { const [x, y] = this.along(this.P, h.km / sc.km); return { tr: `translate(${x.toFixed(1)} ${y.toFixed(1)})`, icon: this.ICON[h.id], km: h.km }; }),
+      carTr: `translate(${cx.toFixed(1)} ${cy.toFixed(1)})`, carDot: (s.evOpen || interrupted) ? 'var(--red)' : 'var(--road)',
+      stages, euDone: s.euDone, euPct: Math.min(100, elapsed / sc.baseMin * 100) + '%', youPct: (km / sc.km * 100) + '%', status, statusFg,
+      hasWhy: !!s.why, why: s.why,
+      paused: s.paused, fast: s.speed > 1, ctrlOff: !!(s.ended || s.evOpen), ctrlOp: (s.ended || s.evOpen) ? 0.45 : 1,
+      pauseIcon: s.paused ? '▶' : '❚❚', pauseLabel: s.paused ? v.resume : v.pause, speedLabel: s.speed > 1 ? v.speed1 : v.speed2,
+      speedBorder: s.speed > 1 ? 'var(--road)' : 'var(--line)', speedBg: s.speed > 1 ? 'var(--roadSoft)' : 'var(--surface)',
+      togglePause: () => { this.track(s.paused ? 'resume' : 'pause'); this.setState({ paused: !s.paused, live: s.paused ? v.driving : v.pausedL }); },
+      toggleSpeed: () => this.setState({ speed: s.speed > 1 ? 1 : 2 }),
+      showSeeResult: !!s.ended && !s.busy, toResult: () => this.go('result'), jPad: evObj ? '320px' : '24px',
+      hasEvent: !!evObj, ev: evObj ? { k: v.ev[evObj.id].k, h: v.ev[evObj.id].h } : {},
+      evChoices: evObj ? evObj.choices.map(c => ({ label: v.ev[evObj.id].c[c.k][0], cost: v.ev[evObj.id].c[c.k][1], icon: c.end ? '✕' : '⏱', fg: c.end ? 'var(--red)' : 'var(--amber)', pick: () => this.choose(evObj, c) })) : [],
+      resTitle: interrupted ? v.endStop.replace('{dest}', v.dest) : v.endOk.replace('{time}', this.dur(totalMin)).replace('{delay}', this.dur(s.delay)),
+      examLine, examIcon: examState === 'ok' ? '✓' : '✕', examBg: examState === 'ok' ? '#17875E' : '#C8363D', examTxt: examState === 'ok' ? 'var(--ok)' : 'var(--red)',
+      examShort: examState === 'late' ? v.examLate.split('.')[0] : examLine,
+      resFacts: [[v.plannedL, this.hm(sc.depart + sc.baseMin), 'var(--ink)'], [v.actualL, interrupted ? '×' : this.hm(arrival), 'var(--red)'], [v.totalL, this.dur(totalMin), 'var(--red)']].map(([k, val, c]) => ({ k, v: val, c })),
+      totalMin, cmpEuW: (sc.baseMin / maxT * 100) + '%', cmpYouW: (totalMin / maxT * 100) + '%',
+      hitList: s.hits.map(h => ({ km: h.km, name: v.ev[h.id].short, choice: v.ev[h.id].c[h.k][0], cost: v.ev[h.id].c[h.k][1] })),
+      toGuess: () => this.go('guess'),
+      guess: s.guess, guessShown: s.guessShown, guessHidden: !s.guessShown, guessPct: Math.min(100, s.guess / 1500 * 100) + '%',
+      onGuess: e => this.setState({ guess: +e.target.value }), revealGuess: () => { this.track('guess', { guess: s.guess }); this.setState({ guessShown: true }); },
+      stats: d.stats.map(x => { const src = d.sources.find(y => y.id === x.src) || srcOcha; return { n: x.n, title: t[x.k], label: t[x.d], date: x.date, url: src.url, open: () => this.track('source_click', { source: x.src }) }; }),
+      toEnd: () => this.finish(),
+      sourceList: d.sources.map(x => ({ name: x.name, url: x.url, open: () => this.track('source_click', { source: x.id }) })),
+      copyAdv: () => this.copyAdv(), toRemember: () => { this.track('remember'); this.go('remember'); },
+      remItems: v.rem.items.map((text, i) => ({ n: i + 1, text })), ochaUrl: srcOcha.url, openOcha: () => this.track('source_click', { source: 'ocha' }),
+      share: () => this.share(), toSummary: () => this.go('end') };
+  }
 }
 </script>
 </body>
