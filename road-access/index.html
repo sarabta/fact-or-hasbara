@@ -60,7 +60,7 @@ input[type=range].so::-moz-range-thumb{width:28px;height:28px;border-radius:50%;
   </header>
   <main style="flex:1;display:flex;flex-direction:column">
   <sc-if value="{{ is.welcome }}" hint-placeholder-val="{{ true }}">
-    <section data-screen-label="01 Welcome" style="display:flex;flex-direction:column;gap:22px;padding:32px 20px 44px;animation:so-fade .3s ease-out both">
+    <section data-screen-label="01 Welcome" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:22px;padding:40px 20px 56px;min-height:min(640px,calc(100svh - 66px));animation:so-fade .3s ease-out both">
       <div>
         <h1 style="margin:0;font-size:clamp(40px,11vw,60px);line-height:1.02;letter-spacing:-.02em;font-weight:700;color:var(--navy)">{{ t.t1 }} <span style="color:var(--tealInk)">{{ t.t2 }}</span></h1>
         <p style="margin:16px 0 0;font-size:20px;line-height:1.35;font-weight:600;text-wrap:balance">{{ v.route }} · {{ v.purpose }}</p>
